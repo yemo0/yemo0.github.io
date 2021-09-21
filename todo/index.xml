@@ -1,1 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Todoes on MyBlog</title><link>https://example.com/todo/</link><description>Recent content in Todoes on MyBlog</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><atom:link href="https://example.com/todo/index.xml" rel="self" type="application/rss+xml"/><item><title>9/14/21 - 20</title><link>https://example.com/todo/9-14-21/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://example.com/todo/9-14-21/</guid><description> [] go test [] docker</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Todos on MyBlog</title>
+    <link>https://example.com/todo/</link>
+    <description>Recent content in Todos on MyBlog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    
+	<atom:link href="https://example.com/todo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>9/14/21 - 20</title>
+      <link>https://example.com/todo/9-14-21/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/todo/9-14-21/</guid>
+      <description> [] go test [] docker  </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -11,7 +11,7 @@
 <meta property="og:url" content="https://example.com/gotest/" />
 <meta property="og:image" content="https://example.com/logo.png"/>
 <meta property="article:published_time" content="2021-08-19T13:05:46+00:00" />
-<meta property="article:modified_time" content="2021-08-19T13:05:46+00:00" />
+<meta property="article:modified_time" content="2021-09-14T15:40:43+00:00" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://example.com/logo.png"/>
 
@@ -29,8 +29,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/example.com\/gotest\/"
-        },"image": ["https:\/\/example.com\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "go","wordcount":  688 ,
-        "url": "https:\/\/example.com\/gotest\/","datePublished": "2021-08-19T13:05:46+00:00","dateModified": "2021-08-19T13:05:46+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        },"image": ["https:\/\/example.com\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "go","wordcount":  1021 ,
+        "url": "https:\/\/example.com\/gotest\/","datePublished": "2021-08-19T13:05:46+00:00","dateModified": "2021-09-14T15:40:43+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/example.com\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -110,8 +110,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">go Test测试</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>yemo</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-19">2021-08-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;688 words&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;2 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-19">2021-08-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1021 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;3 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -129,6 +129,8 @@
         <li><a href="#测试组">测试组</a></li>
         <li><a href="#子测试">子测试</a></li>
         <li><a href="#测试覆盖">测试覆盖</a></li>
+        <li><a href="#基准测试">基准测试</a></li>
+        <li><a href="#性能比较">性能比较</a></li>
       </ul>
     </li>
   </ul>
@@ -443,11 +445,108 @@
 </div><h3 id="测试覆盖">测试覆盖</h3>
 <p>Go提供内置功能来检查你的代码覆盖率 ,使用<code>go test -cover</code></p>
 <p>使用<code>-coverprofile</code>额外参数，将覆盖信息记录输出到文件</p>
+<h3 id="基准测试">基准测试</h3>
+<p><code>main.go</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kd">func</span> <span class="nf">Sum</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>sum_test.go</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;testing&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">BenchmarkSum</span><span class="p">(</span><span class="nx">b</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">B</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nx">b</span><span class="p">.</span><span class="nx">N</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+		<span class="nf">Sum</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">❯ go test -bench=Sum    
+goos: linux
+goarch: amd64
+pkg: benchmark
+cpu: Intel(R) Xeon(R) CPU E5-2689 0 @ 2.60GHz
+BenchmarkSum-4          1000000000               0.4147 ns/op
+PASS
+ok      benchmark       0.473s
+</code></pre></td></tr></table>
+</div>
+</div><p>其中<code>BenchmarkSplit-8</code>表示对Split函数进行基准测试，数字<code>8</code>表示<code>GOMAXPROCS</code>的值，这个对于并发基准测试很重要。<code>1000000000 </code>和<code>203ns/op</code>表示每次调用<code>Sum</code>函数耗时<code>0.4147ns </code>，这个结果是<code>1000000000</code>次调用的平均值。</p>
+<p>使用 <code>-benchmem</code>参数。获取内存分配统计数据</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">❯ go <span class="nb">test</span> -bench<span class="o">=</span>Sum -benchmem 
+goos: linux
+goarch: amd64
+pkg: benchmark
+cpu: Intel<span class="o">(</span>R<span class="o">)</span> Xeon<span class="o">(</span>R<span class="o">)</span> CPU E5-2689 <span class="m">0</span> @ 2.60GHz
+BenchmarkSum-4          <span class="m">1000000000</span>               0.4268 ns/op          <span class="m">0</span> B/op          <span class="m">0</span> allocs/op
+PASS
+ok      benchmark       0.491s
+</code></pre></td></tr></table>
+</div>
+</div><p><code>0 B/op</code> 表明每次操作内存分配了0字节，<code>0 allocs/op</code>每次操作进行0次内存分配</p>
+<h3 id="性能比较">性能比较</h3>
+<p><a href="https://www.liwenzhou.com/posts/Go/unit-test/" target="_blank" rel="noopener noreffer">参考文章</a></p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2021-08-19</span>
+                <span>Updated on 2021-09-14&nbsp;<a class="git-hash" href="https://github.com/commit/12663a99d6faccbd4002c8ea3e5ad66e96cc59ae" target="_blank" title="commit by yemo0(1735681885@qq.com) 12663a99d6faccbd4002c8ea3e5ad66e96cc59ae: 9-14-21">
+                                    <i class="fas fa-hashtag fa-fw"></i>12663a9</a></span>
             </div>
             <div class="post-info-license"></div>
         </div>

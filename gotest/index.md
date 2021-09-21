@@ -169,3 +169,64 @@ ok      _/C_/Users/???/Desktop/go/test/testing        0.037s
 Go提供内置功能来检查你的代码覆盖率 ,使用`go test -cover`
 
 使用`-coverprofile`额外参数，将覆盖信息记录输出到文件
+
+### 基准测试
+
+`main.go`
+
+```go
+package main
+
+func Sum(a, b int) int {
+	return a + b
+}
+```
+
+`sum_test.go`
+
+```go
+package main
+
+import (
+	"testing"
+)
+
+func BenchmarkSum(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		Sum(2, 3)
+	}
+}
+```
+
+```
+❯ go test -bench=Sum    
+goos: linux
+goarch: amd64
+pkg: benchmark
+cpu: Intel(R) Xeon(R) CPU E5-2689 0 @ 2.60GHz
+BenchmarkSum-4          1000000000               0.4147 ns/op
+PASS
+ok      benchmark       0.473s
+```
+
+其中`BenchmarkSplit-8`表示对Split函数进行基准测试，数字`8`表示`GOMAXPROCS`的值，这个对于并发基准测试很重要。`1000000000 `和`203ns/op`表示每次调用`Sum`函数耗时`0.4147ns `，这个结果是`1000000000`次调用的平均值。
+
+使用 `-benchmem`参数。获取内存分配统计数据
+
+```bash
+❯ go test -bench=Sum -benchmem 
+goos: linux
+goarch: amd64
+pkg: benchmark
+cpu: Intel(R) Xeon(R) CPU E5-2689 0 @ 2.60GHz
+BenchmarkSum-4          1000000000               0.4268 ns/op          0 B/op          0 allocs/op
+PASS
+ok      benchmark       0.491s
+```
+
+`0 B/op` 表明每次操作内存分配了0字节，`0 allocs/op`每次操作进行0次内存分配
+
+### 性能比较
+
+[参考文章](https://www.liwenzhou.com/posts/Go/unit-test/)
+
