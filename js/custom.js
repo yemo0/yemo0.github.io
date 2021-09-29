@@ -20,3 +20,8 @@ for (var i =0; i < ts.length; i++) {
 //         s[i].style.background = "black"
 //     }
 // })
+// var code = document.getElementsByClassName("code-title")
+// for (var i = 0; i < code.length; i++) {
+//     // console.log(code[i])
+//     console.log(code[i].parentNode)
+// }
