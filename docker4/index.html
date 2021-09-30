@@ -5,32 +5,32 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>docker安装openwrt - MyBlog</title><meta name="Description" content="About LoveIt Theme"><meta property="og:title" content="docker安装openwrt" />
-<meta property="og:description" content="docker安装openwrt" />
+        <title>docker4 数据管理 - MyBlog</title><meta name="Description" content="About LoveIt Theme"><meta property="og:title" content="docker4 数据管理" />
+<meta property="og:description" content="数据卷（Volumes） 挂载主机目录 (Bind mounts) 数据卷 数据卷 可供一个或多个容器使用的特殊目录 数据卷可以在容器之间共享和重用 对数据卷的修改会立马生效 对" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.com/openwrt/" />
+<meta property="og:url" content="https://example.com/docker4/" />
 <meta property="og:image" content="https://example.com/logo.png"/>
-<meta property="article:published_time" content="2021-05-07T12:21:17+00:00" />
-<meta property="article:modified_time" content="2021-08-24T21:18:15+00:00" />
+<meta property="article:published_time" content="2021-09-25T23:50:51+00:00" />
+<meta property="article:modified_time" content="2021-09-29T16:01:04+00:00" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://example.com/logo.png"/>
 
-<meta name="twitter:title" content="docker安装openwrt"/>
-<meta name="twitter:description" content="docker安装openwrt"/>
+<meta name="twitter:title" content="docker4 数据管理"/>
+<meta name="twitter:description" content="数据卷（Volumes） 挂载主机目录 (Bind mounts) 数据卷 数据卷 可供一个或多个容器使用的特殊目录 数据卷可以在容器之间共享和重用 对数据卷的修改会立马生效 对"/>
 <meta name="application-name" content="home">
 <meta name="apple-mobile-web-app-title" content="home"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://example.com/openwrt/" /><link rel="prev" href="https://example.com/workflows/" /><link rel="next" href="https://example.com/zsh/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://example.com/docker4/" /><link rel="prev" href="https://example.com/docker3/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "docker安装openwrt",
+        "headline": "docker4 数据管理",
         "inLanguage": "en",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/example.com\/openwrt\/"
-        },"image": ["https:\/\/example.com\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "docker, openwrt","wordcount":  233 ,
-        "url": "https:\/\/example.com\/openwrt\/","datePublished": "2021-05-07T12:21:17+00:00","dateModified": "2021-08-24T21:18:15+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@id": "https:\/\/example.com\/docker4\/"
+        },"image": ["https:\/\/example.com\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "docker","wordcount":  533 ,
+        "url": "https:\/\/example.com\/docker4\/","datePublished": "2021-09-25T23:50:51+00:00","dateModified": "2021-09-29T16:01:04+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/example.com\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -47,7 +47,7 @@
         </div>
         <div class="menu">
             <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="https://yemo0.gitee.io" rel="noopener noreffer" target="_blank"> Docs </a><a class="menu-item" href="/tools/"> Tools </a><a class="menu-item" href="https://github.com/yemo0" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
-                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/openwrt/" selected>English</option></select>
+                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/docker4/" selected>English</option></select>
                     </a><span class="menu-item search" id="search-desktop">
                         <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
                         <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
@@ -94,7 +94,7 @@
                 </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="https://yemo0.gitee.io" title="" rel="noopener noreffer" target="_blank">Docs</a><a class="menu-item" href="/tools/" title="">Tools</a><a class="menu-item" href="https://github.com/yemo0" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
                 <i class="fas fa-adjust fa-fw"></i>
             </a><a href="javascript:void(0);" class="menu-item" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
-                    <select class="language-select" onchange="location = this.value;"><option value="/openwrt/" selected>English</option></select>
+                    <select class="language-select" onchange="location = this.value;"><option value="/docker4/" selected>English</option></select>
                 </a></div>
     </div>
 </header>
@@ -108,10 +108,10 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animated flipInX">docker安装openwrt</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>yemo</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-05-07">2021-05-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;233 words&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;One minute&nbsp;</div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">docker4 数据管理</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>yemo</a></span>&nbsp;<span class="post-category">included in <a href="/categories/docker/"><i class="far fa-folder fa-fw"></i>docker</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-25">2021-09-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;533 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -119,57 +119,42 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#拉取镜像">拉取镜像</a></li>
-    <li><a href="#打开网卡混杂模式">打开网卡混杂模式</a>
+    <li><a href="#数据卷">数据卷</a>
       <ul>
-        <li><a href="#创建网络">创建网络</a></li>
-        <li><a href="#开启容器">开启容器</a></li>
-        <li><a href="#修改docker内的openwrt网络设置">修改docker内的openwrt网络设置</a></li>
-        <li><a href="#重启容器">重启容器</a></li>
-        <li><a href="#国内访问慢">国内访问慢</a></li>
-        <li><a href="#参考文章">参考文章</a></li>
+        <li><a href="#创建数据卷">创建数据卷</a></li>
+        <li><a href="#查看全部数据卷">查看全部数据卷</a></li>
+        <li><a href="#查看数据卷信息">查看数据卷信息</a></li>
+        <li><a href="#启动一个挂载数据卷的容器">启动一个挂载数据卷的容器</a></li>
+        <li><a href="#移除无用数据卷">移除无用数据卷</a></li>
       </ul>
     </li>
+    <li><a href="#挂载主机目录作为数据卷">挂载主机目录作为数据卷</a></li>
+    <li><a href="#dockerfile-数据卷">dockerfile 数据卷</a>
+      <ul>
+        <li><a href="#挂载目录">挂载目录</a></li>
+      </ul>
+    </li>
+    <li><a href="#多机器之间容器共享数据">多机器之间容器共享数据</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><p>docker安装openwrt</p>
-<h2 id="拉取镜像">拉取镜像</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">docker pull piaoyizy/openwrt-aarch64
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="打开网卡混杂模式">打开网卡混杂模式</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">sudo ip link set eth0 promisc on
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="创建网络">创建网络</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker network create -d macvlan --subnet=192.168.2.0/24 --gateway=192.168.2.9 -o parent=eth0 macnet
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="开启容器">开启容器</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker run --name openwrt --restart always -d --network macnet --privileged piaoyizy/openwrt-aarch64:latest
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="修改docker内的openwrt网络设置">修改docker内的openwrt网络设置</h3>
+            </div><div class="content" id="content"><ul>
+<li>
+<p>数据卷（Volumes）</p>
+</li>
+<li>
+<p>挂载主机目录 (Bind mounts)</p>
+</li>
+</ul>
+<p><img src="https://s3.bmp.ovh/imgs/2021/09/32da72b743dc5c5d.png"  /></p>
+<h2 id="数据卷">数据卷</h2>
+<p><code>数据卷</code> 可供一个或多个容器使用的特殊目录</p>
+<ul>
+<li><code>数据卷</code>可以在容器之间共享和重用</li>
+<li>对<code>数据卷</code>的修改会立马生效</li>
+<li>对<code>数据卷</code>的更新，不会影响镜像</li>
+<li><code>数据卷</code>会一直存在</li>
+</ul>
+<p>数据卷命令</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -180,52 +165,154 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker exec -it openwrt /bin/bash
-
-vi /etc/config/network
-// 修改ipaddr默认地址 改为openwrt的地址
-// 加入option gateway &#39;网关&#39;
-// 加入option dns &#39;网关&#39;
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&gt; docker volume
+  create      Create a volume
+  inspect     Display detailed information on one or more volumes
+  ls          List volumes
+  prune       Remove all unused local volumes
+  rm          Remove one or more volumes
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="重启容器">重启容器</h3>
+</div><h3 id="创建数据卷">创建数据卷</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker restart openwrt
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker volume create my-volume
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="国内访问慢">国内访问慢</h3>
+</div><h3 id="查看全部数据卷">查看全部数据卷</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker volume ls
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="查看数据卷信息">查看数据卷信息</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">❯ docker volume inspect my-volume
+[
+    {
+        &#34;CreatedAt&#34;: &#34;2021-09-28T09:24:17Z&#34;,
+        &#34;Driver&#34;: &#34;local&#34;,
+        &#34;Labels&#34;: {},
+        &#34;Mountpoint&#34;: &#34;/var/lib/docker/volumes/my-volume/_data&#34;,
+        &#34;Name&#34;: &#34;my-volume&#34;,
+        &#34;Options&#34;: {},
+        &#34;Scope&#34;: &#34;local&#34;
+    }
+]
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="启动一个挂载数据卷的容器">启动一个挂载数据卷的容器</h3>
+<p>在<code>docker run  </code>时使用 <code>--mount</code>标记来将 <code>数据卷</code> 挂载到容器里。在一次 <code>docker run</code> 中可以挂载多个 <code>数据卷</code>。</p>
+<p>下面创建一个名为 <code>web</code> 的容器，并加载一个 <code>数据卷</code> 到容器的 <code>/usr/share/nginx/html</code> 目录。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
+</span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">在防火墙加入自定义规则
-iptables -t nat -I POSTROUTING -o eth0 -j MASQUERADE
-
-关闭lan口桥接模式
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker run -d -P \
+    --name web \
+    # -v my-vol:/usr/share/nginx/html \
+    --mount source=my-vol,target=/usr/share/nginx/html \
+    nginx:alpine
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="参考文章">参考文章</h3>
-<p><a href="https://wherelse.cc/post/Install-openwrt-under-Docker-for-bypass-router/" target="_blank" rel="noopener noreffer">参考文章</a></p>
-<p><a href="https://snitxmhm.github.io/2020/05-01-arm64%E6%9E%B6%E6%9E%84openwrt-docker%E9%83%A8%E7%BD%B2/" target="_blank" rel="noopener noreffer">参考文章2</a></p></div><div class="post-footer" id="post-footer">
+</div><h3 id="移除无用数据卷">移除无用数据卷</h3>
+<p>删除容器时同时移除数据卷</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker rm -v
+</code></pre></td></tr></table>
+</div>
+</div><p>删除无用的数据卷</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker volume prune
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="挂载主机目录作为数据卷">挂载主机目录作为数据卷</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">--mount type=bind,source=/src/webapp,target=/usr/share/nginx/html
+</code></pre></td></tr></table>
+</div>
+</div><p>挂载<code>/src/webapp</code>目录到容器的<code>/usr/share/nginx/html</code>目录。</p>
+<p>本地目录的路径必须是绝对路径，本地路径不存在docker会报错。</p>
+<p>docker挂载目录权限默认为<code>读写</code>，可以添加<code>readonly</code>为只读</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">--mount type=bind,source=/src/webapp,target=/usr/share/nginx/html,readonly
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="dockerfile-数据卷">dockerfile 数据卷</h2>
+<p>自动创建VOLUME 名字是随机的。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">VOLUME [&#34;/app&#34;]
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="挂载目录">挂载目录</h3>
+<p>挂载当前目录到hello容器的app目录</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker container run -d -v $(pwd):/app hello
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="多机器之间容器共享数据">多机器之间容器共享数据</h2>
+</div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2021-08-24&nbsp;<a class="git-hash" href="https://github.com/commit/0f34db0a2b04fc5b266fabc82ec366f91792dc51" target="_blank" title="commit by yemo0(1735681885@qq.com) 0f34db0a2b04fc5b266fabc82ec366f91792dc51: 8/25">
-                                    <i class="fas fa-hashtag fa-fw"></i>0f34db0</a></span>
+                <span>Updated on 2021-09-29&nbsp;<a class="git-hash" href="https://github.com/commit/64d98a53a7a2da48cfc00717d74bd5c73459d1c4" target="_blank" title="commit by yemo0(1735681885@qq.com) 64d98a53a7a2da48cfc00717d74bd5c73459d1c4: 9/30/21">
+                                    <i class="fas fa-hashtag fa-fw"></i>64d98a5</a></span>
             </div>
             <div class="post-info-license"></div>
         </div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/openwrt/index.md" target="_blank">Read Markdown</a>
+                            <a class="link-to-markdown" href="/docker4/index.md" target="_blank">Read Markdown</a>
                         </span></div>
             <div class="post-info-share">
                 <span></span>
@@ -234,14 +321,13 @@ iptables -t nat -I POSTROUTING -o eth0 -j MASQUERADE
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/docker/">docker</a>,&nbsp;<a href="/tags/openwrt/">openwrt</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/docker/">docker</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/workflows/" class="prev" rel="prev" title=""><i class="fas fa-angle-left fa-fw"></i></a>
-            <a href="/zsh/" class="next" rel="next" title="zsh 配置">zsh 配置<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/docker3/" class="prev" rel="prev" title="docker3 dockerfile"><i class="fas fa-angle-left fa-fw"></i>docker3 dockerfile</a></div>
 </div>
 </article></div>
             </main></div>
