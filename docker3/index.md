@@ -1,7 +1,7 @@
 # docker3 dockerfile
 
 
-## RUN
+## 1. RUN
 
 `RUN`执行命令，两种格式
 
@@ -41,7 +41,7 @@ RUN apt-get update && \
     rm -rf ipinfo_2.0.1_linux_amd64.tar.gz
 ```
 
-## COPY 复制文件
+## 2. COPY 复制文件
 
 `COPY <src> <dest>`
 
@@ -67,19 +67,19 @@ COPY --chown=1 files* /mydir/
 COPY --chown=10:11 files* /mydir/
 ```
 
-## ADD 复制文件
+## 3. ADD 复制文件
 
 `ADD` 指令和 `COPY` 的格式和性质基本一致。但是在 `COPY` 基础上增加了一些功能。
 
 `<src>`是一个`URL`时，docker引擎会试图下载，并放到``目标目录，如果是一个压缩文件，压缩格式为 `gzip`, `bzip2` 以及 `xz` 的情况下`ADD` 指令将会自动解压缩这个压缩文件到 `<目标路径>` 去。
 
-## WORKDIR 指定工作目录
+## 4. WORKDIR 指定工作目录
 
 格式为 `WORKDIR <工作目录路径>`。
 
 使用 `WORKDIR` 指令可以来指定工作目录（或者称为当前目录），以后各层的当前目录就被改为指定的目录，如该目录不存在，`WORKDIR` 会帮你建立目录。
 
-## 构建参数和环境变量
+## 5. 构建参数和环境变量
 
 ```
 FROM ubuntu:21.04
@@ -121,7 +121,7 @@ RUN apt-get update && \
 
 ![](https://s3.bmp.ovh/imgs/2021/09/17612ca9465a0dbb.png)
 
-## CMD 容器启动命令
+## 6. CMD 容器启动命令
 
 ```
 shell` 格式：`CMD <命令>
@@ -137,11 +137,11 @@ CMD ["cd app"] # 容器启动自动执行cd
 CMD []	# 在命令行后面输入命令
 ```
 
-# ENTRYPOINT 入口点
+## 7. ENTRYPOINT 入口点
 
 - `ENTRYPOINT` 和 `CMD` 可以联合使用，`ENTRYPOINT` 设置执行的命令，CMD传递参数
 
-## EXPOSE暴露端口
+## 8. EXPOSE暴露端口
 
 告诉 Docker 服务，容器需要暴露的端口号，供互联系统使用。在启动容器时需要通过 -P 参数让 Docker 主机分配一个端口转发到指定的端口。使用 -p 参数则可以具体指定主机上哪个端口映射过来。
 
@@ -151,7 +151,7 @@ EXPOSE 8
 
 
 
-## dockerignore
+## 9. dockerignore
 
 忽略掉文件或文件夹
 
@@ -163,8 +163,113 @@ docker image build -t hello .
 
 再`docker build`过程中，首先会将上下文目录打包传递给`docker引擎`，但有些文件不需要就可以使用`.dockerignore`忽略掉。
 
-## 多阶段构建
+## 10 HEALTHCHECK 健康检查
 
-[多阶段构建文章](https://yeasy.gitbook.io/docker_practice/image/multistage-builds)
+- `HEALTHCHECK [选项] CMD <命令>`：设置检查容器健康状况的命令
+
+- `HEALTHCHECK NONE`：如果基础镜像有健康检查指令，使用这行可以屏蔽掉其健康检查指令
+
+自 1.12 之后，Docker 提供了 `HEALTHCHECK` 指令，通过该指令指定一行命令，用这行命令来判断容器主进程的服务状态是否还正常，从而比较真实的反应容器实际状态。
+
+当在一个镜像指定了 `HEALTHCHECK` 指令后，用其启动容器，初始状态会为 `starting`，在 `HEALTHCHECK` 指令检查成功后变为 `healthy`，如果连续一定次数失败，则会变为 `unhealthy`。
+
+`HEALTHCHECK`选项
+
+`--interval=<间隔>`：两次健康检查的间隔，默认为 30 秒；
+
+`--timeout=<时长>`：健康检查命令运行超时时间，如果超过这个时间，本次健康检查就被视为失败，默认 30 秒；
+
+`--retries=<次数>`：当连续失败指定次数后，则将容器状态视为 `unhealthy`，默认 3 次。
+
+```dockerfile
+HEALTHCHECK --interval=3s --timeout=3s \
+  CMD curl -fs http://localhost/ || exit 1
+```
+
+
+
+## 10. 多阶段构建
+
+Docker v17.05 开始支持多阶段构建 (`multistage builds`)。将所有的构建过程编包含在一个 `Dockerfile` 中，包括项目及其依赖库的编译、测试、打包等流程，可能会带来
+
+- 镜像层次多、占用大、部署时间变长
+- 源代码泄露风险
+
+使用多阶段构建：
+
+`main.go`
+
+```go
+package main
+
+import (
+	"io/ioutil"
+	"math/rand"
+	"net/http"
+	"os"
+	"strconv"
+	"time"
+)
+
+func index(w http.ResponseWriter, r *http.Request) {
+	str, _ := ioutil.ReadFile("./test.log")
+	w.Write(str)
+}
+
+func main() {
+	file, _ := os.OpenFile("./test.log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+	str, _ := ioutil.ReadFile("./test.log")
+	if len(str) == 0 {
+		rand.Seed(time.Now().UnixNano())
+		file.WriteString(strconv.Itoa(rand.Intn(1000)))
+	}
+
+	http.HandleFunc("/", index)
+	http.ListenAndServe(":8080", nil)
+}
+
+```
+
+`dockerfile`
+
+```dockerfile
+FROM golang:alpine as builder
+WORKDIR /go/src
+EXPOSE 8080
+COPY ./server/main.go .
+RUN go build main.go
+
+FROM alpine:latest as prod
+WORKDIR /app
+COPY --from=builder /go/src/main .
+CMD ["./main"]
+```
+
+构建镜像`docker image build -t web .`
+
+镜像大小比对
+
+```
+❯ docker images
+REPOSITORY                                                  TAG       IMAGE ID       CREATED          SIZE
+web2                                                        latest    e2573f939a60   14 minutes ago   11.7MB
+web                                                         latest    6185b3841e6f   21 minutes ago   321MB
+```
+
+### 只构建某一段镜像
+
+使用`as`为某一阶段起别名
+
+```
+FROM golang:alpine as builder
+```
+
+例如当我们只想构建 `builder` 阶段的镜像时，增加 `--target=<别名>`
+
+```
+ docker build --target builder
+```
+
+
 
 

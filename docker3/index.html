@@ -6,17 +6,17 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>docker3 dockerfile - MyBlog</title><meta name="Description" content="About LoveIt Theme"><meta property="og:title" content="docker3 dockerfile" />
-<meta property="og:description" content="RUN RUN执行命令，两种格式 shell 格式：RUN &lt;命令&gt; 1 RUN pwd exec 格式：RUN [&quot;可执行文件&quot;, &quot;参数1&q" />
+<meta property="og:description" content="1. RUN RUN执行命令，两种格式 shell 格式：RUN &lt;命令&gt; 1 RUN pwd exec 格式：RUN [&quot;可执行文件&quot;, &quot;参数1&" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://example.com/docker3/" />
 <meta property="og:image" content="https://example.com/logo.png"/>
 <meta property="article:published_time" content="2021-09-25T16:04:28+00:00" />
-<meta property="article:modified_time" content="2021-09-29T16:01:04+00:00" />
+<meta property="article:modified_time" content="2021-10-04T16:30:58+00:00" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://example.com/logo.png"/>
 
 <meta name="twitter:title" content="docker3 dockerfile"/>
-<meta name="twitter:description" content="RUN RUN执行命令，两种格式 shell 格式：RUN &lt;命令&gt; 1 RUN pwd exec 格式：RUN [&quot;可执行文件&quot;, &quot;参数1&q"/>
+<meta name="twitter:description" content="1. RUN RUN执行命令，两种格式 shell 格式：RUN &lt;命令&gt; 1 RUN pwd exec 格式：RUN [&quot;可执行文件&quot;, &quot;参数1&"/>
 <meta name="application-name" content="home">
 <meta name="apple-mobile-web-app-title" content="home"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -29,8 +29,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/example.com\/docker3\/"
-        },"image": ["https:\/\/example.com\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "docker","wordcount":  1194 ,
-        "url": "https:\/\/example.com\/docker3\/","datePublished": "2021-09-25T16:04:28+00:00","dateModified": "2021-09-29T16:01:04+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        },"image": ["https:\/\/example.com\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "docker","wordcount":  1921 ,
+        "url": "https:\/\/example.com\/docker3\/","datePublished": "2021-09-25T16:04:28+00:00","dateModified": "2021-10-04T16:30:58+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/example.com\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -110,8 +110,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">docker3 dockerfile</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>yemo</a></span>&nbsp;<span class="post-category">included in <a href="/categories/docker/"><i class="far fa-folder fa-fw"></i>docker</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-25">2021-09-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1194 words&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;3 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-25">2021-09-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1921 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;4 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -119,32 +119,35 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#run">RUN</a>
+    <li><a href="#1-run">1. RUN</a>
       <ul>
         <li><a href="#注意run-写法">注意RUN 写法</a></li>
         <li><a href="#改进">改进</a></li>
       </ul>
     </li>
-    <li><a href="#copy-复制文件">COPY 复制文件</a></li>
-    <li><a href="#add-复制文件">ADD 复制文件</a></li>
-    <li><a href="#workdir-指定工作目录">WORKDIR 指定工作目录</a></li>
-    <li><a href="#构建参数和环境变量">构建参数和环境变量</a>
+    <li><a href="#2-copy-复制文件">2. COPY 复制文件</a></li>
+    <li><a href="#3-add-复制文件">3. ADD 复制文件</a></li>
+    <li><a href="#4-workdir-指定工作目录">4. WORKDIR 指定工作目录</a></li>
+    <li><a href="#5-构建参数和环境变量">5. 构建参数和环境变量</a>
       <ul>
         <li><a href="#env">ENV</a></li>
         <li><a href="#arg">ARG</a></li>
         <li><a href="#区别">区别</a></li>
       </ul>
     </li>
-    <li><a href="#cmd-容器启动命令">CMD 容器启动命令</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#expose暴露端口">EXPOSE暴露端口</a></li>
-    <li><a href="#dockerignore">dockerignore</a></li>
-    <li><a href="#多阶段构建">多阶段构建</a></li>
+    <li><a href="#6-cmd-容器启动命令">6. CMD 容器启动命令</a></li>
+    <li><a href="#7-entrypoint-入口点">7. ENTRYPOINT 入口点</a></li>
+    <li><a href="#8-expose暴露端口">8. EXPOSE暴露端口</a></li>
+    <li><a href="#9-dockerignore">9. dockerignore</a></li>
+    <li><a href="#10-healthcheck-健康检查">10 HEALTHCHECK 健康检查</a></li>
+    <li><a href="#10-多阶段构建">10. 多阶段构建</a>
+      <ul>
+        <li><a href="#只构建某一段镜像">只构建某一段镜像</a></li>
+      </ul>
+    </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h2 id="run">RUN</h2>
+            </div><div class="content" id="content"><h2 id="1-run">1. RUN</h2>
 <p><code>RUN</code>执行命令，两种格式</p>
 <ul>
 <li>shell 格式：<code>RUN &lt;命令&gt;</code></li>
@@ -204,7 +207,7 @@ RUN apt-get update &amp;&amp; \
     rm -rf ipinfo_2.0.1_linux_amd64.tar.gz
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="copy-复制文件">COPY 复制文件</h2>
+</div><h2 id="2-copy-复制文件">2. COPY 复制文件</h2>
 <p><code>COPY &lt;src&gt; &lt;dest&gt;</code></p>
 <p>复制本地主机的 <src> (为 Dockerfile 所在目录的相对路径，文件或目录) 为容器中的 <dest>。目标路径不存在时，会自动创建。当使用本地目录为源目录时，推荐使用 COPY。</p>
 <div class="highlight"><div class="chroma">
@@ -241,13 +244,13 @@ COPY --chown=1 files* /mydir/
 COPY --chown=10:11 files* /mydir/
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="add-复制文件">ADD 复制文件</h2>
+</div><h2 id="3-add-复制文件">3. ADD 复制文件</h2>
 <p><code>ADD</code> 指令和 <code>COPY</code> 的格式和性质基本一致。但是在 <code>COPY</code> 基础上增加了一些功能。</p>
 <p><code>&lt;src&gt;</code>是一个<code>URL</code>时，docker引擎会试图下载，并放到``目标目录，如果是一个压缩文件，压缩格式为 <code>gzip</code>, <code>bzip2</code> 以及 <code>xz</code> 的情况下<code>ADD</code> 指令将会自动解压缩这个压缩文件到 <code>&lt;目标路径&gt;</code> 去。</p>
-<h2 id="workdir-指定工作目录">WORKDIR 指定工作目录</h2>
+<h2 id="4-workdir-指定工作目录">4. WORKDIR 指定工作目录</h2>
 <p>格式为 <code>WORKDIR &lt;工作目录路径&gt;</code>。</p>
 <p>使用 <code>WORKDIR</code> 指令可以来指定工作目录（或者称为当前目录），以后各层的当前目录就被改为指定的目录，如该目录不存在，<code>WORKDIR</code> 会帮你建立目录。</p>
-<h2 id="构建参数和环境变量">构建参数和环境变量</h2>
+<h2 id="5-构建参数和环境变量">5. 构建参数和环境变量</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -323,7 +326,7 @@ RUN apt-get update &amp;&amp; \
         data-sizes="auto"
         alt="https://s3.bmp.ovh/imgs/2021/09/17612ca9465a0dbb.png"
         title="https://s3.bmp.ovh/imgs/2021/09/17612ca9465a0dbb.png" /></p>
-<h2 id="cmd-容器启动命令">CMD 容器启动命令</h2>
+<h2 id="6-cmd-容器启动命令">6. CMD 容器启动命令</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -349,11 +352,11 @@ exec` 格式：`CMD [&#34;可执行文件&#34;, &#34;参数1&#34;, &#34;参数2&
 CMD []	# 在命令行后面输入命令
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="entrypoint-入口点">ENTRYPOINT 入口点</h1>
+</div><h2 id="7-entrypoint-入口点">7. ENTRYPOINT 入口点</h2>
 <ul>
 <li><code>ENTRYPOINT</code> 和 <code>CMD</code> 可以联合使用，<code>ENTRYPOINT</code> 设置执行的命令，CMD传递参数</li>
 </ul>
-<h2 id="expose暴露端口">EXPOSE暴露端口</h2>
+<h2 id="8-expose暴露端口">8. EXPOSE暴露端口</h2>
 <p>告诉 Docker 服务，容器需要暴露的端口号，供互联系统使用。在启动容器时需要通过 -P 参数让 Docker 主机分配一个端口转发到指定的端口。使用 -p 参数则可以具体指定主机上哪个端口映射过来。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -363,7 +366,7 @@ CMD []	# 在命令行后面输入命令
 <pre class="chroma"><code class="language-fallback" data-lang="fallback">EXPOSE 8
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="dockerignore">dockerignore</h2>
+</div><h2 id="9-dockerignore">9. dockerignore</h2>
 <p>忽略掉文件或文件夹</p>
 <p>使用命令构建hello镜像</p>
 <div class="highlight"><div class="chroma">
@@ -375,14 +378,169 @@ CMD []	# 在命令行后面输入命令
 </code></pre></td></tr></table>
 </div>
 </div><p>再<code>docker build</code>过程中，首先会将上下文目录打包传递给<code>docker引擎</code>，但有些文件不需要就可以使用<code>.dockerignore</code>忽略掉。</p>
-<h2 id="多阶段构建">多阶段构建</h2>
-<p><a href="https://yeasy.gitbook.io/docker_practice/image/multistage-builds" target="_blank" rel="noopener noreffer">多阶段构建文章</a></p>
-</div><div class="post-footer" id="post-footer">
+<h2 id="10-healthcheck-健康检查">10 HEALTHCHECK 健康检查</h2>
+<ul>
+<li>
+<p><code>HEALTHCHECK [选项] CMD &lt;命令&gt;</code>：设置检查容器健康状况的命令</p>
+</li>
+<li>
+<p><code>HEALTHCHECK NONE</code>：如果基础镜像有健康检查指令，使用这行可以屏蔽掉其健康检查指令</p>
+</li>
+</ul>
+<p>自 1.12 之后，Docker 提供了 <code>HEALTHCHECK</code> 指令，通过该指令指定一行命令，用这行命令来判断容器主进程的服务状态是否还正常，从而比较真实的反应容器实际状态。</p>
+<p>当在一个镜像指定了 <code>HEALTHCHECK</code> 指令后，用其启动容器，初始状态会为 <code>starting</code>，在 <code>HEALTHCHECK</code> 指令检查成功后变为 <code>healthy</code>，如果连续一定次数失败，则会变为 <code>unhealthy</code>。</p>
+<p><code>HEALTHCHECK</code>选项</p>
+<p><code>--interval=&lt;间隔&gt;</code>：两次健康检查的间隔，默认为 30 秒；</p>
+<p><code>--timeout=&lt;时长&gt;</code>：健康检查命令运行超时时间，如果超过这个时间，本次健康检查就被视为失败，默认 30 秒；</p>
+<p><code>--retries=&lt;次数&gt;</code>：当连续失败指定次数后，则将容器状态视为 <code>unhealthy</code>，默认 3 次。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="err">HEALTHCHECK --interval=3s --timeout=3s \
+</span><span class="err">  </span><span class="k">CMD</span> curl -fs http://localhost/ <span class="o">||</span> <span class="nb">exit</span> 1<span class="err">
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id="10-多阶段构建">10. 多阶段构建</h2>
+<p>Docker v17.05 开始支持多阶段构建 (<code>multistage builds</code>)。将所有的构建过程编包含在一个 <code>Dockerfile</code> 中，包括项目及其依赖库的编译、测试、打包等流程，可能会带来</p>
+<ul>
+<li>镜像层次多、占用大、部署时间变长</li>
+<li>源代码泄露风险</li>
+</ul>
+<p>使用多阶段构建：</p>
+<p><code>main.go</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;io/ioutil&#34;</span>
+	<span class="s">&#34;math/rand&#34;</span>
+	<span class="s">&#34;net/http&#34;</span>
+	<span class="s">&#34;os&#34;</span>
+	<span class="s">&#34;strconv&#34;</span>
+	<span class="s">&#34;time&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">index</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">str</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nf">ReadFile</span><span class="p">(</span><span class="s">&#34;./test.log&#34;</span><span class="p">)</span>
+	<span class="nx">w</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">file</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">OpenFile</span><span class="p">(</span><span class="s">&#34;./test.log&#34;</span><span class="p">,</span> <span class="nx">os</span><span class="p">.</span><span class="nx">O_CREATE</span><span class="p">|</span><span class="nx">os</span><span class="p">.</span><span class="nx">O_WRONLY</span><span class="p">|</span><span class="nx">os</span><span class="p">.</span><span class="nx">O_APPEND</span><span class="p">,</span> <span class="mo">0666</span><span class="p">)</span>
+	<span class="nx">str</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nf">ReadFile</span><span class="p">(</span><span class="s">&#34;./test.log&#34;</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
+		<span class="nx">rand</span><span class="p">.</span><span class="nf">Seed</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">().</span><span class="nf">UnixNano</span><span class="p">())</span>
+		<span class="nx">file</span><span class="p">.</span><span class="nf">WriteString</span><span class="p">(</span><span class="nx">strconv</span><span class="p">.</span><span class="nf">Itoa</span><span class="p">(</span><span class="nx">rand</span><span class="p">.</span><span class="nf">Intn</span><span class="p">(</span><span class="mi">1000</span><span class="p">)))</span>
+	<span class="p">}</span>
+
+	<span class="nx">http</span><span class="p">.</span><span class="nf">HandleFunc</span><span class="p">(</span><span class="s">&#34;/&#34;</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span>
+	<span class="nx">http</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">(</span><span class="s">&#34;:8080&#34;</span><span class="p">,</span> <span class="kc">nil</span><span class="p">)</span>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><p><code>dockerfile</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="k">FROM</span><span class="s"> golang:alpine as builder</span><span class="err">
+</span><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /go/src</span><span class="err">
+</span><span class="err"></span><span class="k">EXPOSE</span><span class="s"> 8080</span><span class="err">
+</span><span class="err"></span><span class="k">COPY</span> ./server/main.go .<span class="err">
+</span><span class="err"></span><span class="k">RUN</span> go build main.go<span class="err">
+</span><span class="err"></span><span class="err">
+</span><span class="err"></span><span class="k">FROM</span><span class="s"> alpine:latest as prod</span><span class="err">
+</span><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /app</span><span class="err">
+</span><span class="err"></span><span class="k">COPY</span> --from<span class="o">=</span>builder /go/src/main .<span class="err">
+</span><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;./main&#34;</span><span class="p">]</span><span class="err">
+</span></code></pre></td></tr></table>
+</div>
+</div><p>构建镜像<code>docker image build -t web .</code></p>
+<p>镜像大小比对</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">❯ docker images
+REPOSITORY                                                  TAG       IMAGE ID       CREATED          SIZE
+web2                                                        latest    e2573f939a60   14 minutes ago   11.7MB
+web                                                         latest    6185b3841e6f   21 minutes ago   321MB
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="只构建某一段镜像">只构建某一段镜像</h3>
+<p>使用<code>as</code>为某一阶段起别名</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">FROM golang:alpine as builder
+</code></pre></td></tr></table>
+</div>
+</div><p>例如当我们只想构建 <code>builder</code> 阶段的镜像时，增加 <code>--target=&lt;别名&gt;</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback"> docker build --target builder
+</code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2021-09-29&nbsp;<a class="git-hash" href="https://github.com/commit/64d98a53a7a2da48cfc00717d74bd5c73459d1c4" target="_blank" title="commit by yemo0(1735681885@qq.com) 64d98a53a7a2da48cfc00717d74bd5c73459d1c4: 9/30/21">
-                                    <i class="fas fa-hashtag fa-fw"></i>64d98a5</a></span>
+                <span>Updated on 2021-10-04&nbsp;<a class="git-hash" href="https://github.com/commit/b859fb8aa75c6c798d0fe0cab893e9a942f8ecb5" target="_blank" title="commit by yemo0(1735681885@qq.com) b859fb8aa75c6c798d0fe0cab893e9a942f8ecb5: 10-5-21">
+                                    <i class="fas fa-hashtag fa-fw"></i>b859fb8</a></span>
             </div>
             <div class="post-info-license"></div>
         </div>
@@ -414,5 +572,5 @@ CMD []	# 在命令行后面输入命令
             </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
                 <i class="fas fa-comment fa-fw"></i>
             </a>
-        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.8/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="/js/custom.js"></script></body>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.8/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":30},"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="/js/custom.js"></script></body>
 </html>

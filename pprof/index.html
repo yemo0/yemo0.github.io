@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title> - MyBlog</title><meta name="Description" content="About LoveIt Theme"><meta property="og:title" content="" />
+<meta property="og:description" content="title: pprof 使用 date: 2021-10-05T00:39:17 tags: [go，pprof] Profiling 一般翻译为 画像，在计算机领域，我们可以将其理解为当前应用状态的画像。当程序性能不佳时，我们希望知道应用在" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/pprof/" />
+<meta property="og:image" content="https://example.com/logo.png"/>
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://example.com/logo.png"/>
+
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="title: pprof 使用 date: 2021-10-05T00:39:17 tags: [go，pprof] Profiling 一般翻译为 画像，在计算机领域，我们可以将其理解为当前应用状态的画像。当程序性能不佳时，我们希望知道应用在"/>
+<meta name="application-name" content="home">
+<meta name="apple-mobile-web-app-title" content="home"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://example.com/pprof/" /><link rel="next" href="https://example.com/openwrt/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/example.com\/pprof\/"
+        },"image": ["https:\/\/example.com\/images\/Apple-Devices-Preview.png"],"genre": "posts","wordcount":  2507 ,
+        "url": "https:\/\/example.com\/pprof\/","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": "https:\/\/example.com\/images\/avatar.png"},"author": {
+                "@type": "Person",
+                "name": "yemo"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="MyBlog">home</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="https://yemo0.gitee.io" rel="noopener noreffer" target="_blank"> Docs </a><a class="menu-item" href="/tools/"> Tools </a><a class="menu-item" href="https://github.com/yemo0" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/pprof/" selected>English</option></select>
+                    </a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="MyBlog">home</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="https://yemo0.gitee.io" title="" rel="noopener noreffer" target="_blank">Docs</a><a class="menu-item" href="/tools/" title="">Tools</a><a class="menu-item" href="https://github.com/yemo0" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/pprof/" selected>English</option></select>
+                </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX"></h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>yemo</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="0001-01-01">0001-01-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;2507 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;6 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-go语言项目中的性能优化主要有以下几个方面">1. Go语言项目中的性能优化主要有以下几个方面</a>
+      <ul>
+        <li><a href="#go语言内置了获取程序的运行数据的工具包括以下两个标准库">Go语言内置了获取程序的运行数据的工具，包括以下两个标准库：</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-工具型应用">2. 工具型应用</a>
+      <ul>
+        <li><a href="#cpu性能分析">CPU性能分析</a></li>
+        <li><a href="#内存性能分析">内存性能分析</a></li>
+        <li><a href="#演示">演示</a></li>
+        <li><a href="#更多操作">更多操作</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-服务形应用">3. 服务形应用</a>
+      <ul>
+        <li><a href="#演示-1">演示</a>
+          <ul>
+            <li><a href="#结构体字段解释">结构体字段解释</a></li>
+          </ul>
+        </li>
+        <li><a href="#查看内存">查看内存</a>
+          <ul>
+            <li><a href="#概要文件cpu使用情况">概要文件(cpu使用情况)</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>title: pprof 使用
+date: 2021-10-05T00:39:17
+tags: [go，pprof]</p>
+<p><code>Profiling</code> 一般翻译为 画像，在计算机领域，我们可以将其理解为当前应用状态的画像。当程序性能不佳时，我们希望知道应用在 什么地方 耗费了 多少 CPU、memory。下面将介绍如何使用这一工具。</p>
+<h2 id="1-go语言项目中的性能优化主要有以下几个方面">1. Go语言项目中的性能优化主要有以下几个方面</h2>
+<ul>
+<li>CPU profile：报告程序的 CPU 使用情况，按照一定频率去采集应用程序在 CPU 和寄存器上面的数据</li>
+<li>Memory Profile（Heap Profile）：报告程序的内存使用情况</li>
+<li>Block Profiling：报告 goroutines 不在运行状态的情况，可以用来分析和查找死锁等性能瓶颈</li>
+<li>Goroutine Profiling：报告 goroutines 的使用情况，有哪些 goroutine，它们的调用关系是怎样的</li>
+</ul>
+<h3 id="go语言内置了获取程序的运行数据的工具包括以下两个标准库">Go语言内置了获取程序的运行数据的工具，包括以下两个标准库：</h3>
+<ul>
+<li>
+<p><code>runtime/pprof</code>：采集工具型应用运行数据进行分析</p>
+</li>
+<li>
+<p><code>net/http/pprof</code>：采集服务型应用运行时数据进行分析</p>
+<p>pprof开启后，每隔一段时间（10ms）就会收集下当前的堆栈信息，获取各个函数占用的CPU以及内存资源；最后通过对这些采样数据进行分析，形成一个性能分析报告。</p>
+<p>注意，我们只应该在性能测试的时候才在代码中引入pprof。</p>
+</li>
+</ul>
+<h2 id="2-工具型应用">2. 工具型应用</h2>
+<p>如果应用程序是执行一段时间就推出，最好的办法是应用退出时把 profiling 的报告保存到文件中，进行分析可以使用<code>runtime/pprof</code>库</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">import &#34;runtime/pprof&#34;
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="cpu性能分析">CPU性能分析</h3>
+<p>开启CPU性能分析：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">pprof</span><span class="p">.</span><span class="nf">StartCPUProfile</span><span class="p">(</span><span class="nx">w</span> <span class="nx">io</span><span class="p">.</span><span class="nx">Writer</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>停止CPU性能分析：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">pprof</span><span class="p">.</span><span class="nf">StopCPUProfile</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="内存性能分析">内存性能分析</h3>
+<p>记录程序的堆栈信息</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">pprof</span><span class="p">.</span><span class="nf">WriteHeapProfile</span><span class="p">(</span><span class="nx">w</span> <span class="nx">io</span><span class="p">.</span><span class="nx">Writer</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>go tool pprof</code>默认是使用<code>-inuse_space</code>进行统计，还可以使用<code>-inuse-objects</code>查看分配对象的数量。</p>
+<h3 id="演示">演示</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;fmt&#34;</span>
+	<span class="s">&#34;os&#34;</span>
+	<span class="s">&#34;runtime/pprof&#34;</span>
+	<span class="s">&#34;time&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">problem</span><span class="p">()</span> <span class="p">{</span>
+	<span class="k">for</span> <span class="p">{}</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">file</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">OpenFile</span><span class="p">(</span><span class="s">&#34;./cpu.pprof&#34;</span><span class="p">,</span> <span class="nx">os</span><span class="p">.</span><span class="nx">O_CREATE</span><span class="p">|</span><span class="nx">os</span><span class="p">.</span><span class="nx">O_RDWR</span><span class="p">,</span> <span class="mo">0666</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;OpenFile error: &#34;</span> <span class="o">+</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">())</span>
+		<span class="k">return</span>
+	<span class="p">}</span>
+
+	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+		<span class="k">go</span> <span class="nf">problem</span><span class="p">()</span>
+	<span class="p">}</span>
+
+	<span class="nx">pprof</span><span class="p">.</span><span class="nf">StartCPUProfile</span><span class="p">(</span><span class="nx">file</span><span class="p">)</span>
+	<span class="k">defer</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nx">pprof</span><span class="p">.</span><span class="nf">StopCPUProfile</span><span class="p">()</span>
+		<span class="nx">file</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+	<span class="p">}()</span>
+	<span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span> <span class="o">*</span> <span class="mi">30</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>查看</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="err">❯</span> <span class="k">go</span> <span class="nx">tool</span> <span class="nx">pprof</span> <span class="nx">cpu</span><span class="p">.</span><span class="nx">pprof</span> 
+<span class="nx">File</span><span class="p">:</span> <span class="nx">main</span>
+<span class="nx">Type</span><span class="p">:</span> <span class="nx">cpu</span>
+<span class="nx">Time</span><span class="p">:</span> <span class="nx">Oct</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2021</span> <span class="nx">at</span> <span class="mi">4</span><span class="p">:</span><span class="mi">21</span><span class="nf">pm</span> <span class="p">(</span><span class="nx">UTC</span><span class="p">)</span>
+<span class="nx">Duration</span><span class="p">:</span> <span class="mf">30.18</span><span class="nx">s</span><span class="p">,</span> <span class="nx">Total</span> <span class="nx">samples</span> <span class="p">=</span> <span class="mf">80.50</span><span class="nf">s</span> <span class="p">(</span><span class="mf">266.76</span><span class="o">%</span><span class="p">)</span>
+<span class="nx">Entering</span> <span class="nx">interactive</span> <span class="nf">mode</span> <span class="p">(</span><span class="kd">type</span> <span class="s">&#34;help&#34;</span> <span class="k">for</span> <span class="nx">commands</span><span class="p">,</span> <span class="s">&#34;o&#34;</span> <span class="k">for</span> <span class="nx">options</span><span class="p">)</span>
+<span class="p">(</span><span class="nx">pprof</span><span class="p">)</span> <span class="nx">top</span>
+<span class="nx">Showing</span> <span class="nx">nodes</span> <span class="nx">accounting</span> <span class="k">for</span> <span class="mf">80.50</span><span class="nx">s</span><span class="p">,</span> <span class="mi">100</span><span class="o">%</span> <span class="nx">of</span> <span class="mf">80.50</span><span class="nx">s</span> <span class="nx">total</span>
+      <span class="nx">flat</span>  <span class="nx">flat</span><span class="o">%</span>   <span class="nx">sum</span><span class="o">%</span>        <span class="nx">cum</span>   <span class="nx">cum</span><span class="o">%</span>
+    <span class="mf">79.96</span><span class="nx">s</span> <span class="mf">99.33</span><span class="o">%</span> <span class="mf">99.33</span><span class="o">%</span>     <span class="mf">80.50</span><span class="nx">s</span>   <span class="mi">100</span><span class="o">%</span>  <span class="nx">main</span><span class="p">.</span><span class="nx">problem</span>
+     <span class="mf">0.54</span><span class="nx">s</span>  <span class="mf">0.67</span><span class="o">%</span>   <span class="mi">100</span><span class="o">%</span>      <span class="mf">0.54</span><span class="nx">s</span>  <span class="mf">0.67</span><span class="o">%</span>  <span class="nx">runtime</span><span class="p">.</span><span class="nx">asyncPreempt</span>
+<span class="err">#</span> <span class="nx">查看详情</span>
+<span class="p">(</span><span class="nx">pprof</span><span class="p">)</span> <span class="nx">list</span> <span class="nx">main</span><span class="p">.</span><span class="nx">problem</span>
+<span class="nx">Total</span><span class="p">:</span> <span class="mf">80.50</span><span class="nx">s</span>
+<span class="nx">ROUTINE</span> <span class="o">========================</span> <span class="nx">main</span><span class="p">.</span><span class="nx">problem</span> <span class="nx">in</span> <span class="o">/</span><span class="nx">home</span><span class="o">/</span><span class="nx">yemo</span><span class="o">/</span><span class="nx">GoStudy</span><span class="o">/</span><span class="nx">pprof</span><span class="o">/</span><span class="nx">main</span><span class="p">.</span><span class="k">go</span>
+    <span class="mf">79.96</span><span class="nx">s</span>     <span class="mf">80.50</span><span class="nf">s</span> <span class="p">(</span><span class="nx">flat</span><span class="p">,</span> <span class="nx">cum</span><span class="p">)</span>   <span class="mi">100</span><span class="o">%</span> <span class="nx">of</span> <span class="nx">Total</span>
+      <span class="mi">10</span><span class="nx">ms</span>       <span class="mi">10</span><span class="nx">ms</span>      <span class="mi">1</span><span class="p">:</span><span class="kn">package</span> <span class="nx">main</span>
+         <span class="p">.</span>          <span class="p">.</span>      <span class="mi">2</span><span class="p">:</span>
+         <span class="p">.</span>          <span class="p">.</span>      <span class="mi">3</span><span class="p">:</span><span class="kn">import</span> <span class="p">(</span>
+         <span class="p">.</span>          <span class="p">.</span>      <span class="mi">4</span><span class="p">:</span>   <span class="s">&#34;fmt&#34;</span>
+         <span class="p">.</span>          <span class="p">.</span>      <span class="mi">5</span><span class="p">:</span>   <span class="s">&#34;os&#34;</span>
+         <span class="p">.</span>          <span class="p">.</span>      <span class="mi">6</span><span class="p">:</span>   <span class="s">&#34;runtime/pprof&#34;</span>
+         <span class="p">.</span>          <span class="p">.</span>      <span class="mi">7</span><span class="p">:</span>   <span class="s">&#34;time&#34;</span>
+         <span class="p">.</span>          <span class="p">.</span>      <span class="mi">8</span><span class="p">:)</span>
+         <span class="p">.</span>          <span class="p">.</span>      <span class="mi">9</span><span class="p">:</span>
+         <span class="p">.</span>          <span class="p">.</span>     <span class="mi">10</span><span class="p">:</span><span class="kd">func</span> <span class="nf">problem</span><span class="p">()</span> <span class="p">{</span>
+    <span class="mf">79.95</span><span class="nx">s</span>     <span class="mf">80.49</span><span class="nx">s</span>     <span class="mi">11</span><span class="p">:</span>   <span class="k">for</span> <span class="p">{</span>
+         <span class="p">.</span>          <span class="p">.</span>     <span class="mi">12</span><span class="p">:</span>
+         <span class="p">.</span>          <span class="p">.</span>     <span class="mi">13</span><span class="p">:</span>   <span class="p">}</span>
+         <span class="p">.</span>          <span class="p">.</span>     <span class="mi">14</span><span class="p">:}</span>
+         <span class="p">.</span>          <span class="p">.</span>     <span class="mi">15</span><span class="p">:</span>
+         <span class="p">.</span>          <span class="p">.</span>     <span class="mi">16</span><span class="p">:</span><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="更多操作">更多操作</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">(pprof) help
+  Commands:
+    callgrind        Outputs a graph in callgrind format
+    comments         Output all profile comments
+    disasm           Output assembly listings annotated with samples
+    dot              Outputs a graph in DOT format
+    eog              Visualize graph through eog
+    evince           Visualize graph through evince
+    gif              Outputs a graph image in GIF format
+    gv               Visualize graph through gv
+    kcachegrind      Visualize report in KCachegrind
+    list             Output annotated source for functions matching regexp
+    pdf              Outputs a graph in PDF format
+    peek             Output callers/callees of functions matching regexp
+    png              Outputs a graph image in PNG format
+    proto            Outputs the profile in compressed protobuf format
+    ps               Outputs a graph in PS format
+    raw              Outputs a text representation of the raw profile
+    svg              Outputs a graph in SVG format
+    tags             Outputs all tags in the profile
+    text             Outputs top entries in text form
+    top              Outputs top entries in text form
+    topproto         Outputs top entries in compressed protobuf format
+    traces           Outputs all profile samples in text form
+    tree             Outputs a text rendering of call graph
+    web              Visualize graph through web browser
+    weblist          Display annotated source in a web browser
+    o/options        List options and their current values
+    q/quit/exit/^D   Exit pprof
+
+  Options:
+    call_tree        Create a context-sensitive call tree
+    compact_labels   Show minimal headers
+    divide_by        Ratio to divide all samples before visualization
+    drop_negative    Ignore negative differences
+    edgefraction     Hide edges below &lt;f&gt;*total
+    focus            Restricts to samples going through a node matching regexp
+    hide             Skips nodes matching regexp
+    ignore           Skips paths going through any nodes matching regexp
+    intel_syntax     Show assembly in Intel syntax
+    mean             Average sample value over first value (count)
+    nodecount        Max number of nodes to show
+    nodefraction     Hide nodes below &lt;f&gt;*total
+    noinlines        Ignore inlines.
+    normalize        Scales profile based on the base profile.
+    output           Output filename for file-based outputs
+    prune_from       Drops any functions below the matched frame.
+    relative_percentages Show percentages relative to focused subgraph
+    sample_index     Sample value to report (0-based index or name)
+    show             Only show nodes matching regexp
+    show_from        Drops functions above the highest matched frame.
+    source_path      Search path for source files
+    tagfocus         Restricts to samples with tags in range or matched by regexp
+    taghide          Skip tags matching this regexp
+    tagignore        Discard samples with tags in range or matched by regexp
+    tagshow          Only consider tags matching this regexp
+    trim             Honor nodefraction/edgefraction/nodecount defaults
+    trim_path        Path to trim from source paths before search
+    unit             Measurement units to display
+
+  Option groups (only set one per group):
+    granularity      
+      functions        Aggregate at the function level.
+      filefunctions    Aggregate at the function level.
+      files            Aggregate at the file level.
+      lines            Aggregate at the source code line level.
+      addresses        Aggregate at the address level.
+    sort             
+      cum              Sort entries based on cumulative weight
+      flat             Sort entries based on own weight
+  :   Clear focus/ignore/hide/tagfocus/tagignore
+
+  type &#34;help &lt;cmd|option&gt;&#34; for more information
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="3-服务形应用">3. 服务形应用</h2>
+<p>如果应用程序是一直运行，那么可以使用<code>net/http/pprof</code>库，它能够在提供 HTTP 服务进行分析。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">_</span> <span class="s">&#34;net/http/pprof&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>如果使用自定义Mux，则需要手动注册一些路由规则：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">r</span><span class="p">.</span><span class="nf">HandleFunc</span><span class="p">(</span><span class="s">&#34;/debug/pprof/&#34;</span><span class="p">,</span> <span class="nx">pprof</span><span class="p">.</span><span class="nx">Index</span><span class="p">)</span>
+<span class="nx">r</span><span class="p">.</span><span class="nf">HandleFunc</span><span class="p">(</span><span class="s">&#34;/debug/pprof/cmdline&#34;</span><span class="p">,</span> <span class="nx">pprof</span><span class="p">.</span><span class="nx">Cmdline</span><span class="p">)</span>
+<span class="nx">r</span><span class="p">.</span><span class="nf">HandleFunc</span><span class="p">(</span><span class="s">&#34;/debug/pprof/profile&#34;</span><span class="p">,</span> <span class="nx">pprof</span><span class="p">.</span><span class="nx">Profile</span><span class="p">)</span>
+<span class="nx">r</span><span class="p">.</span><span class="nf">HandleFunc</span><span class="p">(</span><span class="s">&#34;/debug/pprof/symbol&#34;</span><span class="p">,</span> <span class="nx">pprof</span><span class="p">.</span><span class="nx">Symbol</span><span class="p">)</span>
+<span class="nx">r</span><span class="p">.</span><span class="nf">HandleFunc</span><span class="p">(</span><span class="s">&#34;/debug/pprof/trace&#34;</span><span class="p">,</span> <span class="nx">pprof</span><span class="p">.</span><span class="nx">Trace</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>如果使用的是gin框架，那么推荐使用<a href="https://github.com/gin-contrib/pprof" target="_blank" rel="noopener noreffer">github.com/gin-contrib/pprof</a>，在代码中通过以下命令注册pprof相关路由。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">pprof</span><span class="p">.</span><span class="nf">Register</span><span class="p">(</span><span class="nx">router</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://s3.bmp.ovh/imgs/2021/10/2a58d816089c56ed.png"
+        data-srcset="https://s3.bmp.ovh/imgs/2021/10/2a58d816089c56ed.png, https://s3.bmp.ovh/imgs/2021/10/2a58d816089c56ed.png 1.5x, https://s3.bmp.ovh/imgs/2021/10/2a58d816089c56ed.png 2x"
+        data-sizes="auto"
+        alt="https://s3.bmp.ovh/imgs/2021/10/2a58d816089c56ed.png"
+        title="https://s3.bmp.ovh/imgs/2021/10/2a58d816089c56ed.png" /></p>
+<h3 id="演示-1">演示</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">import (
+	&#34;net/http&#34;
+	_ &#34;net/http/pprof&#34;
+)
+
+func main() {
+	http.ListenAndServe(&#34;:8080&#34;, nil)
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>访问 <code>http://192.168.2.36:8080/debug/pprof/</code> 如上图。</p>
+<h4 id="结构体字段解释">结构体字段解释</h4>
+<p>看到这里是调用Go底层的runtime.MemStats结构体获取，该结构体相关字段解释如下。 <a href="https://blog.csdn.net/skh2015java/article/details/102748222" target="_blank" rel="noopener noreffer">原文链接</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">
+Alloc uint64 //golang语言框架堆空间分配的字节数
+TotalAlloc uint64 //从服务开始运行至今分配器为分配的堆空间总 和，只有增加，释放的时候不减少
+Sys uint64 //服务现在系统使用的内存
+Lookups uint64 //被runtime监视的指针数
+Mallocs uint64 //服务malloc heap objects的次数
+Frees uint64 //服务回收的heap objects的次数
+HeapAlloc uint64 //服务分配的堆内存字节数
+HeapSys uint64 //系统分配的作为运行栈的内存
+HeapIdle uint64 //申请但是未分配的堆内存或者回收了的堆内存（空闲）字节数
+HeapInuse uint64 //正在使用的堆内存字节数
+HeapReleased uint64 //返回给OS的堆内存，类似C/C++中的free。
+HeapObjects uint64 //堆内存块申请的量
+StackInuse uint64 //正在使用的栈字节数
+StackSys uint64 //系统分配的作为运行栈的内存
+MSpanInuse uint64 //用于测试用的结构体使用的字节数
+MSpanSys uint64 //系统为测试用的结构体分配的字节数
+MCacheInuse uint64 //mcache结构体申请的字节数(不会被视为垃圾回收)
+MCacheSys uint64 //操作系统申请的堆空间用于mcache的字节数
+BuckHashSys uint64 //用于剖析桶散列表的堆空间
+GCSys uint64 //垃圾回收标记元信息使用的内存
+OtherSys uint64 //golang系统架构占用的额外空间
+NextGC uint64 //垃圾回收器检视的内存大小
+LastGC uint64 // 垃圾回收器最后一次执行时间。
+PauseTotalNs uint64 // 垃圾回收或者其他信息收集导致服务暂停的次数。
+PauseNs [256]uint64 //一个循环队列，记录最近垃圾回收系统中断的时间
+PauseEnd [256]uint64 //一个循环队列，记录最近垃圾回收系统中断的时间开始点。
+NumForcedGC uint32 //服务调用runtime.GC()强制使用垃圾回收的次数。
+GCCPUFraction float64 //垃圾回收占用服务CPU工作的时间总和。如果有100个goroutine，垃圾回收的时间为1S,那么就占用了100S。
+BySize //内存分配器使用情况
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="查看内存">查看内存</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">go tool pprof http://192.168.2.36:8080/debug/pprof/heap
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&gt; help可以查看使用说明
+ 
+&gt; top 可以查看前10个的内存分配情况
+ 
+&gt; tree 以树状显示
+ 
+&gt; png 以图片格式输出
+ 
+&gt; svg 生成浏览器可以识别的svg文件
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="概要文件cpu使用情况">概要文件(cpu使用情况)</h4>
+<p>默认需要等30s</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">go tool pprof http://192.168.2.36:8080/debug/pprof/profile
+</code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 0001-01-01</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/pprof/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+            <a href="/openwrt/" class="next" rel="next" title="docker安装openwrt">docker安装openwrt<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></div>
+            </main></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.8/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":30},"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="/js/custom.js"></script></body>
+</html>

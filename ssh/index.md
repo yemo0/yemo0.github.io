@@ -24,13 +24,5 @@ Host ubuntu
   Port 22
 ```
 
-```go
-package main 
-func main() {
-  fmt.println("hi")
-}
-```
-
-
 ## 以前写的
 [ssh免密登录](https://yemo0.gitee.io/Other/Linux/SSH.html#ssh-config)
