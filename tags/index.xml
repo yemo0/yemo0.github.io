@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on MyBlog</title>
+    <link>https://example.com/tags/</link>
+    <description>Recent content in Tags on MyBlog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Sun, 10 Oct 2021 00:54:08 +0000</lastBuildDate>
+    
+	<atom:link href="https://example.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Autojs</title>
+      <link>https://example.com/tags/autojs/</link>
+      <pubDate>Sun, 10 Oct 2021 00:54:08 +0000</pubDate>
+      
+      <guid>https://example.com/tags/autojs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Docker</title>
+      <link>https://example.com/tags/docker/</link>
+      <pubDate>Mon, 04 Oct 2021 17:10:52 +0000</pubDate>
+      
+      <guid>https://example.com/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Github Actions</title>
+      <link>https://example.com/tags/github-actions/</link>
+      <pubDate>Tue, 05 Oct 2021 00:22:35 +0000</pubDate>
+      
+      <guid>https://example.com/tags/github-actions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Go</title>
+      <link>https://example.com/tags/go/</link>
+      <pubDate>Sat, 09 Oct 2021 01:07:12 +0000</pubDate>
+      
+      <guid>https://example.com/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gopprof</title>
+      <link>https://example.com/tags/gopprof/</link>
+      <pubDate>Tue, 05 Oct 2021 00:39:17 +0000</pubDate>
+      
+      <guid>https://example.com/tags/gopprof/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Js</title>
+      <link>https://example.com/tags/js/</link>
+      <pubDate>Wed, 01 Sep 2021 18:44:13 +0000</pubDate>
+      
+      <guid>https://example.com/tags/js/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Learn English</title>
+      <link>https://example.com/tags/learn-english/</link>
+      <pubDate>Thu, 30 Sep 2021 23:44:03 +0000</pubDate>
+      
+      <guid>https://example.com/tags/learn-english/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mysql</title>
+      <link>https://example.com/tags/mysql/</link>
+      <pubDate>Tue, 05 Oct 2021 00:39:17 +0000</pubDate>
+      
+      <guid>https://example.com/tags/mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Openwrt</title>
+      <link>https://example.com/tags/openwrt/</link>
+      <pubDate>Fri, 07 May 2021 12:21:17 +0000</pubDate>
+      
+      <guid>https://example.com/tags/openwrt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ssh</title>
+      <link>https://example.com/tags/ssh/</link>
+      <pubDate>Wed, 01 Sep 2021 16:00:37 +0000</pubDate>
+      
+      <guid>https://example.com/tags/ssh/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>区块链</title>
+      <link>https://example.com/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/</link>
+      <pubDate>Sun, 10 Oct 2021 00:54:08 +0000</pubDate>
+      
+      <guid>https://example.com/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>钱包</title>
+      <link>https://example.com/tags/%E9%92%B1%E5%8C%85/</link>
+      <pubDate>Sun, 10 Oct 2021 00:54:08 +0000</pubDate>
+      
+      <guid>https://example.com/tags/%E9%92%B1%E5%8C%85/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
