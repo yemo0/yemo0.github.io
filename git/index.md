@@ -43,7 +43,7 @@ git log
 git reset --HEAD [ 版本号]
 ```
 
-## 版本切换
+## 分支
 
 ```
 // 创建分支
@@ -60,6 +60,15 @@ git checkout [分支名称]
 
 // 吧指定的分支合并到当前分支
 git merge [分支名称]
+
+// 删除本地分支
+git branch -d [分支名称]
+
+// 强制删除本地分支
+git branch -D [分支名称]
+
+// 删除远程分支
+git push origin --delete [分支名称]
 ```
 
 ## 远程仓库

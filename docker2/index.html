@@ -8,10 +8,10 @@
         <title>docker2 镜像创建、管理 - MyBlog</title><meta name="Description" content="About LoveIt Theme"><meta property="og:title" content="docker2 镜像创建、管理" />
 <meta property="og:description" content="docker 镜像获取 pull from registry 从registry拉取 build form Dockekfile 从Dockerfile构建 load form file 文件导入 镜像导出导入 导出文件 1 docker save nginx:latest -o nginx.image 就会在当前目录生成ngi" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.com/docker2/" />
-<meta property="og:image" content="https://example.com/logo.png"/>
+<meta property="og:url" content="https://example.com/docker2/" /><meta property="og:image" content="https://example.com/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-09-22T00:20:06+00:00" />
 <meta property="article:modified_time" content="2021-09-29T16:01:04+00:00" />
+
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://example.com/logo.png"/>
 
@@ -157,29 +157,29 @@
 <h4 id="导出文件">导出文件</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback"> docker save nginx:latest -o nginx.image
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"> docker save nginx:latest -o nginx.image
 </code></pre></td></tr></table>
 </div>
 </div><p>就会在当前目录生成<code>nginx.image</code>镜像</p>
 <h4 id="导入文件">导入文件</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker load -i ./nginx.image
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">docker load -i ./nginx.image
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="将容器保存成新镜像">将容器保存成新镜像</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker container commit 容器名 保存为的镜像名
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">docker container commit 容器名 保存为的镜像名
 </code></pre></td></tr></table>
 </div>
 </div><h4 id="scratch">scratch</h4>
@@ -188,14 +188,14 @@
 <p>go代码</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
 
 <span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
         <span class="nb">println</span><span class="p">(</span><span class="s">&#34;hello docker!&#34;</span><span class="p">)</span>
@@ -206,12 +206,12 @@
 <p><code>Dockerfile</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">FROM scratch
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">FROM scratch
 ADD hello /
 CMD [&#34;/hello&#34;]
 </code></pre></td></tr></table>
@@ -219,10 +219,10 @@ CMD [&#34;/hello&#34;]
 </div><p>构建</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker build  -t hello .
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">docker build  -t hello .
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="镜像构建上下文context">镜像构建上下文（Context）</h3>

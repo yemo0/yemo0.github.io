@@ -8,10 +8,10 @@
         <title>docker安装openwrt - MyBlog</title><meta name="Description" content="About LoveIt Theme"><meta property="og:title" content="docker安装openwrt" />
 <meta property="og:description" content="docker安装openwrt" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.com/openwrt/" />
-<meta property="og:image" content="https://example.com/logo.png"/>
+<meta property="og:url" content="https://example.com/openwrt/" /><meta property="og:image" content="https://example.com/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-05-07T12:21:17+00:00" />
 <meta property="article:modified_time" content="2021-08-24T21:18:15+00:00" />
+
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://example.com/logo.png"/>
 
@@ -136,43 +136,43 @@
 <h2 id="拉取镜像">拉取镜像</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">docker pull piaoyizy/openwrt-aarch64
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">docker pull piaoyizy/openwrt-aarch64
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="打开网卡混杂模式">打开网卡混杂模式</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">sudo ip link set eth0 promisc on
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">sudo ip link set eth0 promisc on
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="创建网络">创建网络</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker network create -d macvlan --subnet=192.168.2.0/24 --gateway=192.168.2.9 -o parent=eth0 macnet
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">docker network create -d macvlan --subnet=192.168.2.0/24 --gateway=192.168.2.9 -o parent=eth0 macnet
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="开启容器">开启容器</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker run --name openwrt --restart always -d --network macnet --privileged piaoyizy/openwrt-aarch64:latest
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">docker run --name openwrt --restart always -d --network macnet --privileged piaoyizy/openwrt-aarch64:latest
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="修改docker内的openwrt网络设置">修改docker内的openwrt网络设置</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -180,7 +180,7 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker exec -it openwrt /bin/bash
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">docker exec -it openwrt /bin/bash
 
 vi /etc/config/network
 // 修改ipaddr默认地址 改为openwrt的地址
@@ -191,22 +191,22 @@ vi /etc/config/network
 </div><h3 id="重启容器">重启容器</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker restart openwrt
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">docker restart openwrt
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="国内访问慢">国内访问慢</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">在防火墙加入自定义规则
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">在防火墙加入自定义规则
 iptables -t nat -I POSTROUTING -o eth0 -j MASQUERADE
 
 关闭lan口桥接模式

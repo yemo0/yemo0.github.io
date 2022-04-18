@@ -8,10 +8,10 @@
         <title>pprof 使用 - MyBlog</title><meta name="Description" content="About LoveIt Theme"><meta property="og:title" content="pprof 使用" />
 <meta property="og:description" content="Profiling 一般翻译为 画像，在计算机领域，我们可以将其理解为当前应用状态的画像。当程序性能不佳时，我们希望知道应用在 什么地方 耗费了 多少 CPU、memo" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.com/pprof/" />
-<meta property="og:image" content="https://example.com/logo.png"/>
+<meta property="og:url" content="https://example.com/pprof/" /><meta property="og:image" content="https://example.com/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-10-05T00:39:17+00:00" />
 <meta property="article:modified_time" content="2021-11-28T13:54:09+00:00" />
+
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://example.com/logo.png"/>
 
@@ -171,46 +171,46 @@
 <p>如果应用程序是执行一段时间就推出，最好的办法是应用退出时把 profiling 的报告保存到文件中，进行分析可以使用<code>runtime/pprof</code>库</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">import &#34;runtime/pprof&#34;
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">import &#34;runtime/pprof&#34;
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="cpu性能分析">CPU性能分析</h3>
 <p>开启CPU性能分析：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">pprof</span><span class="p">.</span><span class="nf">StartCPUProfile</span><span class="p">(</span><span class="nx">w</span> <span class="nx">io</span><span class="p">.</span><span class="nx">Writer</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">pprof</span><span class="p">.</span><span class="nf">StartCPUProfile</span><span class="p">(</span><span class="nx">w</span> <span class="nx">io</span><span class="p">.</span><span class="nx">Writer</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>停止CPU性能分析：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">pprof</span><span class="p">.</span><span class="nf">StopCPUProfile</span><span class="p">()</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">pprof</span><span class="p">.</span><span class="nf">StopCPUProfile</span><span class="p">()</span>
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="内存性能分析">内存性能分析</h3>
 <p>记录程序的堆栈信息</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">pprof</span><span class="p">.</span><span class="nf">WriteHeapProfile</span><span class="p">(</span><span class="nx">w</span> <span class="nx">io</span><span class="p">.</span><span class="nx">Writer</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">pprof</span><span class="p">.</span><span class="nf">WriteHeapProfile</span><span class="p">(</span><span class="nx">w</span> <span class="nx">io</span><span class="p">.</span><span class="nx">Writer</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><code>go tool pprof</code>默认是使用<code>-inuse_space</code>进行统计，还可以使用<code>-inuse-objects</code>查看分配对象的数量。</p>
 <h3 id="演示">演示</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -243,7 +243,7 @@
 </span><span class="lnt">31
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
 
 <span class="kn">import</span> <span class="p">(</span>
 	<span class="s">&#34;fmt&#34;</span>
@@ -279,7 +279,7 @@
 </div><p>查看</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -313,7 +313,7 @@
 </span><span class="lnt">32
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="err">❯</span> <span class="k">go</span> <span class="nx">tool</span> <span class="nx">pprof</span> <span class="nx">cpu</span><span class="p">.</span><span class="nx">pprof</span> 
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="err">❯</span> <span class="k">go</span> <span class="nx">tool</span> <span class="nx">pprof</span> <span class="nx">cpu</span><span class="p">.</span><span class="nx">pprof</span> 
 <span class="nx">File</span><span class="p">:</span> <span class="nx">main</span>
 <span class="nx">Type</span><span class="p">:</span> <span class="nx">cpu</span>
 <span class="nx">Time</span><span class="p">:</span> <span class="nx">Oct</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2021</span> <span class="nx">at</span> <span class="mi">4</span><span class="p">:</span><span class="mi">21</span><span class="nf">pm</span> <span class="p">(</span><span class="nx">UTC</span><span class="p">)</span>
@@ -350,7 +350,7 @@
 </div><h3 id="更多操作">更多操作</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -425,7 +425,7 @@
 </span><span class="lnt">73
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">(pprof) help
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">(pprof) help
   Commands:
     callgrind        Outputs a graph in callgrind format
     comments         Output all profile comments
@@ -504,23 +504,23 @@
 <p>如果应用程序是一直运行，那么可以使用<code>net/http/pprof</code>库，它能够在提供 HTTP 服务进行分析。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">_</span> <span class="s">&#34;net/http/pprof&#34;</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">_</span> <span class="s">&#34;net/http/pprof&#34;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>如果使用自定义Mux，则需要手动注册一些路由规则：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">r</span><span class="p">.</span><span class="nf">HandleFunc</span><span class="p">(</span><span class="s">&#34;/debug/pprof/&#34;</span><span class="p">,</span> <span class="nx">pprof</span><span class="p">.</span><span class="nx">Index</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">r</span><span class="p">.</span><span class="nf">HandleFunc</span><span class="p">(</span><span class="s">&#34;/debug/pprof/&#34;</span><span class="p">,</span> <span class="nx">pprof</span><span class="p">.</span><span class="nx">Index</span><span class="p">)</span>
 <span class="nx">r</span><span class="p">.</span><span class="nf">HandleFunc</span><span class="p">(</span><span class="s">&#34;/debug/pprof/cmdline&#34;</span><span class="p">,</span> <span class="nx">pprof</span><span class="p">.</span><span class="nx">Cmdline</span><span class="p">)</span>
 <span class="nx">r</span><span class="p">.</span><span class="nf">HandleFunc</span><span class="p">(</span><span class="s">&#34;/debug/pprof/profile&#34;</span><span class="p">,</span> <span class="nx">pprof</span><span class="p">.</span><span class="nx">Profile</span><span class="p">)</span>
 <span class="nx">r</span><span class="p">.</span><span class="nf">HandleFunc</span><span class="p">(</span><span class="s">&#34;/debug/pprof/symbol&#34;</span><span class="p">,</span> <span class="nx">pprof</span><span class="p">.</span><span class="nx">Symbol</span><span class="p">)</span>
@@ -530,10 +530,10 @@
 </div><p>如果使用的是gin框架，那么推荐使用<a href="https://github.com/gin-contrib/pprof" target="_blank" rel="noopener noreffer">github.com/gin-contrib/pprof</a>，在代码中通过以下命令注册pprof相关路由。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">pprof</span><span class="p">.</span><span class="nf">Register</span><span class="p">(</span><span class="nx">router</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">pprof</span><span class="p">.</span><span class="nf">Register</span><span class="p">(</span><span class="nx">router</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><img
@@ -547,7 +547,7 @@
 <h3 id="演示-1">演示</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -557,7 +557,7 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">import (
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">import (
 	&#34;net/http&#34;
 	_ &#34;net/http/pprof&#34;
 )
@@ -572,7 +572,7 @@ func main() {
 <p>看到这里是调用Go底层的runtime.MemStats结构体获取，该结构体相关字段解释如下。 <a href="https://blog.csdn.net/skh2015java/article/details/102748222" target="_blank" rel="noopener noreffer">原文链接</a></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -604,7 +604,7 @@ func main() {
 </span><span class="lnt">30
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">
 Alloc uint64 //golang语言框架堆空间分配的字节数
 TotalAlloc uint64 //从服务开始运行至今分配器为分配的堆空间总 和，只有增加，释放的时候不减少
 Sys uint64 //服务现在系统使用的内存
@@ -639,15 +639,15 @@ BySize //内存分配器使用情况
 </div><h3 id="查看内存">查看内存</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">go tool pprof http://192.168.2.36:8080/debug/pprof/heap
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">go tool pprof http://192.168.2.36:8080/debug/pprof/heap
 </code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -658,7 +658,7 @@ BySize //内存分配器使用情况
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">&gt; help可以查看使用说明
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">&gt; help可以查看使用说明
  
 &gt; top 可以查看前10个的内存分配情况
  
@@ -673,10 +673,10 @@ BySize //内存分配器使用情况
 <p>默认需要等30s</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">go tool pprof http://192.168.2.36:8080/debug/pprof/profile
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">go tool pprof http://192.168.2.36:8080/debug/pprof/profile
 </code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">

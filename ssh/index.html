@@ -8,10 +8,10 @@
         <title>ssh免密登录 - MyBlog</title><meta name="Description" content="About LoveIt Theme"><meta property="og:title" content="ssh免密登录" />
 <meta property="og:description" content="生成公私钥 1 ssh-keygen -t rsa 上次公钥到服务端 1 2 3 4 5 scp ./id_rsa.pub 服务端账号@服务端ip:/上传到服务端目录 // 创建文件 将公钥写进去 vim authorized_keys // 也可以不上传直接复制公" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.com/ssh/" />
-<meta property="og:image" content="https://example.com/logo.png"/>
+<meta property="og:url" content="https://example.com/ssh/" /><meta property="og:image" content="https://example.com/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-09-01T16:00:37+00:00" />
 <meta property="article:modified_time" content="2021-10-04T16:30:58+00:00" />
+
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://example.com/logo.png"/>
 
@@ -128,10 +128,10 @@
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">ssh-keygen -t rsa
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">ssh-keygen -t rsa
 </code></pre></td></tr></table>
 </div>
 </div><ol start="2">
@@ -139,14 +139,14 @@
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">scp ./id_rsa.pub 服务端账号@服务端ip:/上传到服务端目录
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">scp ./id_rsa.pub 服务端账号@服务端ip:/上传到服务端目录
 // 创建文件 将公钥写进去
 vim authorized_keys
 
@@ -156,14 +156,14 @@ vim authorized_keys
 </div><h2 id="客户端配置文件演示">客户端配置文件演示</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">Host ubuntu
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">Host ubuntu
   HostName 192.168.2.30
   User yemo
   IdentityFile C:\Users\test\.ssh\id_rsa

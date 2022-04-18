@@ -8,10 +8,10 @@
         <title>docker7 多架构和容器安全 - MyBlog</title><meta name="Description" content="About LoveIt Theme"><meta property="og:title" content="docker7 多架构和容器安全" />
 <meta property="og:description" content="1. 使用buildx构建多架构镜像 windows 和 mac桌面版自带buildx 安装buildx，buildx下载地址 下载到~/.docker/cli-pl" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.com/docker8/" />
-<meta property="og:image" content="https://example.com/logo.png"/>
+<meta property="og:url" content="https://example.com/docker8/" /><meta property="og:image" content="https://example.com/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-10-04T17:10:52+00:00" />
 <meta property="article:modified_time" content="2021-10-04T16:30:58+00:00" />
+
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://example.com/logo.png"/>
 
@@ -128,27 +128,27 @@
 <p>安装<code>buildx</code>，<a href="https://github.com/docker/buildx/releases/download/v0.6.3/buildx-v0.6.3.linux-amd64" target="_blank" rel="noopener noreffer">buildx下载地址</a> 下载到<code>~/.docker/cli-plugins</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">curl https://github.com/docker/buildx/releases/download/v0.6.3/buildx-v0.6.3.linux-amd64 -o ~/.docker/cli-plugins/docker-buildx
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">curl https://github.com/docker/buildx/releases/download/v0.6.3/buildx-v0.6.3.linux-amd64 -o ~/.docker/cli-plugins/docker-buildx
 chmod a+x ~/.docker/cli-plugins/docker-buildx
 </code></pre></td></tr></table>
 </div>
 </div><p>使用</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker buildx build --push --platform linux/arm/v7,linux/arm64/v8,linux/amd64 -t 镜像名
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">docker buildx build --push --platform linux/arm/v7,linux/arm64/v8,linux/amd64 -t 镜像名
 </code></pre></td></tr></table>
 </div>
 </div><p>更多命令</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -175,7 +175,7 @@ chmod a+x ~/.docker/cli-plugins/docker-buildx
 </span><span class="lnt">25
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">❯ docker buildx
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">❯ docker buildx
 
 Usage:  docker buildx [OPTIONS] COMMAND
 
@@ -206,12 +206,12 @@ Commands:
 <p><code>docker-bench-security</code>对主机和docker镜像做评估，<a href="https://github.com/docker/docker-bench-security" target="_blank" rel="noopener noreffer">docker-bench-security</a></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">git clone git@github.com:docker/docker-bench-security.git
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">git clone git@github.com:docker/docker-bench-security.git
 cd /docker-bench-security
 sudo ./docker-bench-security.sh
 </code></pre></td></tr></table>

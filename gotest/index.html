@@ -8,10 +8,10 @@
         <title>go Test测试 - MyBlog</title><meta name="Description" content="About LoveIt Theme"><meta property="og:title" content="go Test测试" />
 <meta property="og:description" content="类型 函数名前缀 作用 测试函数 函数名前缀为Test 测试程序的一些逻辑行为是否正确 基准函数 函数名前缀为Benchmark 测试函数的性能 示例函数 函数" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.com/gotest/" />
-<meta property="og:image" content="https://example.com/logo.png"/>
+<meta property="og:url" content="https://example.com/gotest/" /><meta property="og:image" content="https://example.com/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-08-19T13:05:46+00:00" />
 <meta property="article:modified_time" content="2021-09-22T17:23:26+00:00" />
+
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://example.com/logo.png"/>
 
@@ -166,16 +166,16 @@
 <p>基本格式</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">function</span> <span class="nf">TestName</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{}</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">function</span> <span class="nf">TestName</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{}</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>其中参数<code>t</code>用于报告测试失败和附加的日志信息。 <code>testing.T</code>的拥有的方法如下</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -193,7 +193,7 @@
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">T</span><span class="p">)</span> <span class="nf">Error</span><span class="p">(</span><span class="nx">args</span> <span class="o">...</span><span class="kd">interface</span><span class="p">{})</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">T</span><span class="p">)</span> <span class="nf">Error</span><span class="p">(</span><span class="nx">args</span> <span class="o">...</span><span class="kd">interface</span><span class="p">{})</span>
 <span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">T</span><span class="p">)</span> <span class="nf">Errorf</span><span class="p">(</span><span class="nx">format</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">args</span> <span class="o">...</span><span class="kd">interface</span><span class="p">{})</span>
 <span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">T</span><span class="p">)</span> <span class="nf">Fail</span><span class="p">()</span>
 <span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">T</span><span class="p">)</span> <span class="nf">FailNow</span><span class="p">()</span>
@@ -215,14 +215,14 @@
 <p><code>main.go</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
 
 <span class="kd">func</span> <span class="nf">Sum</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
 	<span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span>
@@ -232,7 +232,7 @@
 </div><p><code>sum_test.go</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -246,7 +246,7 @@
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
 
 <span class="kn">import</span> <span class="s">&#34;testing&#34;</span>
 
@@ -263,14 +263,14 @@
 </div><p>运行go test -v</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="o">==</span><span class="p">=</span> <span class="nx">RUN</span>   <span class="nx">TestSum</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="o">==</span><span class="p">=</span> <span class="nx">RUN</span>   <span class="nx">TestSum</span>
     <span class="nx">sum_test</span><span class="p">.</span><span class="k">go</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span> <span class="nx">sum</span> <span class="nx">is</span> <span class="nx">ok</span>
 <span class="o">---</span> <span class="nx">PASS</span><span class="p">:</span> <span class="nf">TestSum</span> <span class="p">(</span><span class="mf">0.00</span><span class="nx">s</span><span class="p">)</span>
 <span class="nx">PASS</span>
@@ -280,7 +280,7 @@
 </div><h3 id="测试组">测试组</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -310,7 +310,7 @@
 </span><span class="lnt">28
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
 
 <span class="kn">import</span> <span class="p">(</span>
    <span class="s">&#34;reflect&#34;</span>
@@ -342,7 +342,7 @@
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -352,7 +352,7 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="o">==</span><span class="p">=</span> <span class="nx">RUN</span>   <span class="nx">TestSum</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="o">==</span><span class="p">=</span> <span class="nx">RUN</span>   <span class="nx">TestSum</span>
     <span class="nx">sum_test</span><span class="p">.</span><span class="k">go</span><span class="p">:</span><span class="mi">32</span><span class="p">:</span> <span class="nx">sum</span> <span class="nx">is</span> <span class="nx">ok</span>
     <span class="nx">sum_test</span><span class="p">.</span><span class="k">go</span><span class="p">:</span><span class="mi">32</span><span class="p">:</span> <span class="nx">sum</span> <span class="nx">is</span> <span class="nx">ok</span>
     <span class="nx">sum_test</span><span class="p">.</span><span class="k">go</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span> <span class="nx">sum</span> <span class="nx">is</span> <span class="nx">wrong</span>
@@ -365,7 +365,7 @@
 </div><h3 id="子测试">子测试</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -397,7 +397,7 @@
 </span><span class="lnt">30
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">TestSum</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span>  <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">TestSum</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span>  <span class="p">{</span>
 	<span class="c1">//res := Sum(1, 4)
 </span><span class="c1"></span>	<span class="c1">//if res != 3{
 </span><span class="c1"></span>	<span class="c1">//	t.Error(&#34;sum is wrong&#34;)
@@ -432,12 +432,12 @@
 </div><p><code>go test -run=TestSum/case_1</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">testing</span><span class="p">:</span> <span class="nx">warning</span><span class="p">:</span> <span class="nx">no</span> <span class="nx">tests</span> <span class="nx">to</span> <span class="nx">run</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">testing</span><span class="p">:</span> <span class="nx">warning</span><span class="p">:</span> <span class="nx">no</span> <span class="nx">tests</span> <span class="nx">to</span> <span class="nx">run</span>
 <span class="nx">PASS</span>
 <span class="nx">ok</span>      <span class="nx">_</span><span class="o">/</span><span class="nx">C_</span><span class="o">/</span><span class="nx">Users</span><span class="o">/</span><span class="err">???</span><span class="o">/</span><span class="nx">Desktop</span><span class="o">/</span><span class="k">go</span><span class="o">/</span><span class="nx">test</span><span class="o">/</span><span class="nx">testing</span>        <span class="mf">0.037</span><span class="nx">s</span>
 </code></pre></td></tr></table>
@@ -449,14 +449,14 @@
 <p><code>main.go</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
 
 <span class="kd">func</span> <span class="nf">Sum</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
 	<span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span>
@@ -466,7 +466,7 @@
 </div><p><code>sum_test.go</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -479,7 +479,7 @@
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
 
 <span class="kn">import</span> <span class="p">(</span>
 	<span class="s">&#34;testing&#34;</span>
@@ -494,7 +494,7 @@
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -504,7 +504,7 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">❯ go test -bench=Sum    
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">❯ go test -bench=Sum    
 goos: linux
 goarch: amd64
 pkg: benchmark
@@ -518,7 +518,7 @@ ok      benchmark       0.473s
 <p>使用 <code>-benchmem</code>参数。获取内存分配统计数据</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -528,7 +528,7 @@ ok      benchmark       0.473s
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">❯ go <span class="nb">test</span> -bench<span class="o">=</span>Sum -benchmem 
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">❯ go <span class="nb">test</span> -bench<span class="o">=</span>Sum -benchmem 
 goos: linux
 goarch: amd64
 pkg: benchmark
