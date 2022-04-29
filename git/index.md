@@ -112,3 +112,21 @@ java -jar bfg.jar
 ```
 
 使用文章 [腾讯云](https://cloud.tencent.com/developer/article/1490209)
+
+## github 配置 SSH-key
+
+1.  [配置git](#配置git)
+
+2. 生成密钥
+
+   ```
+   ssh-keygen -t rsa -C "邮箱地址"
+   ```
+
+3. 测试是否配置成功
+
+   ```
+   git ssh -T git@github.com 
+   ```
+
+   
