@@ -146,19 +146,19 @@
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">code</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="s2">&#34;code-header&#34;</span><span class="p">)</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">code</span><span class="p">)</span>
-
-<span class="c1">// 获取结果
-</span><span class="c1">// HTMLCollection []
-</span><span class="c1">// 0: div.code-header.language-fallback
-</span><span class="c1">// 1: div.code-header.language-fallback
-</span><span class="c1">// 2: div.code-header.language-fallback
-</span><span class="c1">// 3: div.code-header.language-go
-</span><span class="c1">// length: 4
-</span><span class="c1"></span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">code</span><span class="p">.</span><span class="nx">leng</span><span class="p">)</span> <span class="c1">// 0
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">code</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="s2">&#34;code-header&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">code</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 获取结果
+</span></span></span><span class="line"><span class="cl"><span class="c1">// HTMLCollection []
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 0: div.code-header.language-fallback
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 1: div.code-header.language-fallback
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 2: div.code-header.language-fallback
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 3: div.code-header.language-go
+</span></span></span><span class="line"><span class="cl"><span class="c1">// length: 4
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">code</span><span class="p">.</span><span class="nx">leng</span><span class="p">)</span> <span class="c1">// 0
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="因为页面没加载完毕就执行了js">因为页面没加载完毕就执行了js</h3>
 <div class="highlight"><div class="chroma">
@@ -170,12 +170,12 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="c1">// 等加载完毕执行
-</span><span class="c1"></span><span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">code</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="s2">&#34;code-header&#34;</span><span class="p">)</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">code</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// 等加载完毕执行
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">code</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="s2">&#34;code-header&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">code</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="页面文档加载解析完毕执行">页面文档加载解析完毕执行</h3>
 <div class="highlight"><div class="chroma">
@@ -187,12 +187,12 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="c1">// 当页面文档加载并解析完毕之后会马上触发 DOMContentLoaded 事件
-</span><span class="c1"></span><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;DOMContentLoaded&#34;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-   <span class="kd">var</span> <span class="nx">code</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="s2">&#34;code-header&#34;</span><span class="p">)</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">code</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span>
-<span class="p">})</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// 当页面文档加载并解析完毕之后会马上触发 DOMContentLoaded 事件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;DOMContentLoaded&#34;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">   <span class="kd">var</span> <span class="nx">code</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByClassName</span><span class="p">(</span><span class="s2">&#34;code-header&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">code</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">})</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
     <div class="post-info">

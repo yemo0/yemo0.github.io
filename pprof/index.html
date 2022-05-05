@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/example.com\/pprof\/"
-        },"image": ["https:\/\/example.com\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "go，pprof","wordcount":  2490 ,
+        },"image": ["https:\/\/example.com\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "go, pprof","wordcount":  2490 ,
         "url": "https:\/\/example.com\/pprof\/","datePublished": "2021-10-05T00:39:17+00:00","dateModified": "2021-11-28T13:54:09+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/example.com\/images\/avatar.png"},"author": {
@@ -174,8 +174,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">import &#34;runtime/pprof&#34;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">import &#34;runtime/pprof&#34;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="cpu性能分析">CPU性能分析</h3>
 <p>开启CPU性能分析：</p>
@@ -184,8 +184,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">pprof</span><span class="p">.</span><span class="nf">StartCPUProfile</span><span class="p">(</span><span class="nx">w</span> <span class="nx">io</span><span class="p">.</span><span class="nx">Writer</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">pprof</span><span class="p">.</span><span class="nf">StartCPUProfile</span><span class="p">(</span><span class="nx">w</span> <span class="nx">io</span><span class="p">.</span><span class="nx">Writer</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>停止CPU性能分析：</p>
 <div class="highlight"><div class="chroma">
@@ -193,8 +193,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">pprof</span><span class="p">.</span><span class="nf">StopCPUProfile</span><span class="p">()</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">pprof</span><span class="p">.</span><span class="nf">StopCPUProfile</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="内存性能分析">内存性能分析</h3>
 <p>记录程序的堆栈信息</p>
@@ -203,8 +203,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">pprof</span><span class="p">.</span><span class="nf">WriteHeapProfile</span><span class="p">(</span><span class="nx">w</span> <span class="nx">io</span><span class="p">.</span><span class="nx">Writer</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">pprof</span><span class="p">.</span><span class="nf">WriteHeapProfile</span><span class="p">(</span><span class="nx">w</span> <span class="nx">io</span><span class="p">.</span><span class="nx">Writer</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>go tool pprof</code>默认是使用<code>-inuse_space</code>进行统计，还可以使用<code>-inuse-objects</code>查看分配对象的数量。</p>
 <h3 id="演示">演示</h3>
@@ -243,38 +243,38 @@
 </span><span class="lnt">31
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
-
-<span class="kn">import</span> <span class="p">(</span>
-	<span class="s">&#34;fmt&#34;</span>
-	<span class="s">&#34;os&#34;</span>
-	<span class="s">&#34;runtime/pprof&#34;</span>
-	<span class="s">&#34;time&#34;</span>
-<span class="p">)</span>
-
-<span class="kd">func</span> <span class="nf">problem</span><span class="p">()</span> <span class="p">{</span>
-	<span class="k">for</span> <span class="p">{}</span>
-<span class="p">}</span>
-
-<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-	<span class="nx">file</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">OpenFile</span><span class="p">(</span><span class="s">&#34;./cpu.pprof&#34;</span><span class="p">,</span> <span class="nx">os</span><span class="p">.</span><span class="nx">O_CREATE</span><span class="p">|</span><span class="nx">os</span><span class="p">.</span><span class="nx">O_RDWR</span><span class="p">,</span> <span class="mo">0666</span><span class="p">)</span>
-	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;OpenFile error: &#34;</span> <span class="o">+</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">())</span>
-		<span class="k">return</span>
-	<span class="p">}</span>
-
-	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
-		<span class="k">go</span> <span class="nf">problem</span><span class="p">()</span>
-	<span class="p">}</span>
-
-	<span class="nx">pprof</span><span class="p">.</span><span class="nf">StartCPUProfile</span><span class="p">(</span><span class="nx">file</span><span class="p">)</span>
-	<span class="k">defer</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
-		<span class="nx">pprof</span><span class="p">.</span><span class="nf">StopCPUProfile</span><span class="p">()</span>
-		<span class="nx">file</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
-	<span class="p">}()</span>
-	<span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span> <span class="o">*</span> <span class="mi">30</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;os&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;runtime/pprof&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;time&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">problem</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">file</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">OpenFile</span><span class="p">(</span><span class="s">&#34;./cpu.pprof&#34;</span><span class="p">,</span> <span class="nx">os</span><span class="p">.</span><span class="nx">O_CREATE</span><span class="p">|</span><span class="nx">os</span><span class="p">.</span><span class="nx">O_RDWR</span><span class="p">,</span> <span class="mo">0666</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;OpenFile error: &#34;</span> <span class="o">+</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="k">go</span> <span class="nf">problem</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">pprof</span><span class="p">.</span><span class="nf">StartCPUProfile</span><span class="p">(</span><span class="nx">file</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">defer</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">pprof</span><span class="p">.</span><span class="nf">StopCPUProfile</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">file</span><span class="p">.</span><span class="nf">Close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}()</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span> <span class="o">*</span> <span class="mi">30</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>查看</p>
 <div class="highlight"><div class="chroma">
@@ -313,39 +313,39 @@
 </span><span class="lnt">32
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="err">❯</span> <span class="k">go</span> <span class="nx">tool</span> <span class="nx">pprof</span> <span class="nx">cpu</span><span class="p">.</span><span class="nx">pprof</span> 
-<span class="nx">File</span><span class="p">:</span> <span class="nx">main</span>
-<span class="nx">Type</span><span class="p">:</span> <span class="nx">cpu</span>
-<span class="nx">Time</span><span class="p">:</span> <span class="nx">Oct</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2021</span> <span class="nx">at</span> <span class="mi">4</span><span class="p">:</span><span class="mi">21</span><span class="nf">pm</span> <span class="p">(</span><span class="nx">UTC</span><span class="p">)</span>
-<span class="nx">Duration</span><span class="p">:</span> <span class="mf">30.18</span><span class="nx">s</span><span class="p">,</span> <span class="nx">Total</span> <span class="nx">samples</span> <span class="p">=</span> <span class="mf">80.50</span><span class="nf">s</span> <span class="p">(</span><span class="mf">266.76</span><span class="o">%</span><span class="p">)</span>
-<span class="nx">Entering</span> <span class="nx">interactive</span> <span class="nf">mode</span> <span class="p">(</span><span class="kd">type</span> <span class="s">&#34;help&#34;</span> <span class="k">for</span> <span class="nx">commands</span><span class="p">,</span> <span class="s">&#34;o&#34;</span> <span class="k">for</span> <span class="nx">options</span><span class="p">)</span>
-<span class="p">(</span><span class="nx">pprof</span><span class="p">)</span> <span class="nx">top</span>
-<span class="nx">Showing</span> <span class="nx">nodes</span> <span class="nx">accounting</span> <span class="k">for</span> <span class="mf">80.50</span><span class="nx">s</span><span class="p">,</span> <span class="mi">100</span><span class="o">%</span> <span class="nx">of</span> <span class="mf">80.50</span><span class="nx">s</span> <span class="nx">total</span>
-      <span class="nx">flat</span>  <span class="nx">flat</span><span class="o">%</span>   <span class="nx">sum</span><span class="o">%</span>        <span class="nx">cum</span>   <span class="nx">cum</span><span class="o">%</span>
-    <span class="mf">79.96</span><span class="nx">s</span> <span class="mf">99.33</span><span class="o">%</span> <span class="mf">99.33</span><span class="o">%</span>     <span class="mf">80.50</span><span class="nx">s</span>   <span class="mi">100</span><span class="o">%</span>  <span class="nx">main</span><span class="p">.</span><span class="nx">problem</span>
-     <span class="mf">0.54</span><span class="nx">s</span>  <span class="mf">0.67</span><span class="o">%</span>   <span class="mi">100</span><span class="o">%</span>      <span class="mf">0.54</span><span class="nx">s</span>  <span class="mf">0.67</span><span class="o">%</span>  <span class="nx">runtime</span><span class="p">.</span><span class="nx">asyncPreempt</span>
-<span class="err">#</span> <span class="nx">查看详情</span>
-<span class="p">(</span><span class="nx">pprof</span><span class="p">)</span> <span class="nx">list</span> <span class="nx">main</span><span class="p">.</span><span class="nx">problem</span>
-<span class="nx">Total</span><span class="p">:</span> <span class="mf">80.50</span><span class="nx">s</span>
-<span class="nx">ROUTINE</span> <span class="o">========================</span> <span class="nx">main</span><span class="p">.</span><span class="nx">problem</span> <span class="nx">in</span> <span class="o">/</span><span class="nx">home</span><span class="o">/</span><span class="nx">yemo</span><span class="o">/</span><span class="nx">GoStudy</span><span class="o">/</span><span class="nx">pprof</span><span class="o">/</span><span class="nx">main</span><span class="p">.</span><span class="k">go</span>
-    <span class="mf">79.96</span><span class="nx">s</span>     <span class="mf">80.50</span><span class="nf">s</span> <span class="p">(</span><span class="nx">flat</span><span class="p">,</span> <span class="nx">cum</span><span class="p">)</span>   <span class="mi">100</span><span class="o">%</span> <span class="nx">of</span> <span class="nx">Total</span>
-      <span class="mi">10</span><span class="nx">ms</span>       <span class="mi">10</span><span class="nx">ms</span>      <span class="mi">1</span><span class="p">:</span><span class="kn">package</span> <span class="nx">main</span>
-         <span class="p">.</span>          <span class="p">.</span>      <span class="mi">2</span><span class="p">:</span>
-         <span class="p">.</span>          <span class="p">.</span>      <span class="mi">3</span><span class="p">:</span><span class="kn">import</span> <span class="p">(</span>
-         <span class="p">.</span>          <span class="p">.</span>      <span class="mi">4</span><span class="p">:</span>   <span class="s">&#34;fmt&#34;</span>
-         <span class="p">.</span>          <span class="p">.</span>      <span class="mi">5</span><span class="p">:</span>   <span class="s">&#34;os&#34;</span>
-         <span class="p">.</span>          <span class="p">.</span>      <span class="mi">6</span><span class="p">:</span>   <span class="s">&#34;runtime/pprof&#34;</span>
-         <span class="p">.</span>          <span class="p">.</span>      <span class="mi">7</span><span class="p">:</span>   <span class="s">&#34;time&#34;</span>
-         <span class="p">.</span>          <span class="p">.</span>      <span class="mi">8</span><span class="p">:)</span>
-         <span class="p">.</span>          <span class="p">.</span>      <span class="mi">9</span><span class="p">:</span>
-         <span class="p">.</span>          <span class="p">.</span>     <span class="mi">10</span><span class="p">:</span><span class="kd">func</span> <span class="nf">problem</span><span class="p">()</span> <span class="p">{</span>
-    <span class="mf">79.95</span><span class="nx">s</span>     <span class="mf">80.49</span><span class="nx">s</span>     <span class="mi">11</span><span class="p">:</span>   <span class="k">for</span> <span class="p">{</span>
-         <span class="p">.</span>          <span class="p">.</span>     <span class="mi">12</span><span class="p">:</span>
-         <span class="p">.</span>          <span class="p">.</span>     <span class="mi">13</span><span class="p">:</span>   <span class="p">}</span>
-         <span class="p">.</span>          <span class="p">.</span>     <span class="mi">14</span><span class="p">:}</span>
-         <span class="p">.</span>          <span class="p">.</span>     <span class="mi">15</span><span class="p">:</span>
-         <span class="p">.</span>          <span class="p">.</span>     <span class="mi">16</span><span class="p">:</span><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="err">❯</span> <span class="k">go</span> <span class="nx">tool</span> <span class="nx">pprof</span> <span class="nx">cpu</span><span class="p">.</span><span class="nx">pprof</span> 
+</span></span><span class="line"><span class="cl"><span class="nx">File</span><span class="p">:</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Type</span><span class="p">:</span> <span class="nx">cpu</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Time</span><span class="p">:</span> <span class="nx">Oct</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2021</span> <span class="nx">at</span> <span class="mi">4</span><span class="p">:</span><span class="mi">21</span><span class="nf">pm</span> <span class="p">(</span><span class="nx">UTC</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Duration</span><span class="p">:</span> <span class="mf">30.18</span><span class="nx">s</span><span class="p">,</span> <span class="nx">Total</span> <span class="nx">samples</span> <span class="p">=</span> <span class="mf">80.50</span><span class="nf">s</span> <span class="p">(</span><span class="mf">266.76</span><span class="o">%</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Entering</span> <span class="nx">interactive</span> <span class="nf">mode</span> <span class="p">(</span><span class="kd">type</span> <span class="s">&#34;help&#34;</span> <span class="k">for</span> <span class="nx">commands</span><span class="p">,</span> <span class="s">&#34;o&#34;</span> <span class="k">for</span> <span class="nx">options</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nx">pprof</span><span class="p">)</span> <span class="nx">top</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Showing</span> <span class="nx">nodes</span> <span class="nx">accounting</span> <span class="k">for</span> <span class="mf">80.50</span><span class="nx">s</span><span class="p">,</span> <span class="mi">100</span><span class="o">%</span> <span class="nx">of</span> <span class="mf">80.50</span><span class="nx">s</span> <span class="nx">total</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">flat</span>  <span class="nx">flat</span><span class="o">%</span>   <span class="nx">sum</span><span class="o">%</span>        <span class="nx">cum</span>   <span class="nx">cum</span><span class="o">%</span>
+</span></span><span class="line"><span class="cl">    <span class="mf">79.96</span><span class="nx">s</span> <span class="mf">99.33</span><span class="o">%</span> <span class="mf">99.33</span><span class="o">%</span>     <span class="mf">80.50</span><span class="nx">s</span>   <span class="mi">100</span><span class="o">%</span>  <span class="nx">main</span><span class="p">.</span><span class="nx">problem</span>
+</span></span><span class="line"><span class="cl">     <span class="mf">0.54</span><span class="nx">s</span>  <span class="mf">0.67</span><span class="o">%</span>   <span class="mi">100</span><span class="o">%</span>      <span class="mf">0.54</span><span class="nx">s</span>  <span class="mf">0.67</span><span class="o">%</span>  <span class="nx">runtime</span><span class="p">.</span><span class="nx">asyncPreempt</span>
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nx">查看详情</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nx">pprof</span><span class="p">)</span> <span class="nx">list</span> <span class="nx">main</span><span class="p">.</span><span class="nx">problem</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Total</span><span class="p">:</span> <span class="mf">80.50</span><span class="nx">s</span>
+</span></span><span class="line"><span class="cl"><span class="nx">ROUTINE</span> <span class="o">========================</span> <span class="nx">main</span><span class="p">.</span><span class="nx">problem</span> <span class="nx">in</span> <span class="o">/</span><span class="nx">home</span><span class="o">/</span><span class="nx">yemo</span><span class="o">/</span><span class="nx">GoStudy</span><span class="o">/</span><span class="nx">pprof</span><span class="o">/</span><span class="nx">main</span><span class="p">.</span><span class="k">go</span>
+</span></span><span class="line"><span class="cl">    <span class="mf">79.96</span><span class="nx">s</span>     <span class="mf">80.50</span><span class="nf">s</span> <span class="p">(</span><span class="nx">flat</span><span class="p">,</span> <span class="nx">cum</span><span class="p">)</span>   <span class="mi">100</span><span class="o">%</span> <span class="nx">of</span> <span class="nx">Total</span>
+</span></span><span class="line"><span class="cl">      <span class="mi">10</span><span class="nx">ms</span>       <span class="mi">10</span><span class="nx">ms</span>      <span class="mi">1</span><span class="p">:</span><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">         <span class="p">.</span>          <span class="p">.</span>      <span class="mi">2</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">         <span class="p">.</span>          <span class="p">.</span>      <span class="mi">3</span><span class="p">:</span><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">         <span class="p">.</span>          <span class="p">.</span>      <span class="mi">4</span><span class="p">:</span>   <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="p">.</span>          <span class="p">.</span>      <span class="mi">5</span><span class="p">:</span>   <span class="s">&#34;os&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="p">.</span>          <span class="p">.</span>      <span class="mi">6</span><span class="p">:</span>   <span class="s">&#34;runtime/pprof&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="p">.</span>          <span class="p">.</span>      <span class="mi">7</span><span class="p">:</span>   <span class="s">&#34;time&#34;</span>
+</span></span><span class="line"><span class="cl">         <span class="p">.</span>          <span class="p">.</span>      <span class="mi">8</span><span class="p">:)</span>
+</span></span><span class="line"><span class="cl">         <span class="p">.</span>          <span class="p">.</span>      <span class="mi">9</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">         <span class="p">.</span>          <span class="p">.</span>     <span class="mi">10</span><span class="p">:</span><span class="kd">func</span> <span class="nf">problem</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="mf">79.95</span><span class="nx">s</span>     <span class="mf">80.49</span><span class="nx">s</span>     <span class="mi">11</span><span class="p">:</span>   <span class="k">for</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">         <span class="p">.</span>          <span class="p">.</span>     <span class="mi">12</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">         <span class="p">.</span>          <span class="p">.</span>     <span class="mi">13</span><span class="p">:</span>   <span class="p">}</span>
+</span></span><span class="line"><span class="cl">         <span class="p">.</span>          <span class="p">.</span>     <span class="mi">14</span><span class="p">:}</span>
+</span></span><span class="line"><span class="cl">         <span class="p">.</span>          <span class="p">.</span>     <span class="mi">15</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">         <span class="p">.</span>          <span class="p">.</span>     <span class="mi">16</span><span class="p">:</span><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="更多操作">更多操作</h3>
 <div class="highlight"><div class="chroma">
@@ -425,80 +425,80 @@
 </span><span class="lnt">73
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">(pprof) help
-  Commands:
-    callgrind        Outputs a graph in callgrind format
-    comments         Output all profile comments
-    disasm           Output assembly listings annotated with samples
-    dot              Outputs a graph in DOT format
-    eog              Visualize graph through eog
-    evince           Visualize graph through evince
-    gif              Outputs a graph image in GIF format
-    gv               Visualize graph through gv
-    kcachegrind      Visualize report in KCachegrind
-    list             Output annotated source for functions matching regexp
-    pdf              Outputs a graph in PDF format
-    peek             Output callers/callees of functions matching regexp
-    png              Outputs a graph image in PNG format
-    proto            Outputs the profile in compressed protobuf format
-    ps               Outputs a graph in PS format
-    raw              Outputs a text representation of the raw profile
-    svg              Outputs a graph in SVG format
-    tags             Outputs all tags in the profile
-    text             Outputs top entries in text form
-    top              Outputs top entries in text form
-    topproto         Outputs top entries in compressed protobuf format
-    traces           Outputs all profile samples in text form
-    tree             Outputs a text rendering of call graph
-    web              Visualize graph through web browser
-    weblist          Display annotated source in a web browser
-    o/options        List options and their current values
-    q/quit/exit/^D   Exit pprof
-
-  Options:
-    call_tree        Create a context-sensitive call tree
-    compact_labels   Show minimal headers
-    divide_by        Ratio to divide all samples before visualization
-    drop_negative    Ignore negative differences
-    edgefraction     Hide edges below &lt;f&gt;*total
-    focus            Restricts to samples going through a node matching regexp
-    hide             Skips nodes matching regexp
-    ignore           Skips paths going through any nodes matching regexp
-    intel_syntax     Show assembly in Intel syntax
-    mean             Average sample value over first value (count)
-    nodecount        Max number of nodes to show
-    nodefraction     Hide nodes below &lt;f&gt;*total
-    noinlines        Ignore inlines.
-    normalize        Scales profile based on the base profile.
-    output           Output filename for file-based outputs
-    prune_from       Drops any functions below the matched frame.
-    relative_percentages Show percentages relative to focused subgraph
-    sample_index     Sample value to report (0-based index or name)
-    show             Only show nodes matching regexp
-    show_from        Drops functions above the highest matched frame.
-    source_path      Search path for source files
-    tagfocus         Restricts to samples with tags in range or matched by regexp
-    taghide          Skip tags matching this regexp
-    tagignore        Discard samples with tags in range or matched by regexp
-    tagshow          Only consider tags matching this regexp
-    trim             Honor nodefraction/edgefraction/nodecount defaults
-    trim_path        Path to trim from source paths before search
-    unit             Measurement units to display
-
-  Option groups (only set one per group):
-    granularity      
-      functions        Aggregate at the function level.
-      filefunctions    Aggregate at the function level.
-      files            Aggregate at the file level.
-      lines            Aggregate at the source code line level.
-      addresses        Aggregate at the address level.
-    sort             
-      cum              Sort entries based on cumulative weight
-      flat             Sort entries based on own weight
-  :   Clear focus/ignore/hide/tagfocus/tagignore
-
-  type &#34;help &lt;cmd|option&gt;&#34; for more information
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">(pprof) help
+</span></span><span class="line"><span class="cl">  Commands:
+</span></span><span class="line"><span class="cl">    callgrind        Outputs a graph in callgrind format
+</span></span><span class="line"><span class="cl">    comments         Output all profile comments
+</span></span><span class="line"><span class="cl">    disasm           Output assembly listings annotated with samples
+</span></span><span class="line"><span class="cl">    dot              Outputs a graph in DOT format
+</span></span><span class="line"><span class="cl">    eog              Visualize graph through eog
+</span></span><span class="line"><span class="cl">    evince           Visualize graph through evince
+</span></span><span class="line"><span class="cl">    gif              Outputs a graph image in GIF format
+</span></span><span class="line"><span class="cl">    gv               Visualize graph through gv
+</span></span><span class="line"><span class="cl">    kcachegrind      Visualize report in KCachegrind
+</span></span><span class="line"><span class="cl">    list             Output annotated source for functions matching regexp
+</span></span><span class="line"><span class="cl">    pdf              Outputs a graph in PDF format
+</span></span><span class="line"><span class="cl">    peek             Output callers/callees of functions matching regexp
+</span></span><span class="line"><span class="cl">    png              Outputs a graph image in PNG format
+</span></span><span class="line"><span class="cl">    proto            Outputs the profile in compressed protobuf format
+</span></span><span class="line"><span class="cl">    ps               Outputs a graph in PS format
+</span></span><span class="line"><span class="cl">    raw              Outputs a text representation of the raw profile
+</span></span><span class="line"><span class="cl">    svg              Outputs a graph in SVG format
+</span></span><span class="line"><span class="cl">    tags             Outputs all tags in the profile
+</span></span><span class="line"><span class="cl">    text             Outputs top entries in text form
+</span></span><span class="line"><span class="cl">    top              Outputs top entries in text form
+</span></span><span class="line"><span class="cl">    topproto         Outputs top entries in compressed protobuf format
+</span></span><span class="line"><span class="cl">    traces           Outputs all profile samples in text form
+</span></span><span class="line"><span class="cl">    tree             Outputs a text rendering of call graph
+</span></span><span class="line"><span class="cl">    web              Visualize graph through web browser
+</span></span><span class="line"><span class="cl">    weblist          Display annotated source in a web browser
+</span></span><span class="line"><span class="cl">    o/options        List options and their current values
+</span></span><span class="line"><span class="cl">    q/quit/exit/^D   Exit pprof
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  Options:
+</span></span><span class="line"><span class="cl">    call_tree        Create a context-sensitive call tree
+</span></span><span class="line"><span class="cl">    compact_labels   Show minimal headers
+</span></span><span class="line"><span class="cl">    divide_by        Ratio to divide all samples before visualization
+</span></span><span class="line"><span class="cl">    drop_negative    Ignore negative differences
+</span></span><span class="line"><span class="cl">    edgefraction     Hide edges below &lt;f&gt;*total
+</span></span><span class="line"><span class="cl">    focus            Restricts to samples going through a node matching regexp
+</span></span><span class="line"><span class="cl">    hide             Skips nodes matching regexp
+</span></span><span class="line"><span class="cl">    ignore           Skips paths going through any nodes matching regexp
+</span></span><span class="line"><span class="cl">    intel_syntax     Show assembly in Intel syntax
+</span></span><span class="line"><span class="cl">    mean             Average sample value over first value (count)
+</span></span><span class="line"><span class="cl">    nodecount        Max number of nodes to show
+</span></span><span class="line"><span class="cl">    nodefraction     Hide nodes below &lt;f&gt;*total
+</span></span><span class="line"><span class="cl">    noinlines        Ignore inlines.
+</span></span><span class="line"><span class="cl">    normalize        Scales profile based on the base profile.
+</span></span><span class="line"><span class="cl">    output           Output filename for file-based outputs
+</span></span><span class="line"><span class="cl">    prune_from       Drops any functions below the matched frame.
+</span></span><span class="line"><span class="cl">    relative_percentages Show percentages relative to focused subgraph
+</span></span><span class="line"><span class="cl">    sample_index     Sample value to report (0-based index or name)
+</span></span><span class="line"><span class="cl">    show             Only show nodes matching regexp
+</span></span><span class="line"><span class="cl">    show_from        Drops functions above the highest matched frame.
+</span></span><span class="line"><span class="cl">    source_path      Search path for source files
+</span></span><span class="line"><span class="cl">    tagfocus         Restricts to samples with tags in range or matched by regexp
+</span></span><span class="line"><span class="cl">    taghide          Skip tags matching this regexp
+</span></span><span class="line"><span class="cl">    tagignore        Discard samples with tags in range or matched by regexp
+</span></span><span class="line"><span class="cl">    tagshow          Only consider tags matching this regexp
+</span></span><span class="line"><span class="cl">    trim             Honor nodefraction/edgefraction/nodecount defaults
+</span></span><span class="line"><span class="cl">    trim_path        Path to trim from source paths before search
+</span></span><span class="line"><span class="cl">    unit             Measurement units to display
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  Option groups (only set one per group):
+</span></span><span class="line"><span class="cl">    granularity      
+</span></span><span class="line"><span class="cl">      functions        Aggregate at the function level.
+</span></span><span class="line"><span class="cl">      filefunctions    Aggregate at the function level.
+</span></span><span class="line"><span class="cl">      files            Aggregate at the file level.
+</span></span><span class="line"><span class="cl">      lines            Aggregate at the source code line level.
+</span></span><span class="line"><span class="cl">      addresses        Aggregate at the address level.
+</span></span><span class="line"><span class="cl">    sort             
+</span></span><span class="line"><span class="cl">      cum              Sort entries based on cumulative weight
+</span></span><span class="line"><span class="cl">      flat             Sort entries based on own weight
+</span></span><span class="line"><span class="cl">  :   Clear focus/ignore/hide/tagfocus/tagignore
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  type &#34;help &lt;cmd|option&gt;&#34; for more information
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="3-服务形应用">3. 服务形应用</h2>
 <p>如果应用程序是一直运行，那么可以使用<code>net/http/pprof</code>库，它能够在提供 HTTP 服务进行分析。</p>
@@ -507,8 +507,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">_</span> <span class="s">&#34;net/http/pprof&#34;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">_</span> <span class="s">&#34;net/http/pprof&#34;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>如果使用自定义Mux，则需要手动注册一些路由规则：</p>
 <div class="highlight"><div class="chroma">
@@ -520,12 +520,12 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">r</span><span class="p">.</span><span class="nf">HandleFunc</span><span class="p">(</span><span class="s">&#34;/debug/pprof/&#34;</span><span class="p">,</span> <span class="nx">pprof</span><span class="p">.</span><span class="nx">Index</span><span class="p">)</span>
-<span class="nx">r</span><span class="p">.</span><span class="nf">HandleFunc</span><span class="p">(</span><span class="s">&#34;/debug/pprof/cmdline&#34;</span><span class="p">,</span> <span class="nx">pprof</span><span class="p">.</span><span class="nx">Cmdline</span><span class="p">)</span>
-<span class="nx">r</span><span class="p">.</span><span class="nf">HandleFunc</span><span class="p">(</span><span class="s">&#34;/debug/pprof/profile&#34;</span><span class="p">,</span> <span class="nx">pprof</span><span class="p">.</span><span class="nx">Profile</span><span class="p">)</span>
-<span class="nx">r</span><span class="p">.</span><span class="nf">HandleFunc</span><span class="p">(</span><span class="s">&#34;/debug/pprof/symbol&#34;</span><span class="p">,</span> <span class="nx">pprof</span><span class="p">.</span><span class="nx">Symbol</span><span class="p">)</span>
-<span class="nx">r</span><span class="p">.</span><span class="nf">HandleFunc</span><span class="p">(</span><span class="s">&#34;/debug/pprof/trace&#34;</span><span class="p">,</span> <span class="nx">pprof</span><span class="p">.</span><span class="nx">Trace</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">r</span><span class="p">.</span><span class="nf">HandleFunc</span><span class="p">(</span><span class="s">&#34;/debug/pprof/&#34;</span><span class="p">,</span> <span class="nx">pprof</span><span class="p">.</span><span class="nx">Index</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">r</span><span class="p">.</span><span class="nf">HandleFunc</span><span class="p">(</span><span class="s">&#34;/debug/pprof/cmdline&#34;</span><span class="p">,</span> <span class="nx">pprof</span><span class="p">.</span><span class="nx">Cmdline</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">r</span><span class="p">.</span><span class="nf">HandleFunc</span><span class="p">(</span><span class="s">&#34;/debug/pprof/profile&#34;</span><span class="p">,</span> <span class="nx">pprof</span><span class="p">.</span><span class="nx">Profile</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">r</span><span class="p">.</span><span class="nf">HandleFunc</span><span class="p">(</span><span class="s">&#34;/debug/pprof/symbol&#34;</span><span class="p">,</span> <span class="nx">pprof</span><span class="p">.</span><span class="nx">Symbol</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">r</span><span class="p">.</span><span class="nf">HandleFunc</span><span class="p">(</span><span class="s">&#34;/debug/pprof/trace&#34;</span><span class="p">,</span> <span class="nx">pprof</span><span class="p">.</span><span class="nx">Trace</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>如果使用的是gin框架，那么推荐使用<a href="https://github.com/gin-contrib/pprof" target="_blank" rel="noopener noreffer">github.com/gin-contrib/pprof</a>，在代码中通过以下命令注册pprof相关路由。</p>
 <div class="highlight"><div class="chroma">
@@ -533,8 +533,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="nx">pprof</span><span class="p">.</span><span class="nf">Register</span><span class="p">(</span><span class="nx">router</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">pprof</span><span class="p">.</span><span class="nf">Register</span><span class="p">(</span><span class="nx">router</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><img
         class="lazyload"
@@ -557,15 +557,15 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">import (
-	&#34;net/http&#34;
-	_ &#34;net/http/pprof&#34;
-)
-
-func main() {
-	http.ListenAndServe(&#34;:8080&#34;, nil)
-}
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">import (
+</span></span><span class="line"><span class="cl">	&#34;net/http&#34;
+</span></span><span class="line"><span class="cl">	_ &#34;net/http/pprof&#34;
+</span></span><span class="line"><span class="cl">)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">func main() {
+</span></span><span class="line"><span class="cl">	http.ListenAndServe(&#34;:8080&#34;, nil)
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>访问 <code>http://192.168.2.36:8080/debug/pprof/</code> 如上图。</p>
 <h4 id="结构体字段解释">结构体字段解释</h4>
@@ -604,37 +604,37 @@ func main() {
 </span><span class="lnt">30
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">
-Alloc uint64 //golang语言框架堆空间分配的字节数
-TotalAlloc uint64 //从服务开始运行至今分配器为分配的堆空间总 和，只有增加，释放的时候不减少
-Sys uint64 //服务现在系统使用的内存
-Lookups uint64 //被runtime监视的指针数
-Mallocs uint64 //服务malloc heap objects的次数
-Frees uint64 //服务回收的heap objects的次数
-HeapAlloc uint64 //服务分配的堆内存字节数
-HeapSys uint64 //系统分配的作为运行栈的内存
-HeapIdle uint64 //申请但是未分配的堆内存或者回收了的堆内存（空闲）字节数
-HeapInuse uint64 //正在使用的堆内存字节数
-HeapReleased uint64 //返回给OS的堆内存，类似C/C++中的free。
-HeapObjects uint64 //堆内存块申请的量
-StackInuse uint64 //正在使用的栈字节数
-StackSys uint64 //系统分配的作为运行栈的内存
-MSpanInuse uint64 //用于测试用的结构体使用的字节数
-MSpanSys uint64 //系统为测试用的结构体分配的字节数
-MCacheInuse uint64 //mcache结构体申请的字节数(不会被视为垃圾回收)
-MCacheSys uint64 //操作系统申请的堆空间用于mcache的字节数
-BuckHashSys uint64 //用于剖析桶散列表的堆空间
-GCSys uint64 //垃圾回收标记元信息使用的内存
-OtherSys uint64 //golang系统架构占用的额外空间
-NextGC uint64 //垃圾回收器检视的内存大小
-LastGC uint64 // 垃圾回收器最后一次执行时间。
-PauseTotalNs uint64 // 垃圾回收或者其他信息收集导致服务暂停的次数。
-PauseNs [256]uint64 //一个循环队列，记录最近垃圾回收系统中断的时间
-PauseEnd [256]uint64 //一个循环队列，记录最近垃圾回收系统中断的时间开始点。
-NumForcedGC uint32 //服务调用runtime.GC()强制使用垃圾回收的次数。
-GCCPUFraction float64 //垃圾回收占用服务CPU工作的时间总和。如果有100个goroutine，垃圾回收的时间为1S,那么就占用了100S。
-BySize //内存分配器使用情况
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Alloc uint64 //golang语言框架堆空间分配的字节数
+</span></span><span class="line"><span class="cl">TotalAlloc uint64 //从服务开始运行至今分配器为分配的堆空间总 和，只有增加，释放的时候不减少
+</span></span><span class="line"><span class="cl">Sys uint64 //服务现在系统使用的内存
+</span></span><span class="line"><span class="cl">Lookups uint64 //被runtime监视的指针数
+</span></span><span class="line"><span class="cl">Mallocs uint64 //服务malloc heap objects的次数
+</span></span><span class="line"><span class="cl">Frees uint64 //服务回收的heap objects的次数
+</span></span><span class="line"><span class="cl">HeapAlloc uint64 //服务分配的堆内存字节数
+</span></span><span class="line"><span class="cl">HeapSys uint64 //系统分配的作为运行栈的内存
+</span></span><span class="line"><span class="cl">HeapIdle uint64 //申请但是未分配的堆内存或者回收了的堆内存（空闲）字节数
+</span></span><span class="line"><span class="cl">HeapInuse uint64 //正在使用的堆内存字节数
+</span></span><span class="line"><span class="cl">HeapReleased uint64 //返回给OS的堆内存，类似C/C++中的free。
+</span></span><span class="line"><span class="cl">HeapObjects uint64 //堆内存块申请的量
+</span></span><span class="line"><span class="cl">StackInuse uint64 //正在使用的栈字节数
+</span></span><span class="line"><span class="cl">StackSys uint64 //系统分配的作为运行栈的内存
+</span></span><span class="line"><span class="cl">MSpanInuse uint64 //用于测试用的结构体使用的字节数
+</span></span><span class="line"><span class="cl">MSpanSys uint64 //系统为测试用的结构体分配的字节数
+</span></span><span class="line"><span class="cl">MCacheInuse uint64 //mcache结构体申请的字节数(不会被视为垃圾回收)
+</span></span><span class="line"><span class="cl">MCacheSys uint64 //操作系统申请的堆空间用于mcache的字节数
+</span></span><span class="line"><span class="cl">BuckHashSys uint64 //用于剖析桶散列表的堆空间
+</span></span><span class="line"><span class="cl">GCSys uint64 //垃圾回收标记元信息使用的内存
+</span></span><span class="line"><span class="cl">OtherSys uint64 //golang系统架构占用的额外空间
+</span></span><span class="line"><span class="cl">NextGC uint64 //垃圾回收器检视的内存大小
+</span></span><span class="line"><span class="cl">LastGC uint64 // 垃圾回收器最后一次执行时间。
+</span></span><span class="line"><span class="cl">PauseTotalNs uint64 // 垃圾回收或者其他信息收集导致服务暂停的次数。
+</span></span><span class="line"><span class="cl">PauseNs [256]uint64 //一个循环队列，记录最近垃圾回收系统中断的时间
+</span></span><span class="line"><span class="cl">PauseEnd [256]uint64 //一个循环队列，记录最近垃圾回收系统中断的时间开始点。
+</span></span><span class="line"><span class="cl">NumForcedGC uint32 //服务调用runtime.GC()强制使用垃圾回收的次数。
+</span></span><span class="line"><span class="cl">GCCPUFraction float64 //垃圾回收占用服务CPU工作的时间总和。如果有100个goroutine，垃圾回收的时间为1S,那么就占用了100S。
+</span></span><span class="line"><span class="cl">BySize //内存分配器使用情况
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="查看内存">查看内存</h3>
 <div class="highlight"><div class="chroma">
@@ -642,8 +642,8 @@ BySize //内存分配器使用情况
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">go tool pprof http://192.168.2.36:8080/debug/pprof/heap
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">go tool pprof http://192.168.2.36:8080/debug/pprof/heap
+</span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -658,16 +658,16 @@ BySize //内存分配器使用情况
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">&gt; help可以查看使用说明
- 
-&gt; top 可以查看前10个的内存分配情况
- 
-&gt; tree 以树状显示
- 
-&gt; png 以图片格式输出
- 
-&gt; svg 生成浏览器可以识别的svg文件
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&gt; help可以查看使用说明
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">&gt; top 可以查看前10个的内存分配情况
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">&gt; tree 以树状显示
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">&gt; png 以图片格式输出
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">&gt; svg 生成浏览器可以识别的svg文件
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="概要文件cpu使用情况">概要文件(cpu使用情况)</h4>
 <p>默认需要等30s</p>
@@ -676,8 +676,8 @@ BySize //内存分配器使用情况
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">go tool pprof http://192.168.2.36:8080/debug/pprof/profile
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">go tool pprof http://192.168.2.36:8080/debug/pprof/profile
+</span></span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
@@ -699,7 +699,7 @@ BySize //内存分配器使用情况
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/gopprof/">go，pprof</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/go/">go</a>,&nbsp;<a href="/tags/pprof/">pprof</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
         </section>

@@ -113,20 +113,18 @@ java -jar bfg.jar
 
 使用文章 [腾讯云](https://cloud.tencent.com/developer/article/1490209)
 
-## github 配置 SSH-key
+## 其他
+#### 上传远程指定分支
+```
+git push [别名] [分支]
+```
+## bug
+#### warning: LF will be replaced by CRLF in 
+```
+原因是存在符号转义问题
 
-1.  [配置git](#配置git)
+windows中的换行符为 CRLF， 而在linux下的换行符为LF，所以在执行add . 时出现提示，解决办法：
 
-2. 生成密钥
+git config --global core.autocrlf false
+```
 
-   ```
-   ssh-keygen -t rsa -C "邮箱地址"
-   ```
-
-3. 测试是否配置成功
-
-   ```
-   git ssh -T git@github.com 
-   ```
-
-   

@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/example.com\/docker8\/"
-        },"image": ["https:\/\/example.com\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "docker","wordcount":  282 ,
+        },"image": ["https:\/\/example.com\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "docker","wordcount":  281 ,
         "url": "https:\/\/example.com\/docker8\/","datePublished": "2021-10-04T17:10:52+00:00","dateModified": "2021-10-04T16:30:58+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/example.com\/images\/avatar.png"},"author": {
@@ -110,7 +110,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">docker7 多架构和容器安全</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>yemo</a></span>&nbsp;<span class="post-category">included in <a href="/categories/docker/"><i class="far fa-folder fa-fw"></i>docker</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-10-04">2021-10-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;282 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-10-04">2021-10-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;281 words&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;One minute&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -132,9 +132,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">curl https://github.com/docker/buildx/releases/download/v0.6.3/buildx-v0.6.3.linux-amd64 -o ~/.docker/cli-plugins/docker-buildx
-chmod a+x ~/.docker/cli-plugins/docker-buildx
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">curl https://github.com/docker/buildx/releases/download/v0.6.3/buildx-v0.6.3.linux-amd64 -o ~/.docker/cli-plugins/docker-buildx
+</span></span><span class="line"><span class="cl">chmod a+x ~/.docker/cli-plugins/docker-buildx
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>使用</p>
 <div class="highlight"><div class="chroma">
@@ -142,8 +142,8 @@ chmod a+x ~/.docker/cli-plugins/docker-buildx
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">docker buildx build --push --platform linux/arm/v7,linux/arm64/v8,linux/amd64 -t 镜像名
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker buildx build --push --platform linux/arm/v7,linux/arm64/v8,linux/amd64 -t 镜像名
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>更多命令</p>
 <div class="highlight"><div class="chroma">
@@ -172,35 +172,33 @@ chmod a+x ~/.docker/cli-plugins/docker-buildx
 </span><span class="lnt">22
 </span><span class="lnt">23
 </span><span class="lnt">24
-</span><span class="lnt">25
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">❯ docker buildx
-
-Usage:  docker buildx [OPTIONS] COMMAND
-
-Build with BuildKit
-
-Options:
-      --builder string   Override the configured builder instance
-
-Management Commands:
-  imagetools  Commands to work on images in registry
-
-Commands:
-  bake        Build from a file
-  build       Start a build
-  create      Create a new builder instance
-  du          Disk usage
-  inspect     Inspect current builder instance
-  ls          List builder instances
-  prune       Remove build cache
-  rm          Remove a builder instance
-  stop        Stop builder instance
-  use         Set the current builder instance
-  version     Show buildx version information
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">❯ docker buildx
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Usage:  docker buildx [OPTIONS] COMMAND
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Build with BuildKit
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Options:
+</span></span><span class="line"><span class="cl">      --builder string   Override the configured builder instance
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Management Commands:
+</span></span><span class="line"><span class="cl">  imagetools  Commands to work on images in registry
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Commands:
+</span></span><span class="line"><span class="cl">  bake        Build from a file
+</span></span><span class="line"><span class="cl">  build       Start a build
+</span></span><span class="line"><span class="cl">  create      Create a new builder instance
+</span></span><span class="line"><span class="cl">  du          Disk usage
+</span></span><span class="line"><span class="cl">  inspect     Inspect current builder instance
+</span></span><span class="line"><span class="cl">  ls          List builder instances
+</span></span><span class="line"><span class="cl">  prune       Remove build cache
+</span></span><span class="line"><span class="cl">  rm          Remove a builder instance
+</span></span><span class="line"><span class="cl">  stop        Stop builder instance
+</span></span><span class="line"><span class="cl">  use         Set the current builder instance
+</span></span><span class="line"><span class="cl">  version     Show buildx version information
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="2-运行环境检查">2. 运行环境检查</h2>
 <p><code>docker-bench-security</code>对主机和docker镜像做评估，<a href="https://github.com/docker/docker-bench-security" target="_blank" rel="noopener noreffer">docker-bench-security</a></p>
@@ -211,10 +209,10 @@ Commands:
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">git clone git@github.com:docker/docker-bench-security.git
-cd /docker-bench-security
-sudo ./docker-bench-security.sh
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git clone git@github.com:docker/docker-bench-security.git
+</span></span><span class="line"><span class="cl">cd /docker-bench-security
+</span></span><span class="line"><span class="cl">sudo ./docker-bench-security.sh
+</span></span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
     <div class="post-info">

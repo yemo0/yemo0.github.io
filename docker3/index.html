@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/example.com\/docker3\/"
-        },"image": ["https:\/\/example.com\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "docker","wordcount":  1913 ,
+        },"image": ["https:\/\/example.com\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "docker","wordcount":  1912 ,
         "url": "https:\/\/example.com\/docker3\/","datePublished": "2021-09-25T16:04:28+00:00","dateModified": "2021-10-04T16:30:58+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/example.com\/images\/avatar.png"},"author": {
@@ -110,7 +110,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">docker3 dockerfile</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>yemo</a></span>&nbsp;<span class="post-category">included in <a href="/categories/docker/"><i class="far fa-folder fa-fw"></i>docker</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-25">2021-09-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1913 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-25">2021-09-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1912 words&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;4 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -157,8 +157,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">RUN pwd
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">RUN pwd
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>exec 格式：<code>RUN [&quot;可执行文件&quot;, &quot;参数1&quot;, &quot;参数2&quot;]</code></li>
@@ -177,14 +177,14 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">FROM ubuntu:21.04
-RUN apt-get update
-RUN apt-get install -y wget
-RUN wget https://github.com/ipinfo/cli/releases/download/ipinfo-2.0.1/ipinfo_2.0.1_linux_amd64.tar.gz
-RUN tar zxf ipinfo_2.0.1_linux_amd64.tar.gz
-RUN mv ipinfo_2.0.1_linux_amd64 /usr/bin/ipinfo
-RUN rm -rf ipinfo_2.0.1_linux_amd64.tar.gz
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">FROM ubuntu:21.04
+</span></span><span class="line"><span class="cl">RUN apt-get update
+</span></span><span class="line"><span class="cl">RUN apt-get install -y wget
+</span></span><span class="line"><span class="cl">RUN wget https://github.com/ipinfo/cli/releases/download/ipinfo-2.0.1/ipinfo_2.0.1_linux_amd64.tar.gz
+</span></span><span class="line"><span class="cl">RUN tar zxf ipinfo_2.0.1_linux_amd64.tar.gz
+</span></span><span class="line"><span class="cl">RUN mv ipinfo_2.0.1_linux_amd64 /usr/bin/ipinfo
+</span></span><span class="line"><span class="cl">RUN rm -rf ipinfo_2.0.1_linux_amd64.tar.gz
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="改进">改进</h3>
 <div class="highlight"><div class="chroma">
@@ -198,14 +198,14 @@ RUN rm -rf ipinfo_2.0.1_linux_amd64.tar.gz
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">FROM ubuntu:21.04
-RUN apt-get update &amp;&amp; \
-    apt-get install -y wget &amp;&amp; \
-    wget https://github.com/ipinfo/cli/releases/download/ipinfo-2.0.1/ipinfo_2.0.1_linux_amd64.tar.gz &amp;&amp; \
-    tar zxf ipinfo_2.0.1_linux_amd64.tar.gz &amp;&amp; \
-    mv ipinfo_2.0.1_linux_amd64 /usr/bin/ipinfo &amp;&amp; \
-    rm -rf ipinfo_2.0.1_linux_amd64.tar.gz
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">FROM ubuntu:21.04
+</span></span><span class="line"><span class="cl">RUN apt-get update &amp;&amp; \
+</span></span><span class="line"><span class="cl">    apt-get install -y wget &amp;&amp; \
+</span></span><span class="line"><span class="cl">    wget https://github.com/ipinfo/cli/releases/download/ipinfo-2.0.1/ipinfo_2.0.1_linux_amd64.tar.gz &amp;&amp; \
+</span></span><span class="line"><span class="cl">    tar zxf ipinfo_2.0.1_linux_amd64.tar.gz &amp;&amp; \
+</span></span><span class="line"><span class="cl">    mv ipinfo_2.0.1_linux_amd64 /usr/bin/ipinfo &amp;&amp; \
+</span></span><span class="line"><span class="cl">    rm -rf ipinfo_2.0.1_linux_amd64.tar.gz
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="2-copy-复制文件">2. COPY 复制文件</h2>
 <p><code>COPY &lt;src&gt; &lt;dest&gt;</code></p>
@@ -215,8 +215,8 @@ RUN apt-get update &amp;&amp; \
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">COPY package.json /usr/src/app/
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">COPY package.json /usr/src/app/
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>&lt;src&gt;</code>可以是多个，甚至是通配符。其通配符规则要满足 Go 的 <a href="https://golang.org/pkg/path/filepath/#Match" target="_blank" rel="noopener noreffer"><code>filepath.Match</code></a> 规则，如：</p>
 <div class="highlight"><div class="chroma">
@@ -225,9 +225,9 @@ RUN apt-get update &amp;&amp; \
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">COPY hom* /mydir/
-COPY hom?.txt /mydir/
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">COPY hom* /mydir/
+</span></span><span class="line"><span class="cl">COPY hom?.txt /mydir/
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>在使用该指令的时候还可以加上 <code>--chown=&lt;user&gt;:&lt;group&gt;</code> 选项来改变文件的所属用户及所属组。</p>
 <div class="highlight"><div class="chroma">
@@ -238,11 +238,11 @@ COPY hom?.txt /mydir/
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">COPY --chown=55:mygroup files* /mydir/
-COPY --chown=bin files* /mydir/
-COPY --chown=1 files* /mydir/
-COPY --chown=10:11 files* /mydir/
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">COPY --chown=55:mygroup files* /mydir/
+</span></span><span class="line"><span class="cl">COPY --chown=bin files* /mydir/
+</span></span><span class="line"><span class="cl">COPY --chown=1 files* /mydir/
+</span></span><span class="line"><span class="cl">COPY --chown=10:11 files* /mydir/
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="3-add-复制文件">3. ADD 复制文件</h2>
 <p><code>ADD</code> 指令和 <code>COPY</code> 的格式和性质基本一致。但是在 <code>COPY</code> 基础上增加了一些功能。</p>
@@ -262,14 +262,14 @@ COPY --chown=10:11 files* /mydir/
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">FROM ubuntu:21.04
-RUN apt-get update &amp;&amp; \
-    apt-get install -y wget &amp;&amp; \
-    wget https://github.com/ipinfo/cli/releases/download/ipinfo-2.0.1/ipinfo_2.0.1_linux_amd64.tar.gz &amp;&amp; \
-    tar zxf ipinfo_2.0.1_linux_amd64.tar.gz &amp;&amp; \
-    mv ipinfo_2.0.1_linux_amd64 /usr/bin/ipinfo &amp;&amp; \
-    rm -rf ipinfo_2.0.1_linux_amd64.tar.gz
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">FROM ubuntu:21.04
+</span></span><span class="line"><span class="cl">RUN apt-get update &amp;&amp; \
+</span></span><span class="line"><span class="cl">    apt-get install -y wget &amp;&amp; \
+</span></span><span class="line"><span class="cl">    wget https://github.com/ipinfo/cli/releases/download/ipinfo-2.0.1/ipinfo_2.0.1_linux_amd64.tar.gz &amp;&amp; \
+</span></span><span class="line"><span class="cl">    tar zxf ipinfo_2.0.1_linux_amd64.tar.gz &amp;&amp; \
+</span></span><span class="line"><span class="cl">    mv ipinfo_2.0.1_linux_amd64 /usr/bin/ipinfo &amp;&amp; \
+</span></span><span class="line"><span class="cl">    rm -rf ipinfo_2.0.1_linux_amd64.tar.gz
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="env">ENV</h3>
 <div class="highlight"><div class="chroma">
@@ -284,15 +284,15 @@ RUN apt-get update &amp;&amp; \
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">FROM ubuntu:21.04
-ENV VERSION=2.0.1
-RUN apt-get update &amp;&amp; \
-    apt-get install -y wget &amp;&amp; \
-    wget https://github.com/ipinfo/cli/releases/download/ipinfo-${VERSION}/ipinfo_${VERSION}_linux_amd64.tar.gz &amp;&amp; \
-    tar zxf ipinfo_${VERSION}_linux_amd64.tar.gz &amp;&amp; \
-    mv ipinfo_${VERSION}_linux_amd64 /usr/bin/ipinfo &amp;&amp; \
-    rm -rf ipinfo_${VERSION}_linux_amd64.tar.gz
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">FROM ubuntu:21.04
+</span></span><span class="line"><span class="cl">ENV VERSION=2.0.1
+</span></span><span class="line"><span class="cl">RUN apt-get update &amp;&amp; \
+</span></span><span class="line"><span class="cl">    apt-get install -y wget &amp;&amp; \
+</span></span><span class="line"><span class="cl">    wget https://github.com/ipinfo/cli/releases/download/ipinfo-${VERSION}/ipinfo_${VERSION}_linux_amd64.tar.gz &amp;&amp; \
+</span></span><span class="line"><span class="cl">    tar zxf ipinfo_${VERSION}_linux_amd64.tar.gz &amp;&amp; \
+</span></span><span class="line"><span class="cl">    mv ipinfo_${VERSION}_linux_amd64 /usr/bin/ipinfo &amp;&amp; \
+</span></span><span class="line"><span class="cl">    rm -rf ipinfo_${VERSION}_linux_amd64.tar.gz
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="arg">ARG</h3>
 <div class="highlight"><div class="chroma">
@@ -307,15 +307,15 @@ RUN apt-get update &amp;&amp; \
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">FROM ubuntu:21.04
-ARG VERSION=2.0.1
-RUN apt-get update &amp;&amp; \
-    apt-get install -y wget &amp;&amp; \
-    wget https://github.com/ipinfo/cli/releases/download/ipinfo-${VERSION}/ipinfo_${VERSION}_linux_amd64.tar.gz &amp;&amp; \
-    tar zxf ipinfo_${VERSION}_linux_amd64.tar.gz &amp;&amp; \
-    mv ipinfo_${VERSION}_linux_amd64 /usr/bin/ipinfo &amp;&amp; \
-    rm -rf ipinfo_${VERSION}_linux_amd64.tar.gz
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">FROM ubuntu:21.04
+</span></span><span class="line"><span class="cl">ARG VERSION=2.0.1
+</span></span><span class="line"><span class="cl">RUN apt-get update &amp;&amp; \
+</span></span><span class="line"><span class="cl">    apt-get install -y wget &amp;&amp; \
+</span></span><span class="line"><span class="cl">    wget https://github.com/ipinfo/cli/releases/download/ipinfo-${VERSION}/ipinfo_${VERSION}_linux_amd64.tar.gz &amp;&amp; \
+</span></span><span class="line"><span class="cl">    tar zxf ipinfo_${VERSION}_linux_amd64.tar.gz &amp;&amp; \
+</span></span><span class="line"><span class="cl">    mv ipinfo_${VERSION}_linux_amd64 /usr/bin/ipinfo &amp;&amp; \
+</span></span><span class="line"><span class="cl">    rm -rf ipinfo_${VERSION}_linux_amd64.tar.gz
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="区别">区别</h3>
 <p><img
@@ -333,9 +333,9 @@ RUN apt-get update &amp;&amp; \
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">shell` 格式：`CMD &lt;命令&gt;
-exec` 格式：`CMD [&#34;可执行文件&#34;, &#34;参数1&#34;, &#34;参数2&#34;...]
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">shell` 格式：`CMD &lt;命令&gt;
+</span></span><span class="line"><span class="cl">exec` 格式：`CMD [&#34;可执行文件&#34;, &#34;参数1&#34;, &#34;参数2&#34;...]
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>容器启动时默认执行的命令</li>
@@ -348,9 +348,9 @@ exec` 格式：`CMD [&#34;可执行文件&#34;, &#34;参数1&#34;, &#34;参数2&
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">CMD [&#34;cd app&#34;] # 容器启动自动执行cd
-CMD []	# 在命令行后面输入命令
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">CMD [&#34;cd app&#34;] # 容器启动自动执行cd
+</span></span><span class="line"><span class="cl">CMD []	# 在命令行后面输入命令
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="7-entrypoint-入口点">7. ENTRYPOINT 入口点</h2>
 <ul>
@@ -363,8 +363,8 @@ CMD []	# 在命令行后面输入命令
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">EXPOSE 8
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">EXPOSE 8
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="9-dockerignore">9. dockerignore</h2>
 <p>忽略掉文件或文件夹</p>
@@ -374,8 +374,8 @@ CMD []	# 在命令行后面输入命令
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">docker image build -t hello .
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker image build -t hello .
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>再<code>docker build</code>过程中，首先会将上下文目录打包传递给<code>docker引擎</code>，但有些文件不需要就可以使用<code>.dockerignore</code>忽略掉。</p>
 <h2 id="10-healthcheck-健康检查">10 HEALTHCHECK 健康检查</h2>
@@ -399,9 +399,9 @@ CMD []	# 在命令行后面输入命令
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="err">HEALTHCHECK --interval=3s --timeout=3s \
-</span><span class="err">  </span><span class="k">CMD</span> curl -fs http://localhost/ <span class="o">||</span> <span class="nb">exit</span> <span class="m">1</span><span class="err">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="err">HEALTHCHECK --interval=3s --timeout=3s \
+</span></span></span><span class="line"><span class="cl"><span class="err">  </span><span class="k">CMD</span> curl -fs http://localhost/ <span class="o">||</span> <span class="nb">exit</span> <span class="m">1</span><span class="err">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="10-多阶段构建">10. 多阶段构建</h2>
 <p>Docker v17.05 开始支持多阶段构建 (<code>multistage builds</code>)。将所有的构建过程编包含在一个 <code>Dockerfile</code> 中，包括项目及其依赖库的编译、测试、打包等流程，可能会带来</p>
@@ -440,38 +440,36 @@ CMD []	# 在命令行后面输入命令
 </span><span class="lnt">25
 </span><span class="lnt">26
 </span><span class="lnt">27
-</span><span class="lnt">28
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
-
-<span class="kn">import</span> <span class="p">(</span>
-	<span class="s">&#34;io/ioutil&#34;</span>
-	<span class="s">&#34;math/rand&#34;</span>
-	<span class="s">&#34;net/http&#34;</span>
-	<span class="s">&#34;os&#34;</span>
-	<span class="s">&#34;strconv&#34;</span>
-	<span class="s">&#34;time&#34;</span>
-<span class="p">)</span>
-
-<span class="kd">func</span> <span class="nf">index</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">str</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nf">ReadFile</span><span class="p">(</span><span class="s">&#34;./test.log&#34;</span><span class="p">)</span>
-	<span class="nx">w</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-	<span class="nx">file</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">OpenFile</span><span class="p">(</span><span class="s">&#34;./test.log&#34;</span><span class="p">,</span> <span class="nx">os</span><span class="p">.</span><span class="nx">O_CREATE</span><span class="p">|</span><span class="nx">os</span><span class="p">.</span><span class="nx">O_WRONLY</span><span class="p">|</span><span class="nx">os</span><span class="p">.</span><span class="nx">O_APPEND</span><span class="p">,</span> <span class="mo">0666</span><span class="p">)</span>
-	<span class="nx">str</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nf">ReadFile</span><span class="p">(</span><span class="s">&#34;./test.log&#34;</span><span class="p">)</span>
-	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
-		<span class="nx">rand</span><span class="p">.</span><span class="nf">Seed</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">().</span><span class="nf">UnixNano</span><span class="p">())</span>
-		<span class="nx">file</span><span class="p">.</span><span class="nf">WriteString</span><span class="p">(</span><span class="nx">strconv</span><span class="p">.</span><span class="nf">Itoa</span><span class="p">(</span><span class="nx">rand</span><span class="p">.</span><span class="nf">Intn</span><span class="p">(</span><span class="mi">1000</span><span class="p">)))</span>
-	<span class="p">}</span>
-
-	<span class="nx">http</span><span class="p">.</span><span class="nf">HandleFunc</span><span class="p">(</span><span class="s">&#34;/&#34;</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span>
-	<span class="nx">http</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">(</span><span class="s">&#34;:8080&#34;</span><span class="p">,</span> <span class="kc">nil</span><span class="p">)</span>
-<span class="p">}</span>
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;io/ioutil&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;math/rand&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;net/http&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;os&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;strconv&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="s">&#34;time&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">index</span><span class="p">(</span><span class="nx">w</span> <span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span> <span class="nx">r</span> <span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">str</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nf">ReadFile</span><span class="p">(</span><span class="s">&#34;./test.log&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">w</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">file</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">OpenFile</span><span class="p">(</span><span class="s">&#34;./test.log&#34;</span><span class="p">,</span> <span class="nx">os</span><span class="p">.</span><span class="nx">O_CREATE</span><span class="p">|</span><span class="nx">os</span><span class="p">.</span><span class="nx">O_WRONLY</span><span class="p">|</span><span class="nx">os</span><span class="p">.</span><span class="nx">O_APPEND</span><span class="p">,</span> <span class="mo">0666</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">str</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nf">ReadFile</span><span class="p">(</span><span class="s">&#34;./test.log&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">rand</span><span class="p">.</span><span class="nf">Seed</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">().</span><span class="nf">UnixNano</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">file</span><span class="p">.</span><span class="nf">WriteString</span><span class="p">(</span><span class="nx">strconv</span><span class="p">.</span><span class="nf">Itoa</span><span class="p">(</span><span class="nx">rand</span><span class="p">.</span><span class="nf">Intn</span><span class="p">(</span><span class="mi">1000</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">	<span class="nx">http</span><span class="p">.</span><span class="nf">HandleFunc</span><span class="p">(</span><span class="s">&#34;/&#34;</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">http</span><span class="p">.</span><span class="nf">ListenAndServe</span><span class="p">(</span><span class="s">&#34;:8080&#34;</span><span class="p">,</span> <span class="kc">nil</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>dockerfile</code></p>
 <div class="highlight"><div class="chroma">
@@ -488,17 +486,17 @@ CMD []	# 在命令行后面输入命令
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="k">FROM</span><span class="s"> golang:alpine as builder</span><span class="err">
-</span><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /go/src</span><span class="err">
-</span><span class="err"></span><span class="k">EXPOSE</span><span class="s"> 8080</span><span class="err">
-</span><span class="err"></span><span class="k">COPY</span> ./server/main.go .<span class="err">
-</span><span class="err"></span><span class="k">RUN</span> go build main.go<span class="err">
-</span><span class="err">
-</span><span class="err"></span><span class="k">FROM</span><span class="s"> alpine:latest as prod</span><span class="err">
-</span><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /app</span><span class="err">
-</span><span class="err"></span><span class="k">COPY</span> --from<span class="o">=</span>builder /go/src/main .<span class="err">
-</span><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;./main&#34;</span><span class="p">]</span><span class="err">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="s"> golang:alpine as builder</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /go/src</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">EXPOSE</span><span class="s"> 8080</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> ./server/main.go .<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> go build main.go<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">FROM</span><span class="s"> alpine:latest as prod</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /app</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> --from<span class="o">=</span>builder /go/src/main .<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;./main&#34;</span><span class="p">]</span><span class="err">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>构建镜像<code>docker image build -t web .</code></p>
 <p>镜像大小比对</p>
@@ -510,11 +508,11 @@ CMD []	# 在命令行后面输入命令
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">❯ docker images
-REPOSITORY                                                  TAG       IMAGE ID       CREATED          SIZE
-web2                                                        latest    e2573f939a60   14 minutes ago   11.7MB
-web                                                         latest    6185b3841e6f   21 minutes ago   321MB
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">❯ docker images
+</span></span><span class="line"><span class="cl">REPOSITORY                                                  TAG       IMAGE ID       CREATED          SIZE
+</span></span><span class="line"><span class="cl">web2                                                        latest    e2573f939a60   14 minutes ago   11.7MB
+</span></span><span class="line"><span class="cl">web                                                         latest    6185b3841e6f   21 minutes ago   321MB
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="只构建某一段镜像">只构建某一段镜像</h3>
 <p>使用<code>as</code>为某一阶段起别名</p>
@@ -523,8 +521,8 @@ web                                                         latest    6185b3841e
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">FROM golang:alpine as builder
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">FROM golang:alpine as builder
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>例如当我们只想构建 <code>builder</code> 阶段的镜像时，增加 <code>--target=&lt;别名&gt;</code></p>
 <div class="highlight"><div class="chroma">
@@ -532,8 +530,8 @@ web                                                         latest    6185b3841e
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"> docker build --target builder
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> docker build --target builder
+</span></span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
     <div class="post-info">

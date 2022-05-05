@@ -165,13 +165,13 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">&gt; docker volume
-  create      Create a volume
-  inspect     Display detailed information on one or more volumes
-  ls          List volumes
-  prune       Remove all unused local volumes
-  rm          Remove one or more volumes
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&gt; docker volume
+</span></span><span class="line"><span class="cl">  create      Create a volume
+</span></span><span class="line"><span class="cl">  inspect     Display detailed information on one or more volumes
+</span></span><span class="line"><span class="cl">  ls          List volumes
+</span></span><span class="line"><span class="cl">  prune       Remove all unused local volumes
+</span></span><span class="line"><span class="cl">  rm          Remove one or more volumes
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="创建数据卷">创建数据卷</h3>
 <div class="highlight"><div class="chroma">
@@ -179,8 +179,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">docker volume create my-volume
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker volume create my-volume
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="查看全部数据卷">查看全部数据卷</h3>
 <div class="highlight"><div class="chroma">
@@ -188,8 +188,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">docker volume ls
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker volume ls
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="查看数据卷信息">查看数据卷信息</h3>
 <div class="highlight"><div class="chroma">
@@ -208,19 +208,19 @@
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">❯ docker volume inspect my-volume
-[
-    {
-        &#34;CreatedAt&#34;: &#34;2021-09-28T09:24:17Z&#34;,
-        &#34;Driver&#34;: &#34;local&#34;,
-        &#34;Labels&#34;: {},
-        &#34;Mountpoint&#34;: &#34;/var/lib/docker/volumes/my-volume/_data&#34;,
-        &#34;Name&#34;: &#34;my-volume&#34;,
-        &#34;Options&#34;: {},
-        &#34;Scope&#34;: &#34;local&#34;
-    }
-]
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">❯ docker volume inspect my-volume
+</span></span><span class="line"><span class="cl">[
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">        &#34;CreatedAt&#34;: &#34;2021-09-28T09:24:17Z&#34;,
+</span></span><span class="line"><span class="cl">        &#34;Driver&#34;: &#34;local&#34;,
+</span></span><span class="line"><span class="cl">        &#34;Labels&#34;: {},
+</span></span><span class="line"><span class="cl">        &#34;Mountpoint&#34;: &#34;/var/lib/docker/volumes/my-volume/_data&#34;,
+</span></span><span class="line"><span class="cl">        &#34;Name&#34;: &#34;my-volume&#34;,
+</span></span><span class="line"><span class="cl">        &#34;Options&#34;: {},
+</span></span><span class="line"><span class="cl">        &#34;Scope&#34;: &#34;local&#34;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">]
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="启动一个挂载数据卷的容器">启动一个挂载数据卷的容器</h3>
 <p>在<code>docker run  </code>时使用 <code>--mount</code>标记来将 <code>数据卷</code> 挂载到容器里。在一次 <code>docker run</code> 中可以挂载多个 <code>数据卷</code>。</p>
@@ -234,12 +234,12 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">docker run -d -P \
-    --name web \
-    # -v my-vol:/usr/share/nginx/html \
-    --mount source=my-vol,target=/usr/share/nginx/html \
-    nginx:alpine
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker run -d -P \
+</span></span><span class="line"><span class="cl">    --name web \
+</span></span><span class="line"><span class="cl">    # -v my-vol:/usr/share/nginx/html \
+</span></span><span class="line"><span class="cl">    --mount source=my-vol,target=/usr/share/nginx/html \
+</span></span><span class="line"><span class="cl">    nginx:alpine
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="移除无用数据卷">移除无用数据卷</h3>
 <p>删除容器时同时移除数据卷</p>
@@ -248,8 +248,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">docker rm -v
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker rm -v
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>删除无用的数据卷</p>
 <div class="highlight"><div class="chroma">
@@ -257,8 +257,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">docker volume prune
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker volume prune
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="挂载主机目录作为数据卷">挂载主机目录作为数据卷</h2>
 <div class="highlight"><div class="chroma">
@@ -266,8 +266,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">--mount type=bind,source=/src/webapp,target=/usr/share/nginx/html
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">--mount type=bind,source=/src/webapp,target=/usr/share/nginx/html
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>挂载<code>/src/webapp</code>目录到容器的<code>/usr/share/nginx/html</code>目录。</p>
 <p>本地目录的路径必须是绝对路径，本地路径不存在docker会报错。</p>
@@ -277,8 +277,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">--mount type=bind,source=/src/webapp,target=/usr/share/nginx/html,readonly
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">--mount type=bind,source=/src/webapp,target=/usr/share/nginx/html,readonly
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="dockerfile-数据卷">dockerfile 数据卷</h2>
 <p>自动创建VOLUME 名字是随机的。</p>
@@ -287,8 +287,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">VOLUME [&#34;/app&#34;]
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">VOLUME [&#34;/app&#34;]
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="挂载目录">挂载目录</h3>
 <p>挂载当前目录到hello容器的app目录</p>
@@ -297,8 +297,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">docker container run -d -v $(pwd):/app hello
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker container run -d -v $(pwd):/app hello
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="多机器之间容器共享数据">多机器之间容器共享数据</h2>
 </div><div class="post-footer" id="post-footer">

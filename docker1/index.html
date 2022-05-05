@@ -1,572 +1,3 @@
-<<<<<<< HEAD
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="robots" content="noodp" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>docker1 安装、加速 - MyBlog</title><meta name="Description" content="About LoveIt Theme"><meta property="og:title" content="docker1 安装、加速" />
-<meta property="og:description" content="镜像加速 直接修改 /etc/docker/daemon.json 1 {&#34;registry-mirrors&#34;: [&#34;https://registry.cn-hangzhou.aliyuncs.com&#34;]} 镜像地址 1 2 3 4 5 6 7 8 腾讯云 docker hub mirror https://mirror.ccs.tencentyun.com 华为云 https://05f073ad3c0010ea0f4bc00b7105ec20.mirror.swr.myhuaweicloud.com 网易 http://hub-mirror.c.163.com docker 安装 参考文档 容器常用操作 查找镜像 1 docker search xxx 下载镜像 1 2 docker pull xxx:TAG // T" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.com/docker1/" />
-<meta property="og:image" content="https://example.com/logo.png"/>
-<meta property="article:published_time" content="2021-09-08T19:56:03+00:00" />
-<meta property="article:modified_time" content="2021-09-29T16:01:04+00:00" />
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://example.com/logo.png"/>
-
-<meta name="twitter:title" content="docker1 安装、加速"/>
-<meta name="twitter:description" content="镜像加速 直接修改 /etc/docker/daemon.json 1 {&#34;registry-mirrors&#34;: [&#34;https://registry.cn-hangzhou.aliyuncs.com&#34;]} 镜像地址 1 2 3 4 5 6 7 8 腾讯云 docker hub mirror https://mirror.ccs.tencentyun.com 华为云 https://05f073ad3c0010ea0f4bc00b7105ec20.mirror.swr.myhuaweicloud.com 网易 http://hub-mirror.c.163.com docker 安装 参考文档 容器常用操作 查找镜像 1 docker search xxx 下载镜像 1 2 docker pull xxx:TAG // T"/>
-<meta name="application-name" content="home">
-<meta name="apple-mobile-web-app-title" content="home"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://example.com/docker1/" /><link rel="prev" href="https://example.com/cssload/" /><link rel="next" href="https://example.com/docker2/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
-    {
-        "@context": "http://schema.org",
-        "@type": "BlogPosting",
-        "headline": "docker1 安装、加速",
-        "inLanguage": "en",
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https:\/\/example.com\/docker1\/"
-        },"image": ["https:\/\/example.com\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "docker","wordcount":  1332 ,
-        "url": "https:\/\/example.com\/docker1\/","datePublished": "2021-09-08T19:56:03+00:00","dateModified": "2021-09-29T16:01:04+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
-            "@type": "Organization",
-            "name": "xxxx","logo": "https:\/\/example.com\/images\/avatar.png"},"author": {
-                "@type": "Person",
-                "name": "yemo"
-            },"description": ""
-    }
-    </script></head>
-    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
-
-        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
-    <div class="header-wrapper">
-        <div class="header-title">
-            <a href="/" title="MyBlog">home</a>
-        </div>
-        <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="https://yemo0.gitee.io" rel="noopener noreffer" target="_blank"> Docs </a><a class="menu-item" href="/tools/"> Tools </a><a class="menu-item" href="https://github.com/yemo0" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
-                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/docker1/" selected>English</option></select>
-                    </a><span class="menu-item search" id="search-desktop">
-                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
-                            <i class="fas fa-search fa-fw"></i>
-                        </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
-                            <i class="fas fa-times-circle fa-fw"></i>
-                        </a>
-                        <span class="search-button search-loading" id="search-loading-desktop">
-                            <i class="fas fa-spinner fa-fw fa-spin"></i>
-                        </span>
-                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
-                    <i class="fas fa-adjust fa-fw"></i>
-                </a>
-            </div>
-        </div>
-    </div>
-</header><header class="mobile" id="header-mobile">
-    <div class="header-container">
-        <div class="header-wrapper">
-            <div class="header-title">
-                <a href="/" title="MyBlog">home</a>
-            </div>
-            <div class="menu-toggle" id="menu-toggle-mobile">
-                <span></span><span></span><span></span>
-            </div>
-        </div>
-        <div class="menu" id="menu-mobile"><div class="search-wrapper">
-                    <div class="search mobile" id="search-mobile">
-                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
-                            <i class="fas fa-search fa-fw"></i>
-                        </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
-                            <i class="fas fa-times-circle fa-fw"></i>
-                        </a>
-                        <span class="search-button search-loading" id="search-loading-mobile">
-                            <i class="fas fa-spinner fa-fw fa-spin"></i>
-                        </span>
-                    </div>
-                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
-                        Cancel
-                    </a>
-                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="https://yemo0.gitee.io" title="" rel="noopener noreffer" target="_blank">Docs</a><a class="menu-item" href="/tools/" title="">Tools</a><a class="menu-item" href="https://github.com/yemo0" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
-                <i class="fas fa-adjust fa-fw"></i>
-            </a><a href="javascript:void(0);" class="menu-item" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
-                    <select class="language-select" onchange="location = this.value;"><option value="/docker1/" selected>English</option></select>
-                </a></div>
-    </div>
-</header>
-<div class="search-dropdown desktop">
-    <div id="search-dropdown-desktop"></div>
-</div>
-<div class="search-dropdown mobile">
-    <div id="search-dropdown-mobile"></div>
-</div>
-<main class="main">
-                <div class="container"><div class="toc" id="toc-auto">
-            <h2 class="toc-title">Contents</h2>
-            <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animated flipInX">docker1 安装、加速</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>yemo</a></span>&nbsp;<span class="post-category">included in <a href="/categories/docker/"><i class="far fa-folder fa-fw"></i>docker</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-09-08">2021-09-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1332 words&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;3 minutes&nbsp;</div>
-        </div><div class="details toc" id="toc-static"  kept="">
-                <div class="details-summary toc-title">
-                    <span>Contents</span>
-                    <span><i class="details-icon fas fa-angle-right"></i></span>
-                </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#镜像加速">镜像加速</a></li>
-        <li><a href="#docker-安装">docker 安装</a></li>
-        <li><a href="#容器常用操作">容器常用操作</a></li>
-        <li><a href="#容器常用操作-1">容器常用操作</a></li>
-        <li><a href="#更多操作">更多操作</a></li>
-        <li><a href="#docker-批量操作">docker 批量操作</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav></div>
-            </div><div class="content" id="content"><h3 id="镜像加速">镜像加速</h3>
-<p>直接修改 /etc/docker/daemon.json</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">{&#34;registry-mirrors&#34;: [&#34;https://registry.cn-hangzhou.aliyuncs.com&#34;]}
-</code></pre></td></tr></table>
-</div>
-</div><p>镜像地址</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">腾讯云 docker hub mirror
-https://mirror.ccs.tencentyun.com
-
-华为云
-https://05f073ad3c0010ea0f4bc00b7105ec20.mirror.swr.myhuaweicloud.com
-
-网易
-http://hub-mirror.c.163.com
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="docker-安装">docker 安装</h3>
-<p><a href="https://yeasy.gitbook.io/docker_practice/install" target="_blank" rel="noopener noreffer">参考文档</a></p>
-<h3 id="容器常用操作">容器常用操作</h3>
-<p>查找镜像</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-docker" data-lang="docker">docker search xxx<span class="err">
-</span></code></pre></td></tr></table>
-</div>
-</div><p>下载镜像</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker pull xxx:TAG
-// TAG表示版本，不写默认最新版latest
-</code></pre></td></tr></table>
-</div>
-</div><p>查找镜像</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker images
-</code></pre></td></tr></table>
-</div>
-</div><p>删除镜像</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker rmi -f 镜像ID或镜像名(有版本号需要带版本号)
-# 删除指定本地镜像
-# -f 强制删除
-# ID可以不用填写完
-</code></pre></td></tr></table>
-</div>
-</div><p>删除元信息</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker inspect 镜像ID或镜像名(有版本号带版本号)
-# 获取镜像的元信息,详情信息
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="容器常用操作-1">容器常用操作</h3>
-<p>运行</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker run --name 容器名 -i -t -p 主机端口:容器端口 -d -v 主机目录:容器目录:ro 镜像ID或镜像名:TAG
-# --name 指定容器名, 不指定自动命名
-# -i 以交互模式运行容器
-# -t 分配一个伪终端(命令行), 通常-it组合使用
-# -p 指定端口 主机端口映射到容器端口
-# -d 后台运行容器
-# -v 指定挂载主机到容器目录, 默认为rw读写模式, ro表示只读
-# --rm t
-</code></pre></td></tr></table>
-</div>
-</div><p>容器列表</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker ps -a -q
-# docker ps 查看正在运行的容器
-# -a 查看使用容器(运行中、未运行)
-# -q 只查看容器ID
-</code></pre></td></tr></table>
-</div>
-</div><p>启动容器</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker start 容器ID或容器名
-</code></pre></td></tr></table>
-</div>
-</div><p>停止容器</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker stop 容器ID或容器名
-</code></pre></td></tr></table>
-</div>
-</div><p>删除容器</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker rm -f 容器ID或容器名
-# -f 强制删除
-</code></pre></td></tr></table>
-</div>
-</div><p>以交互模式执行容器内</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker exec -it 容器ID或容器名 /bin/bash
-# 进入正在运行的容器并且开启交互模式终端
-# /bin/bash 固有写法, 作用是因为docker后台必须运行一个进程，否则容器就会退出，在这里表示启动容器后启动
-bash
-# 也可以用docker exec在运行中的容器执行命令
-</code></pre></td></tr></table>
-</div>
-</div><p>拷贝文件</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker cp 主机文件路径 容器ID或容器名:容器路径 #主机中文件拷贝到容器中
-docker cp 容器ID或容器名:容器路径 主机文件路径 #容器中文件拷贝到主机中
-</code></pre></td></tr></table>
-</div>
-</div><p>删除停掉的容器</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker system prune -f
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="更多操作">更多操作</h3>
-<p><code>docker help</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span><span class="lnt">64
-</span><span class="lnt">65
-</span><span class="lnt">66
-</span><span class="lnt">67
-</span><span class="lnt">68
-</span><span class="lnt">69
-</span><span class="lnt">70
-</span><span class="lnt">71
-</span><span class="lnt">72
-</span><span class="lnt">73
-</span><span class="lnt">74
-</span><span class="lnt">75
-</span><span class="lnt">76
-</span><span class="lnt">77
-</span><span class="lnt">78
-</span><span class="lnt">79
-</span><span class="lnt">80
-</span><span class="lnt">81
-</span><span class="lnt">82
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback"> docker help
-
-Usage:  docker [OPTIONS] COMMAND
-
-A self-sufficient runtime for containers
-
-Options:
-      --config string      Location of client config files (default &#34;/home/yemo/.docker&#34;)
-  -c, --context string     Name of the context to use to connect to the daemon (overrides DOCKER_HOST env var and default context set with &#34;docker context use&#34;)
-  -D, --debug              Enable debug mode
-  -H, --host list          Daemon socket(s) to connect to
-  -l, --log-level string   Set the logging level (&#34;debug&#34;|&#34;info&#34;|&#34;warn&#34;|&#34;error&#34;|&#34;fatal&#34;) (default &#34;info&#34;)
-      --tls                Use TLS; implied by --tlsverify
-      --tlscacert string   Trust certs signed only by this CA (default &#34;/home/yemo/.docker/ca.pem&#34;)
-      --tlscert string     Path to TLS certificate file (default &#34;/home/yemo/.docker/cert.pem&#34;)
-      --tlskey string      Path to TLS key file (default &#34;/home/yemo/.docker/key.pem&#34;)
-      --tlsverify          Use TLS and verify the remote
-  -v, --version            Print version information and quit
-
-Management Commands:
-  builder     Manage builds
-  config      Manage Docker configs
-  container   Manage containers
-  context     Manage contexts
-  image       Manage images
-  manifest    Manage Docker image manifests and manifest lists
-  network     Manage networks
-  node        Manage Swarm nodes
-  plugin      Manage plugins
-  secret      Manage Docker secrets
-  service     Manage services
-  stack       Manage Docker stacks
-  swarm       Manage Swarm
-  system      Manage Docker
-  trust       Manage trust on Docker images
-  volume      Manage volumes
-
-Commands:
-  attach      Attach local standard input, output, and error streams to a running container
-  build       Build an image from a Dockerfile
-  commit      Create a new image from a container&#39;s changes
-  cp          Copy files/folders between a container and the local filesystem
-  create      Create a new container
-  diff        Inspect changes to files or directories on a container&#39;s filesystem
-  events      Get real time events from the server
-  exec        Run a command in a running container
-  export      Export a container&#39;s filesystem as a tar archive
-  history     Show the history of an image
-  images      List images
-  import      Import the contents from a tarball to create a filesystem image
-  info        Display system-wide information
-  inspect     Return low-level information on Docker objects
-  kill        Kill one or more running containers
-  load        Load an image from a tar archive or STDIN
-  login       Log in to a Docker registry
-  logout      Log out from a Docker registry
-  logs        Fetch the logs of a container
-  pause       Pause all processes within one or more containers
-  port        List port mappings or a specific mapping for the container
-  ps          List containers
-  pull        Pull an image or a repository from a registry
-  push        Push an image or a repository to a registry
-  rename      Rename a container
-  restart     Restart one or more containers
-  rm          Remove one or more containers
-  rmi         Remove one or more images
-  run         Run a command in a new container
-  save        Save one or more images to a tar archive (streamed to STDOUT by default)
-  search      Search the Docker Hub for images
-  start       Start one or more stopped containers
-  stats       Display a live stream of container(s) resource usage statistics
-  stop        Stop one or more running containers
-  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
-  top         Display the running processes of a container
-  unpause     Unpause all processes within one or more containers
-  update      Update configuration of one or more containers
-  version     Show the Docker version information
-  wait        Block until one or more containers stop, then print their exit codes
-
-Run &#39;docker COMMAND --help&#39; for more information on a command.
-
-To get more help with docker, check out our guides at https://docs.docker.com/go/guides/
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="docker-批量操作">docker 批量操作</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback"># 列出所有容器ID
-docker ps -aq
-8c10a849e208
-7e2ad94e8a1e
-8c5974b7c381
-ff000a994e6f
-374e9a214ca6
-aa72625b2981
-# 停止所有容器
-docker stop $(docker p)
-</code></pre></td></tr></table>
-</div>
-</div></div><div class="post-footer" id="post-footer">
-    <div class="post-info">
-        <div class="post-info-line">
-            <div class="post-info-mod">
-                <span>Updated on 2021-09-29&nbsp;<a class="git-hash" href="https://github.com/commit/cd5429398f58a48e72e03e167d76382e6f8bb359" target="_blank" title="commit by yemo0(1735681885@qq.com) cd5429398f58a48e72e03e167d76382e6f8bb359: 9/30/21">
-                                    <i class="fas fa-hashtag fa-fw"></i>cd54293</a></span>
-            </div>
-            <div class="post-info-license"></div>
-        </div>
-        <div class="post-info-line">
-            <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/docker1/index.md" target="_blank">Read Markdown</a>
-                        </span></div>
-            <div class="post-info-share">
-                <span></span>
-            </div>
-        </div>
-    </div>
-
-    <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/docker/">docker</a></section>
-        <section>
-            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
-        </section>
-    </div>
-
-    <div class="post-nav"><a href="/cssload/" class="prev" rel="prev" title="js获取到数组但无法获取length"><i class="fas fa-angle-left fa-fw"></i>js获取到数组但无法获取length</a>
-            <a href="/docker2/" class="next" rel="next" title="docker2 镜像创建、管理">docker2 镜像创建、管理<i class="fas fa-angle-right fa-fw"></i></a></div>
-</div>
-</article></div>
-            </main></div>
-
-        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
-                <i class="fas fa-arrow-up fa-fw"></i>
-            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
-                <i class="fas fa-comment fa-fw"></i>
-            </a>
-        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.8/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":30},"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
-</html>
-=======
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -707,8 +138,8 @@ docker stop $(docker p)
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">{&#34;registry-mirrors&#34;: [&#34;https://registry.cn-hangzhou.aliyuncs.com&#34;]}
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">{&#34;registry-mirrors&#34;: [&#34;https://registry.cn-hangzhou.aliyuncs.com&#34;]}
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>镜像地址</p>
 <div class="highlight"><div class="chroma">
@@ -723,15 +154,15 @@ docker stop $(docker p)
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">腾讯云 docker hub mirror
-https://mirror.ccs.tencentyun.com
-
-华为云
-https://05f073ad3c0010ea0f4bc00b7105ec20.mirror.swr.myhuaweicloud.com
-
-网易
-http://hub-mirror.c.163.com
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">腾讯云 docker hub mirror
+</span></span><span class="line"><span class="cl">https://mirror.ccs.tencentyun.com
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">华为云
+</span></span><span class="line"><span class="cl">https://05f073ad3c0010ea0f4bc00b7105ec20.mirror.swr.myhuaweicloud.com
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">网易
+</span></span><span class="line"><span class="cl">http://hub-mirror.c.163.com
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="docker-安装">docker 安装</h3>
 <p><a href="https://yeasy.gitbook.io/docker_practice/install" target="_blank" rel="noopener noreffer">参考文档</a></p>
@@ -742,8 +173,8 @@ http://hub-mirror.c.163.com
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-docker" data-lang="docker">docker search xxx<span class="err">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-docker" data-lang="docker"><span class="line"><span class="cl">docker search xxx<span class="err">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>下载镜像</p>
 <div class="highlight"><div class="chroma">
@@ -752,9 +183,9 @@ http://hub-mirror.c.163.com
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">docker pull xxx:TAG
-// TAG表示版本，不写默认最新版latest
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker pull xxx:TAG
+</span></span><span class="line"><span class="cl">// TAG表示版本，不写默认最新版latest
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>查找镜像</p>
 <div class="highlight"><div class="chroma">
@@ -762,8 +193,8 @@ http://hub-mirror.c.163.com
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">docker images
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker images
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>删除镜像</p>
 <div class="highlight"><div class="chroma">
@@ -774,11 +205,11 @@ http://hub-mirror.c.163.com
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">docker rmi -f 镜像ID或镜像名(有版本号需要带版本号)
-# 删除指定本地镜像
-# -f 强制删除
-# ID可以不用填写完
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker rmi -f 镜像ID或镜像名(有版本号需要带版本号)
+</span></span><span class="line"><span class="cl"># 删除指定本地镜像
+</span></span><span class="line"><span class="cl"># -f 强制删除
+</span></span><span class="line"><span class="cl"># ID可以不用填写完
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>删除元信息</p>
 <div class="highlight"><div class="chroma">
@@ -787,9 +218,9 @@ http://hub-mirror.c.163.com
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">docker inspect 镜像ID或镜像名(有版本号带版本号)
-# 获取镜像的元信息,详情信息
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker inspect 镜像ID或镜像名(有版本号带版本号)
+</span></span><span class="line"><span class="cl"># 获取镜像的元信息,详情信息
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="容器常用操作-1">容器常用操作</h3>
 <p>运行</p>
@@ -805,15 +236,15 @@ http://hub-mirror.c.163.com
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">docker run --name 容器名 -i -t -p 主机端口:容器端口 -d -v 主机目录:容器目录:ro 镜像ID或镜像名:TAG
-# --name 指定容器名, 不指定自动命名
-# -i 以交互模式运行容器
-# -t 分配一个伪终端(命令行), 通常-it组合使用
-# -p 指定端口 主机端口映射到容器端口
-# -d 后台运行容器
-# -v 指定挂载主机到容器目录, 默认为rw读写模式, ro表示只读
-# --rm t
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker run --name 容器名 -i -t -p 主机端口:容器端口 -d -v 主机目录:容器目录:ro 镜像ID或镜像名:TAG
+</span></span><span class="line"><span class="cl"># --name 指定容器名, 不指定自动命名
+</span></span><span class="line"><span class="cl"># -i 以交互模式运行容器
+</span></span><span class="line"><span class="cl"># -t 分配一个伪终端(命令行), 通常-it组合使用
+</span></span><span class="line"><span class="cl"># -p 指定端口 主机端口映射到容器端口
+</span></span><span class="line"><span class="cl"># -d 后台运行容器
+</span></span><span class="line"><span class="cl"># -v 指定挂载主机到容器目录, 默认为rw读写模式, ro表示只读
+</span></span><span class="line"><span class="cl"># --rm t
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>容器列表</p>
 <div class="highlight"><div class="chroma">
@@ -824,11 +255,11 @@ http://hub-mirror.c.163.com
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">docker ps -a -q
-# docker ps 查看正在运行的容器
-# -a 查看使用容器(运行中、未运行)
-# -q 只查看容器ID
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker ps -a -q
+</span></span><span class="line"><span class="cl"># docker ps 查看正在运行的容器
+</span></span><span class="line"><span class="cl"># -a 查看使用容器(运行中、未运行)
+</span></span><span class="line"><span class="cl"># -q 只查看容器ID
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>启动容器</p>
 <div class="highlight"><div class="chroma">
@@ -836,8 +267,8 @@ http://hub-mirror.c.163.com
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">docker start 容器ID或容器名
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker start 容器ID或容器名
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>停止容器</p>
 <div class="highlight"><div class="chroma">
@@ -845,8 +276,8 @@ http://hub-mirror.c.163.com
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">docker stop 容器ID或容器名
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker stop 容器ID或容器名
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>删除容器</p>
 <div class="highlight"><div class="chroma">
@@ -855,9 +286,9 @@ http://hub-mirror.c.163.com
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">docker rm -f 容器ID或容器名
-# -f 强制删除
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker rm -f 容器ID或容器名
+</span></span><span class="line"><span class="cl"># -f 强制删除
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>以交互模式执行容器内</p>
 <div class="highlight"><div class="chroma">
@@ -869,12 +300,12 @@ http://hub-mirror.c.163.com
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">docker exec -it 容器ID或容器名 /bin/bash
-# 进入正在运行的容器并且开启交互模式终端
-# /bin/bash 固有写法, 作用是因为docker后台必须运行一个进程，否则容器就会退出，在这里表示启动容器后启动
-bash
-# 也可以用docker exec在运行中的容器执行命令
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker exec -it 容器ID或容器名 /bin/bash
+</span></span><span class="line"><span class="cl"># 进入正在运行的容器并且开启交互模式终端
+</span></span><span class="line"><span class="cl"># /bin/bash 固有写法, 作用是因为docker后台必须运行一个进程，否则容器就会退出，在这里表示启动容器后启动
+</span></span><span class="line"><span class="cl">bash
+</span></span><span class="line"><span class="cl"># 也可以用docker exec在运行中的容器执行命令
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>拷贝文件</p>
 <div class="highlight"><div class="chroma">
@@ -883,9 +314,9 @@ bash
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">docker cp 主机文件路径 容器ID或容器名:容器路径 #主机中文件拷贝到容器中
-docker cp 容器ID或容器名:容器路径 主机文件路径 #容器中文件拷贝到主机中
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker cp 主机文件路径 容器ID或容器名:容器路径 #主机中文件拷贝到容器中
+</span></span><span class="line"><span class="cl">docker cp 容器ID或容器名:容器路径 主机文件路径 #容器中文件拷贝到主机中
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>删除停掉的容器</p>
 <div class="highlight"><div class="chroma">
@@ -893,8 +324,8 @@ docker cp 容器ID或容器名:容器路径 主机文件路径 #容器中文件�
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">docker system prune -f
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker system prune -f
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="更多操作">更多操作</h3>
 <p><code>docker help</code></p>
@@ -984,89 +415,89 @@ docker cp 容器ID或容器名:容器路径 主机文件路径 #容器中文件�
 </span><span class="lnt">82
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"> docker help
-
-Usage:  docker [OPTIONS] COMMAND
-
-A self-sufficient runtime for containers
-
-Options:
-      --config string      Location of client config files (default &#34;/home/yemo/.docker&#34;)
-  -c, --context string     Name of the context to use to connect to the daemon (overrides DOCKER_HOST env var and default context set with &#34;docker context use&#34;)
-  -D, --debug              Enable debug mode
-  -H, --host list          Daemon socket(s) to connect to
-  -l, --log-level string   Set the logging level (&#34;debug&#34;|&#34;info&#34;|&#34;warn&#34;|&#34;error&#34;|&#34;fatal&#34;) (default &#34;info&#34;)
-      --tls                Use TLS; implied by --tlsverify
-      --tlscacert string   Trust certs signed only by this CA (default &#34;/home/yemo/.docker/ca.pem&#34;)
-      --tlscert string     Path to TLS certificate file (default &#34;/home/yemo/.docker/cert.pem&#34;)
-      --tlskey string      Path to TLS key file (default &#34;/home/yemo/.docker/key.pem&#34;)
-      --tlsverify          Use TLS and verify the remote
-  -v, --version            Print version information and quit
-
-Management Commands:
-  builder     Manage builds
-  config      Manage Docker configs
-  container   Manage containers
-  context     Manage contexts
-  image       Manage images
-  manifest    Manage Docker image manifests and manifest lists
-  network     Manage networks
-  node        Manage Swarm nodes
-  plugin      Manage plugins
-  secret      Manage Docker secrets
-  service     Manage services
-  stack       Manage Docker stacks
-  swarm       Manage Swarm
-  system      Manage Docker
-  trust       Manage trust on Docker images
-  volume      Manage volumes
-
-Commands:
-  attach      Attach local standard input, output, and error streams to a running container
-  build       Build an image from a Dockerfile
-  commit      Create a new image from a container&#39;s changes
-  cp          Copy files/folders between a container and the local filesystem
-  create      Create a new container
-  diff        Inspect changes to files or directories on a container&#39;s filesystem
-  events      Get real time events from the server
-  exec        Run a command in a running container
-  export      Export a container&#39;s filesystem as a tar archive
-  history     Show the history of an image
-  images      List images
-  import      Import the contents from a tarball to create a filesystem image
-  info        Display system-wide information
-  inspect     Return low-level information on Docker objects
-  kill        Kill one or more running containers
-  load        Load an image from a tar archive or STDIN
-  login       Log in to a Docker registry
-  logout      Log out from a Docker registry
-  logs        Fetch the logs of a container
-  pause       Pause all processes within one or more containers
-  port        List port mappings or a specific mapping for the container
-  ps          List containers
-  pull        Pull an image or a repository from a registry
-  push        Push an image or a repository to a registry
-  rename      Rename a container
-  restart     Restart one or more containers
-  rm          Remove one or more containers
-  rmi         Remove one or more images
-  run         Run a command in a new container
-  save        Save one or more images to a tar archive (streamed to STDOUT by default)
-  search      Search the Docker Hub for images
-  start       Start one or more stopped containers
-  stats       Display a live stream of container(s) resource usage statistics
-  stop        Stop one or more running containers
-  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
-  top         Display the running processes of a container
-  unpause     Unpause all processes within one or more containers
-  update      Update configuration of one or more containers
-  version     Show the Docker version information
-  wait        Block until one or more containers stop, then print their exit codes
-
-Run &#39;docker COMMAND --help&#39; for more information on a command.
-
-To get more help with docker, check out our guides at https://docs.docker.com/go/guides/
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> docker help
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Usage:  docker [OPTIONS] COMMAND
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">A self-sufficient runtime for containers
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Options:
+</span></span><span class="line"><span class="cl">      --config string      Location of client config files (default &#34;/home/yemo/.docker&#34;)
+</span></span><span class="line"><span class="cl">  -c, --context string     Name of the context to use to connect to the daemon (overrides DOCKER_HOST env var and default context set with &#34;docker context use&#34;)
+</span></span><span class="line"><span class="cl">  -D, --debug              Enable debug mode
+</span></span><span class="line"><span class="cl">  -H, --host list          Daemon socket(s) to connect to
+</span></span><span class="line"><span class="cl">  -l, --log-level string   Set the logging level (&#34;debug&#34;|&#34;info&#34;|&#34;warn&#34;|&#34;error&#34;|&#34;fatal&#34;) (default &#34;info&#34;)
+</span></span><span class="line"><span class="cl">      --tls                Use TLS; implied by --tlsverify
+</span></span><span class="line"><span class="cl">      --tlscacert string   Trust certs signed only by this CA (default &#34;/home/yemo/.docker/ca.pem&#34;)
+</span></span><span class="line"><span class="cl">      --tlscert string     Path to TLS certificate file (default &#34;/home/yemo/.docker/cert.pem&#34;)
+</span></span><span class="line"><span class="cl">      --tlskey string      Path to TLS key file (default &#34;/home/yemo/.docker/key.pem&#34;)
+</span></span><span class="line"><span class="cl">      --tlsverify          Use TLS and verify the remote
+</span></span><span class="line"><span class="cl">  -v, --version            Print version information and quit
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Management Commands:
+</span></span><span class="line"><span class="cl">  builder     Manage builds
+</span></span><span class="line"><span class="cl">  config      Manage Docker configs
+</span></span><span class="line"><span class="cl">  container   Manage containers
+</span></span><span class="line"><span class="cl">  context     Manage contexts
+</span></span><span class="line"><span class="cl">  image       Manage images
+</span></span><span class="line"><span class="cl">  manifest    Manage Docker image manifests and manifest lists
+</span></span><span class="line"><span class="cl">  network     Manage networks
+</span></span><span class="line"><span class="cl">  node        Manage Swarm nodes
+</span></span><span class="line"><span class="cl">  plugin      Manage plugins
+</span></span><span class="line"><span class="cl">  secret      Manage Docker secrets
+</span></span><span class="line"><span class="cl">  service     Manage services
+</span></span><span class="line"><span class="cl">  stack       Manage Docker stacks
+</span></span><span class="line"><span class="cl">  swarm       Manage Swarm
+</span></span><span class="line"><span class="cl">  system      Manage Docker
+</span></span><span class="line"><span class="cl">  trust       Manage trust on Docker images
+</span></span><span class="line"><span class="cl">  volume      Manage volumes
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Commands:
+</span></span><span class="line"><span class="cl">  attach      Attach local standard input, output, and error streams to a running container
+</span></span><span class="line"><span class="cl">  build       Build an image from a Dockerfile
+</span></span><span class="line"><span class="cl">  commit      Create a new image from a container&#39;s changes
+</span></span><span class="line"><span class="cl">  cp          Copy files/folders between a container and the local filesystem
+</span></span><span class="line"><span class="cl">  create      Create a new container
+</span></span><span class="line"><span class="cl">  diff        Inspect changes to files or directories on a container&#39;s filesystem
+</span></span><span class="line"><span class="cl">  events      Get real time events from the server
+</span></span><span class="line"><span class="cl">  exec        Run a command in a running container
+</span></span><span class="line"><span class="cl">  export      Export a container&#39;s filesystem as a tar archive
+</span></span><span class="line"><span class="cl">  history     Show the history of an image
+</span></span><span class="line"><span class="cl">  images      List images
+</span></span><span class="line"><span class="cl">  import      Import the contents from a tarball to create a filesystem image
+</span></span><span class="line"><span class="cl">  info        Display system-wide information
+</span></span><span class="line"><span class="cl">  inspect     Return low-level information on Docker objects
+</span></span><span class="line"><span class="cl">  kill        Kill one or more running containers
+</span></span><span class="line"><span class="cl">  load        Load an image from a tar archive or STDIN
+</span></span><span class="line"><span class="cl">  login       Log in to a Docker registry
+</span></span><span class="line"><span class="cl">  logout      Log out from a Docker registry
+</span></span><span class="line"><span class="cl">  logs        Fetch the logs of a container
+</span></span><span class="line"><span class="cl">  pause       Pause all processes within one or more containers
+</span></span><span class="line"><span class="cl">  port        List port mappings or a specific mapping for the container
+</span></span><span class="line"><span class="cl">  ps          List containers
+</span></span><span class="line"><span class="cl">  pull        Pull an image or a repository from a registry
+</span></span><span class="line"><span class="cl">  push        Push an image or a repository to a registry
+</span></span><span class="line"><span class="cl">  rename      Rename a container
+</span></span><span class="line"><span class="cl">  restart     Restart one or more containers
+</span></span><span class="line"><span class="cl">  rm          Remove one or more containers
+</span></span><span class="line"><span class="cl">  rmi         Remove one or more images
+</span></span><span class="line"><span class="cl">  run         Run a command in a new container
+</span></span><span class="line"><span class="cl">  save        Save one or more images to a tar archive (streamed to STDOUT by default)
+</span></span><span class="line"><span class="cl">  search      Search the Docker Hub for images
+</span></span><span class="line"><span class="cl">  start       Start one or more stopped containers
+</span></span><span class="line"><span class="cl">  stats       Display a live stream of container(s) resource usage statistics
+</span></span><span class="line"><span class="cl">  stop        Stop one or more running containers
+</span></span><span class="line"><span class="cl">  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+</span></span><span class="line"><span class="cl">  top         Display the running processes of a container
+</span></span><span class="line"><span class="cl">  unpause     Unpause all processes within one or more containers
+</span></span><span class="line"><span class="cl">  update      Update configuration of one or more containers
+</span></span><span class="line"><span class="cl">  version     Show the Docker version information
+</span></span><span class="line"><span class="cl">  wait        Block until one or more containers stop, then print their exit codes
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Run &#39;docker COMMAND --help&#39; for more information on a command.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">To get more help with docker, check out our guides at https://docs.docker.com/go/guides/
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="docker-批量操作">docker 批量操作</h3>
 <div class="highlight"><div class="chroma">
@@ -1083,17 +514,17 @@ To get more help with docker, check out our guides at https://docs.docker.com/go
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"># 列出所有容器ID
-docker ps -aq
-8c10a849e208
-7e2ad94e8a1e
-8c5974b7c381
-ff000a994e6f
-374e9a214ca6
-aa72625b2981
-# 停止所有容器
-docker stop $(docker p)
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># 列出所有容器ID
+</span></span><span class="line"><span class="cl">docker ps -aq
+</span></span><span class="line"><span class="cl">8c10a849e208
+</span></span><span class="line"><span class="cl">7e2ad94e8a1e
+</span></span><span class="line"><span class="cl">8c5974b7c381
+</span></span><span class="line"><span class="cl">ff000a994e6f
+</span></span><span class="line"><span class="cl">374e9a214ca6
+</span></span><span class="line"><span class="cl">aa72625b2981
+</span></span><span class="line"><span class="cl"># 停止所有容器
+</span></span><span class="line"><span class="cl">docker stop $(docker p)
+</span></span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
@@ -1134,4 +565,3 @@ docker stop $(docker p)
             </a>
         </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.8/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":30},"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>
->>>>>>> 9c38be2b26805ebf7f5d208c2ad913b1bb496772

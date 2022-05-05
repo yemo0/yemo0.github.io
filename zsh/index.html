@@ -143,14 +143,14 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">apt install zsh
-
-// 查看
-cat /etc/shells
-// 切换
-sudo chsh -s /usr/bin/zsh
-chsh -s /usr/bin/zsh
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">apt install zsh
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">// 查看
+</span></span><span class="line"><span class="cl">cat /etc/shells
+</span></span><span class="line"><span class="cl">// 切换
+</span></span><span class="line"><span class="cl">sudo chsh -s /usr/bin/zsh
+</span></span><span class="line"><span class="cl">chsh -s /usr/bin/zsh
+</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
@@ -160,8 +160,8 @@ chsh -s /usr/bin/zsh
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">sh -c &#34;$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)&#34;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sh -c &#34;$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)&#34;
+</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
@@ -181,18 +181,18 @@ chsh -s /usr/bin/zsh
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">// pure https://github.com/sindresorhus/pure
-// 使用Nodesource安装高版本nodejs https://github.com/nodesource/distributions
-npm install --global pure-prompt
-mkdir -p <span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.zsh&#34;</span>
-git clone https://github.com/sindresorhus/pure.git <span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.zsh/pure&#34;</span>
-// 创建并写入.zshrc
-vim <span class="nv">$HOME</span>/.zshrc
-// .zsrc
-<span class="nv">fpath</span><span class="o">+=</span><span class="nv">$HOME</span>/.zsh/pure
-autoload -U promptinit<span class="p">;</span> promptinit
-prompt pure
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">// pure https://github.com/sindresorhus/pure
+</span></span><span class="line"><span class="cl">// 使用Nodesource安装高版本nodejs https://github.com/nodesource/distributions
+</span></span><span class="line"><span class="cl">npm install --global pure-prompt
+</span></span><span class="line"><span class="cl">mkdir -p <span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.zsh&#34;</span>
+</span></span><span class="line"><span class="cl">git clone https://github.com/sindresorhus/pure.git <span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.zsh/pure&#34;</span>
+</span></span><span class="line"><span class="cl">// 创建并写入.zshrc
+</span></span><span class="line"><span class="cl">vim <span class="nv">$HOME</span>/.zshrc
+</span></span><span class="line"><span class="cl">// .zsrc
+</span></span><span class="line"><span class="cl"><span class="nv">fpath</span><span class="o">+=</span><span class="nv">$HOME</span>/.zsh/pure
+</span></span><span class="line"><span class="cl">autoload -U promptinit<span class="p">;</span> promptinit
+</span></span><span class="line"><span class="cl">prompt pure
+</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 </ol></div><div class="post-footer" id="post-footer">

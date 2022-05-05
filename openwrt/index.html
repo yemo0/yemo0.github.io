@@ -20,7 +20,7 @@
 <meta name="application-name" content="home">
 <meta name="apple-mobile-web-app-title" content="home"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://example.com/openwrt/" /><link rel="next" href="https://example.com/zsh/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://example.com/openwrt/" /><link rel="prev" href="https://example.com/add-store-ltsc/" /><link rel="next" href="https://example.com/zsh/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -139,8 +139,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">docker pull piaoyizy/openwrt-aarch64
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker pull piaoyizy/openwrt-aarch64
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="打开网卡混杂模式">打开网卡混杂模式</h2>
 <div class="highlight"><div class="chroma">
@@ -148,8 +148,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">sudo ip link set eth0 promisc on
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo ip link set eth0 promisc on
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="创建网络">创建网络</h3>
 <div class="highlight"><div class="chroma">
@@ -157,8 +157,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">docker network create -d macvlan --subnet=192.168.2.0/24 --gateway=192.168.2.9 -o parent=eth0 macnet
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker network create -d macvlan --subnet=192.168.2.0/24 --gateway=192.168.2.9 -o parent=eth0 macnet
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="开启容器">开启容器</h3>
 <div class="highlight"><div class="chroma">
@@ -166,8 +166,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">docker run --name openwrt --restart always -d --network macnet --privileged piaoyizy/openwrt-aarch64:latest
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker run --name openwrt --restart always -d --network macnet --privileged piaoyizy/openwrt-aarch64:latest
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="修改docker内的openwrt网络设置">修改docker内的openwrt网络设置</h3>
 <div class="highlight"><div class="chroma">
@@ -180,13 +180,13 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">docker exec -it openwrt /bin/bash
-
-vi /etc/config/network
-// 修改ipaddr默认地址 改为openwrt的地址
-// 加入option gateway &#39;网关&#39;
-// 加入option dns &#39;网关&#39;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker exec -it openwrt /bin/bash
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">vi /etc/config/network
+</span></span><span class="line"><span class="cl">// 修改ipaddr默认地址 改为openwrt的地址
+</span></span><span class="line"><span class="cl">// 加入option gateway &#39;网关&#39;
+</span></span><span class="line"><span class="cl">// 加入option dns &#39;网关&#39;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="重启容器">重启容器</h3>
 <div class="highlight"><div class="chroma">
@@ -194,8 +194,8 @@ vi /etc/config/network
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">docker restart openwrt
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker restart openwrt
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="国内访问慢">国内访问慢</h3>
 <div class="highlight"><div class="chroma">
@@ -206,11 +206,11 @@ vi /etc/config/network
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">在防火墙加入自定义规则
-iptables -t nat -I POSTROUTING -o eth0 -j MASQUERADE
-
-关闭lan口桥接模式
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">在防火墙加入自定义规则
+</span></span><span class="line"><span class="cl">iptables -t nat -I POSTROUTING -o eth0 -j MASQUERADE
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">关闭lan口桥接模式
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="参考文章">参考文章</h3>
 <p><a href="https://wherelse.cc/post/Install-openwrt-under-Docker-for-bypass-router/" target="_blank" rel="noopener noreffer">参考文章</a></p>
@@ -240,7 +240,7 @@ iptables -t nat -I POSTROUTING -o eth0 -j MASQUERADE
         </section>
     </div>
 
-    <div class="post-nav">
+    <div class="post-nav"><a href="/add-store-ltsc/" class="prev" rel="prev" title=""><i class="fas fa-angle-left fa-fw"></i></a>
             <a href="/zsh/" class="next" rel="next" title="zsh 配置">zsh 配置<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 </article></div>
