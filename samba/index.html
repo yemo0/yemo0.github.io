@@ -6,21 +6,21 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>docker搭建samba共享 - MyBlog</title><meta name="Description" content="About LoveIt Theme"><meta property="og:title" content="docker搭建samba共享" />
-<meta property="og:description" content="使用docker dperson/samba镜像 dperson/samba 1 2 3 sudo docker run -it --name samba -p 139:139 -p 445:445 \ -v /root/samba-data:/mount \ -d dperson/samba -ps 添加系统用户 添加samba用户前系统用户必须存在，系" />
+<meta property="og:description" content="使用docker搭建samba共享服务。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://example.com/samba/" /><meta property="og:image" content="https://example.com/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-05-25T20:44:37+00:00" />
-<meta property="article:modified_time" content="2022-05-25T20:44:37+00:00" />
+<meta property="article:modified_time" content="2022-05-29T00:56:47+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://example.com/logo.png"/>
 
 <meta name="twitter:title" content="docker搭建samba共享"/>
-<meta name="twitter:description" content="使用docker dperson/samba镜像 dperson/samba 1 2 3 sudo docker run -it --name samba -p 139:139 -p 445:445 \ -v /root/samba-data:/mount \ -d dperson/samba -ps 添加系统用户 添加samba用户前系统用户必须存在，系"/>
+<meta name="twitter:description" content="使用docker搭建samba共享服务。"/>
 <meta name="application-name" content="home">
 <meta name="apple-mobile-web-app-title" content="home"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://example.com/samba/" /><link rel="prev" href="https://example.com/serverless-devs/" /><link rel="next" href="https://example.com/0todo/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://example.com/samba/" /><link rel="prev" href="https://example.com/serverless-devs/" /><link rel="next" href="https://example.com/push-to-multiple-remotes/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -29,8 +29,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/example.com\/samba\/"
-        },"image": ["https:\/\/example.com\/images\/Apple-Devices-Preview.png"],"genre": "posts","wordcount":  185 ,
-        "url": "https:\/\/example.com\/samba\/","datePublished": "2022-05-25T20:44:37+00:00","dateModified": "2022-05-25T20:44:37+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        },"image": ["https:\/\/example.com\/images\/Apple-Devices-Preview.png"],"genre": "posts","wordcount":  205 ,
+        "url": "https:\/\/example.com\/samba\/","datePublished": "2022-05-25T20:44:37+00:00","dateModified": "2022-05-29T00:56:47+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": "https:\/\/example.com\/images\/avatar.png"},"author": {
                 "@type": "Person",
@@ -110,7 +110,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">docker搭建samba共享</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>yemo</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-05-25">2022-05-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;185 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-05-25">2022-05-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;205 words&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;One minute&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -128,7 +128,8 @@
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><p>使用<code>docker</code> <code>dperson/samba</code>镜像
+            </div><div class="content" id="content"><p>使用<code>docker</code>搭建<code>samba</code>共享服务。</p>
+<p>使用<code>docker</code> <code>dperson/samba</code>镜像
 <a href="https://hub.docker.com/r/dperson/samba" target="_blank" rel="noopener noreffer">dperson/samba</a></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -190,12 +191,12 @@
 </span></span><span class="line"><span class="cl">   write list = user01
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><a href="https://blog.csdn.net/flysnownet/article/details/112311200" target="_blank" rel="noopener noreffer">参考文章 docker搭建samba服务smb网络磁盘共享</a></p>
-</div><div class="post-footer" id="post-footer">
+</div><p><a href="https://blog.csdn.net/flysnownet/article/details/112311200" target="_blank" rel="noopener noreffer">参考文章 docker搭建samba服务smb网络磁盘共享</a></p></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2022-05-25</span>
+                <span>Updated on 2022-05-29&nbsp;<a class="git-hash" href="https://github.com/commit/f96893d7a85cda603355a21046be8b0f2354e1c2" target="_blank" title="commit by yemo0(1735681885@qq.com) f96893d7a85cda603355a21046be8b0f2354e1c2: change tabbar docs link">
+                                    <i class="fas fa-hashtag fa-fw"></i>f96893d</a></span>
             </div>
             <div class="post-info-license"></div>
         </div>
@@ -217,7 +218,7 @@
     </div>
 
     <div class="post-nav"><a href="/serverless-devs/" class="prev" rel="prev" title="serverless devs"><i class="fas fa-angle-left fa-fw"></i>serverless devs</a>
-            <a href="/0todo/" class="next" rel="next" title="ToDo">ToDo<i class="fas fa-angle-right fa-fw"></i></a></div>
+            <a href="/push-to-multiple-remotes/" class="next" rel="next" title="git push到多个远程仓库">git push到多个远程仓库<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 </article></div>
             </main></div>
@@ -227,5 +228,5 @@
             </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
                 <i class="fas fa-comment fa-fw"></i>
             </a>
-        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.8/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":30},"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.8/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":30},"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="/js/custom.js"></script></body>
 </html>

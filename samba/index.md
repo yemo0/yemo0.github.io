@@ -1,6 +1,7 @@
 # docker搭建samba共享
 
-
+使用`docker`搭建`samba`共享服务。
+<!--more-->
 使用`docker` `dperson/samba`镜像
 [dperson/samba](https://hub.docker.com/r/dperson/samba)
 

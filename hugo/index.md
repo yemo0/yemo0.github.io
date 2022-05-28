@@ -20,9 +20,9 @@ git clone https://github.com/dillonzq/LoveIt.git themes/LoveIt
 cp themes/LoveIt/exampleSite/config.toml .
 ```
 
-##Console报错找不到 site.webmanifest
+**Console报错找不到 site.webmanifest**
 解决方法
-- [site.webmanifest](https://www.bahuangshanren.tech/hugo-loveit%E4%BC%98%E5%8C%96%E8%AE%B0/)
+- [site.webmanifest](https://www.bahuangshanren.tech/2021-2/)
 
 ## 文档
 - [LoveIt文档](https://hugoloveit.com/zh-cn/theme-documentation-basics/)
