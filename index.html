@@ -38,7 +38,7 @@
             <a href="/" title="MyBlog">home</a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="https://yemo0.gitee.io" rel="noopener noreffer" target="_blank"> Docs </a><a class="menu-item" href="/tools/"> Tools </a><a class="menu-item" href="https://github.com/yemo0" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="https://yemo0.vercel.app/" rel="noopener noreffer" target="_blank"> Docs </a><a class="menu-item" href="/tools/"> Tools </a><a class="menu-item" href="https://github.com/yemo0" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
                         <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/" selected>English</option><option value="/zh-cn/">简体中文</option></select>
                     </a><span class="menu-item search" id="search-desktop">
                         <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
@@ -83,7 +83,7 @@
                     <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
                         Cancel
                     </a>
-                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="https://yemo0.gitee.io" title="" rel="noopener noreffer" target="_blank">Docs</a><a class="menu-item" href="/tools/" title="">Tools</a><a class="menu-item" href="https://github.com/yemo0" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="https://yemo0.vercel.app/" title="" rel="noopener noreffer" target="_blank">Docs</a><a class="menu-item" href="/tools/" title="">Tools</a><a class="menu-item" href="https://github.com/yemo0" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
                 <i class="fas fa-adjust fa-fw"></i>
             </a><a href="javascript:void(0);" class="menu-item" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
                     <select class="language-select" onchange="location = this.value;"><option value="/" selected>English</option><option value="/zh-cn/">简体中文</option></select>
@@ -110,6 +110,10 @@
     </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>yemo</a></span>&nbsp;<span class="post-publish">published on <time datetime="2099-11-28">2099-11-28</time></span></div><div class="content">2021-11-28 00:31:10 待完善 autojs git go-flag go mysql nosql kafka metamask workflows 主页跳转改回来</div><div class="post-footer">
         <a href="/0todo/">Read More</a></div>
 </article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/samba/">docker搭建samba共享</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>yemo</a></span>&nbsp;<span class="post-publish">published on <time datetime="2022-05-25">2022-05-25</time></span></div><div class="content">使用docker dperson/samba镜像 dperson/samba 1 2 3 sudo docker run -it --name samba -p 139:139 -p 445:445 \ -v /root/samba-data:/mount \ -d dperson/samba -ps 添加系统用户 添加samba用户前系统用户必须存在，系</div><div class="post-footer">
+        <a href="/samba/">Read More</a></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/serverless-devs/">serverless devs</a>
     </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>yemo</a></span>&nbsp;<span class="post-publish">published on <time datetime="2022-02-20">2022-02-20</time></span></div><div class="content">1. 安装 serverless-Devs [serverless devs 地址](GitHub - Serverless-Devs/Serverless-Devs: Serverless Devs developer tool ( Serverless Devs 开发者工具 )) 2. serverless devs 配置 获取密钥页面：阿里云登录 - 欢迎登录阿里云，安全稳定的云计算服务平台 1</div><div class="post-footer">
         <a href="/serverless-devs/">Read More</a><div class="post-tags">
@@ -126,11 +130,6 @@
         <a href="/kafka/">kafka使用</a>
     </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>yemo</a></span>&nbsp;<span class="post-publish">published on <time datetime="2021-10-26">2021-10-26</time></span></div><div class="content">kafka Kafka是一款流行分布式消息分布订阅系统，除Kafka之外还有MQ、Redis等。我们可以把消息队列视为一个管道，管道的两端分别是消息生</div><div class="post-footer">
         <a href="/kafka/">Read More</a></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/autojs/">autojs常用操作</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>yemo</a></span>&nbsp;<span class="post-publish">published on <time datetime="2021-10-10">2021-10-10</time></span></div><div class="content">Waiting to Write&hellip;</div><div class="post-footer">
-        <a href="/autojs/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/autojs/">autojs</a></div></div>
 </article><ul class="pagination"><li class="page-item active">
                     <span class="page-link">
                         <a href="/">1</a>
