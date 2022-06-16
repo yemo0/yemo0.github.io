@@ -1,9 +1,12 @@
 # README
 
+
 `blog`描述、规划、想法...
+
 <!--more-->
 
 ## ToDo
+
 - 完善全部文章。
 - hugo 主题开发
 - autojs
