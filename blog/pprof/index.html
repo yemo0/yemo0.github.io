@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="generator" content="Astro v2.7.0">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://yemo0.github.io/blog/pprof/">
+
+<!-- Primary Meta Tags -->
+<title>pprof 使用</title>
+<meta name="title" content="pprof 使用">
+<meta name="description">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yemo0.github.io/blog/pprof/">
+<meta property="og:title" content="pprof 使用">
+<meta property="og:description">
+<meta property="og:image" content="https://yemo0.github.io/placeholder-social.jpg">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://yemo0.github.io/blog/pprof/">
+<meta property="twitter:title" content="pprof 使用">
+<meta property="twitter:description">
+<meta property="twitter:image" content="https://yemo0.github.io/placeholder-social.jpg">
+	<link rel="stylesheet" href="/_astro/404.e0179c8a.css" />
+<link rel="stylesheet" href="/_astro/about.452c757f.css" />
+<link rel="stylesheet" href="/_astro/about.32e2b4d0.css" /><script type="module" src="/_astro/hoisted.1db10bb2.js"></script></head>
+
+	<body class="dark:bg-zinc-800 dark:text-slate-200">
+		<header class="w-11/12 md:w-3/5 mx-auto ">
+	<div class="flex  h-16 items-center justify-between">
+		<div class="text-2xl font-bold">
+			<a href="/">HOME</a>
+			<button accesskey="t" title="(Alt + T)">
+				<svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path></svg>
+				<svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+			</button>
+		</div>
+		<nav class="hidden md:block">
+			<a href="/archives" class="astro-EIMMU3LG">
+	Archive
+</a>
+			<a href="/tags" class="astro-EIMMU3LG">
+	Tags
+</a>
+			<a href="/Docs" class="astro-EIMMU3LG" target="_blank">
+	Docs
+</a>
+			<a href="/GitHub" class="astro-EIMMU3LG" target="_blank">
+	GitHub
+</a>
+		</nav>
+	
+		<!-- Mobile menu -->
+		<button class="md:hidden p-2" id="menu-button">
+			<svg id="open-menu" class=" h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+				<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+			</svg>
+			<svg id="close-menu" x-description="Icon when menu is open." x-state:on="Menu open" x-state:off="Menu closed" class="h-6 w-6 hidden" :class="{ 'block': open, 'hidden': !(open) }" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+				<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+			  </svg>
+		</button>
+	</div>
+
+	<!-- Mobile menu, show/hide based on menu state-->
+	<nav class="md:hidden flex flex-col hidden" id="nav">
+		<a href="/archives" class="mb-2 astro-EIMMU3LG">
+	Archive
+</a>
+		<a href="/tags" class="mb-2 astro-EIMMU3LG">
+	Tags
+</a>
+		<a href="/Docs" class="mb-2 astro-EIMMU3LG" target="_blank">
+	Docs
+</a>
+		<a href="/GitHub" class="mb-2 astro-EIMMU3LG" target="_blank">
+	GitHub
+</a>
+	</nav>
+</header>
+
+<!-- Dark mode -->
+
+
+<!-- Mobile Menu -->
+		<main class="font-mono w-11/12 md:w-3/5 mx-auto mt-10 ">
+			<div class="suspension-panel hidden fixed right-4 bottom-5 md:right-12 md:bottom-20">
+    <button class="go-to-top bg-gray-200 w-10 h-10 p-3 rounded-full text-zinc-700">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"></path></svg>
+    </button>
+</div>
+			<article class=" prose md:max-w-[90ch] mx-auto dark:prose-invert prose-headings:mt-0 prose-p:mt-0 break-words 
+			 dark:prose-code:text-zinc-800 dark:prose-headings:text-slate-200 prose-lead:w-full prose-lead:aspect-square">
+				<h1 class="m-0">pprof 使用</h1>
+				<div class="mb-5">
+					<time datetime="2021-10-05T00:39:17.000Z">
+	Oct 5, 2021
+</time>·&nbsp;34&nbsp;mins&nbsp;read
+				</div>
+				
+	<p><code>Profiling</code> 一般翻译为 画像，在计算机领域，我们可以将其理解为当前应用状态的画像。当程序性能不佳时，我们希望知道应用在 什么地方 耗费了 多少 CPU、memory。下面将介绍如何使用这一工具。</p>
+<h2 id="1-go语言项目中的性能优化主要有以下几个方面">1. Go语言项目中的性能优化主要有以下几个方面</h2>
+<ul>
+<li>CPU profile：报告程序的 CPU 使用情况，按照一定频率去采集应用程序在 CPU 和寄存器上面的数据</li>
+<li>Memory Profile（Heap Profile）：报告程序的内存使用情况</li>
+<li>Block Profiling：报告 goroutines 不在运行状态的情况，可以用来分析和查找死锁等性能瓶颈</li>
+<li>Goroutine Profiling：报告 goroutines 的使用情况，有哪些 goroutine，它们的调用关系是怎样的</li>
+</ul>
+<h3 id="go语言内置了获取程序的运行数据的工具包括以下两个标准库">Go语言内置了获取程序的运行数据的工具，包括以下两个标准库：</h3>
+<ul>
+<li>
+<p><code>runtime/pprof</code>：采集工具型应用运行数据进行分析</p>
+</li>
+<li>
+<p><code>net/http/pprof</code>：采集服务型应用运行时数据进行分析</p>
+<p>pprof开启后，每隔一段时间（10ms）就会收集下当前的堆栈信息，获取各个函数占用的CPU以及内存资源；最后通过对这些采样数据进行分析，形成一个性能分析报告。</p>
+<p>注意，我们只应该在性能测试的时候才在代码中引入pprof。</p>
+</li>
+</ul>
+<h2 id="2-工具型应用">2. 工具型应用</h2>
+<p>如果应用程序是执行一段时间就推出，最好的办法是应用退出时把 profiling 的报告保存到文件中，进行分析可以使用<code>runtime/pprof</code>库</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">import "runtime/pprof"</span></span></code></pre>
+<h3 id="cpu性能分析">CPU性能分析</h3>
+<p>开启CPU性能分析：</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #E1E4E8">pprof.</span><span style="color: #79B8FF">StartCPUProfile</span><span style="color: #E1E4E8">(w io.Writer)</span></span></code></pre>
+<p>停止CPU性能分析：</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #E1E4E8">pprof.</span><span style="color: #79B8FF">StopCPUProfile</span><span style="color: #E1E4E8">()</span></span></code></pre>
+<h3 id="内存性能分析">内存性能分析</h3>
+<p>记录程序的堆栈信息</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #E1E4E8">pprof.</span><span style="color: #79B8FF">WriteHeapProfile</span><span style="color: #E1E4E8">(w io.Writer)</span></span></code></pre>
+<p><code>go tool pprof</code>默认是使用<code>-inuse_space</code>进行统计，还可以使用<code>-inuse-objects</code>查看分配对象的数量。</p>
+<h3 id="演示">演示</h3>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">package main</span></span>
+<span class="line"><span style="color: #e1e4e8"></span></span>
+<span class="line"><span style="color: #e1e4e8">import (</span></span>
+<span class="line"><span style="color: #e1e4e8">	"fmt"</span></span>
+<span class="line"><span style="color: #e1e4e8">	"os"</span></span>
+<span class="line"><span style="color: #e1e4e8">	"runtime/pprof"</span></span>
+<span class="line"><span style="color: #e1e4e8">	"time"</span></span>
+<span class="line"><span style="color: #e1e4e8">)</span></span>
+<span class="line"><span style="color: #e1e4e8"></span></span>
+<span class="line"><span style="color: #e1e4e8">func problem() {</span></span>
+<span class="line"><span style="color: #e1e4e8">	for {}</span></span>
+<span class="line"><span style="color: #e1e4e8">}</span></span>
+<span class="line"><span style="color: #e1e4e8"></span></span>
+<span class="line"><span style="color: #e1e4e8">func main() {</span></span>
+<span class="line"><span style="color: #e1e4e8">	file, err := os.OpenFile("./cpu.pprof", os.O_CREATE|os.O_RDWR, 0666)</span></span>
+<span class="line"><span style="color: #e1e4e8">	if err != nil {</span></span>
+<span class="line"><span style="color: #e1e4e8">		fmt.Println("OpenFile error: " + err.Error())</span></span>
+<span class="line"><span style="color: #e1e4e8">		return</span></span>
+<span class="line"><span style="color: #e1e4e8">	}</span></span>
+<span class="line"><span style="color: #e1e4e8"></span></span>
+<span class="line"><span style="color: #e1e4e8">	for i := 0; i &#x3C; 5; i++ {</span></span>
+<span class="line"><span style="color: #e1e4e8">		go problem()</span></span>
+<span class="line"><span style="color: #e1e4e8">	}</span></span>
+<span class="line"><span style="color: #e1e4e8"></span></span>
+<span class="line"><span style="color: #e1e4e8">	pprof.StartCPUProfile(file)</span></span>
+<span class="line"><span style="color: #e1e4e8">	defer func() {</span></span>
+<span class="line"><span style="color: #e1e4e8">		pprof.StopCPUProfile()</span></span>
+<span class="line"><span style="color: #e1e4e8">		file.Close()</span></span>
+<span class="line"><span style="color: #e1e4e8">	}()</span></span>
+<span class="line"><span style="color: #e1e4e8">	time.Sleep(time.Second * 30)</span></span>
+<span class="line"><span style="color: #e1e4e8">}</span></span></code></pre>
+<p>查看</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">❯ go tool pprof cpu.pprof </span></span>
+<span class="line"><span style="color: #e1e4e8">File: main</span></span>
+<span class="line"><span style="color: #e1e4e8">Type: cpu</span></span>
+<span class="line"><span style="color: #e1e4e8">Time: Oct 8, 2021 at 4:21pm (UTC)</span></span>
+<span class="line"><span style="color: #e1e4e8">Duration: 30.18s, Total samples = 80.50s (266.76%)</span></span>
+<span class="line"><span style="color: #e1e4e8">Entering interactive mode (type "help" for commands, "o" for options)</span></span>
+<span class="line"><span style="color: #e1e4e8">(pprof) top</span></span>
+<span class="line"><span style="color: #e1e4e8">Showing nodes accounting for 80.50s, 100% of 80.50s total</span></span>
+<span class="line"><span style="color: #e1e4e8">      flat  flat%   sum%        cum   cum%</span></span>
+<span class="line"><span style="color: #e1e4e8">    79.96s 99.33% 99.33%     80.50s   100%  main.problem</span></span>
+<span class="line"><span style="color: #e1e4e8">     0.54s  0.67%   100%      0.54s  0.67%  runtime.asyncPreempt</span></span>
+<span class="line"><span style="color: #e1e4e8"># 查看详情</span></span>
+<span class="line"><span style="color: #e1e4e8">(pprof) list main.problem</span></span>
+<span class="line"><span style="color: #e1e4e8">Total: 80.50s</span></span>
+<span class="line"><span style="color: #e1e4e8">ROUTINE ======================== main.problem in /home/yemo/GoStudy/pprof/main.go</span></span>
+<span class="line"><span style="color: #e1e4e8">    79.96s     80.50s (flat, cum)   100% of Total</span></span>
+<span class="line"><span style="color: #e1e4e8">      10ms       10ms      1:package main</span></span>
+<span class="line"><span style="color: #e1e4e8">         .          .      2:</span></span>
+<span class="line"><span style="color: #e1e4e8">         .          .      3:import (</span></span>
+<span class="line"><span style="color: #e1e4e8">         .          .      4:   "fmt"</span></span>
+<span class="line"><span style="color: #e1e4e8">         .          .      5:   "os"</span></span>
+<span class="line"><span style="color: #e1e4e8">         .          .      6:   "runtime/pprof"</span></span>
+<span class="line"><span style="color: #e1e4e8">         .          .      7:   "time"</span></span>
+<span class="line"><span style="color: #e1e4e8">         .          .      8:)</span></span>
+<span class="line"><span style="color: #e1e4e8">         .          .      9:</span></span>
+<span class="line"><span style="color: #e1e4e8">         .          .     10:func problem() {</span></span>
+<span class="line"><span style="color: #e1e4e8">    79.95s     80.49s     11:   for {</span></span>
+<span class="line"><span style="color: #e1e4e8">         .          .     12:</span></span>
+<span class="line"><span style="color: #e1e4e8">         .          .     13:   }</span></span>
+<span class="line"><span style="color: #e1e4e8">         .          .     14:}</span></span>
+<span class="line"><span style="color: #e1e4e8">         .          .     15:</span></span>
+<span class="line"><span style="color: #e1e4e8">         .          .     16:func main() {</span></span></code></pre>
+<h3 id="更多操作">更多操作</h3>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">(pprof) help</span></span>
+<span class="line"><span style="color: #e1e4e8">  Commands:</span></span>
+<span class="line"><span style="color: #e1e4e8">    callgrind        Outputs a graph in callgrind format</span></span>
+<span class="line"><span style="color: #e1e4e8">    comments         Output all profile comments</span></span>
+<span class="line"><span style="color: #e1e4e8">    disasm           Output assembly listings annotated with samples</span></span>
+<span class="line"><span style="color: #e1e4e8">    dot              Outputs a graph in DOT format</span></span>
+<span class="line"><span style="color: #e1e4e8">    eog              Visualize graph through eog</span></span>
+<span class="line"><span style="color: #e1e4e8">    evince           Visualize graph through evince</span></span>
+<span class="line"><span style="color: #e1e4e8">    gif              Outputs a graph image in GIF format</span></span>
+<span class="line"><span style="color: #e1e4e8">    gv               Visualize graph through gv</span></span>
+<span class="line"><span style="color: #e1e4e8">    kcachegrind      Visualize report in KCachegrind</span></span>
+<span class="line"><span style="color: #e1e4e8">    list             Output annotated source for functions matching regexp</span></span>
+<span class="line"><span style="color: #e1e4e8">    pdf              Outputs a graph in PDF format</span></span>
+<span class="line"><span style="color: #e1e4e8">    peek             Output callers/callees of functions matching regexp</span></span>
+<span class="line"><span style="color: #e1e4e8">    png              Outputs a graph image in PNG format</span></span>
+<span class="line"><span style="color: #e1e4e8">    proto            Outputs the profile in compressed protobuf format</span></span>
+<span class="line"><span style="color: #e1e4e8">    ps               Outputs a graph in PS format</span></span>
+<span class="line"><span style="color: #e1e4e8">    raw              Outputs a text representation of the raw profile</span></span>
+<span class="line"><span style="color: #e1e4e8">    svg              Outputs a graph in SVG format</span></span>
+<span class="line"><span style="color: #e1e4e8">    tags             Outputs all tags in the profile</span></span>
+<span class="line"><span style="color: #e1e4e8">    text             Outputs top entries in text form</span></span>
+<span class="line"><span style="color: #e1e4e8">    top              Outputs top entries in text form</span></span>
+<span class="line"><span style="color: #e1e4e8">    topproto         Outputs top entries in compressed protobuf format</span></span>
+<span class="line"><span style="color: #e1e4e8">    traces           Outputs all profile samples in text form</span></span>
+<span class="line"><span style="color: #e1e4e8">    tree             Outputs a text rendering of call graph</span></span>
+<span class="line"><span style="color: #e1e4e8">    web              Visualize graph through web browser</span></span>
+<span class="line"><span style="color: #e1e4e8">    weblist          Display annotated source in a web browser</span></span>
+<span class="line"><span style="color: #e1e4e8">    o/options        List options and their current values</span></span>
+<span class="line"><span style="color: #e1e4e8">    q/quit/exit/^D   Exit pprof</span></span>
+<span class="line"><span style="color: #e1e4e8"></span></span>
+<span class="line"><span style="color: #e1e4e8">  Options:</span></span>
+<span class="line"><span style="color: #e1e4e8">    call_tree        Create a context-sensitive call tree</span></span>
+<span class="line"><span style="color: #e1e4e8">    compact_labels   Show minimal headers</span></span>
+<span class="line"><span style="color: #e1e4e8">    divide_by        Ratio to divide all samples before visualization</span></span>
+<span class="line"><span style="color: #e1e4e8">    drop_negative    Ignore negative differences</span></span>
+<span class="line"><span style="color: #e1e4e8">    edgefraction     Hide edges below &#x3C;f>*total</span></span>
+<span class="line"><span style="color: #e1e4e8">    focus            Restricts to samples going through a node matching regexp</span></span>
+<span class="line"><span style="color: #e1e4e8">    hide             Skips nodes matching regexp</span></span>
+<span class="line"><span style="color: #e1e4e8">    ignore           Skips paths going through any nodes matching regexp</span></span>
+<span class="line"><span style="color: #e1e4e8">    intel_syntax     Show assembly in Intel syntax</span></span>
+<span class="line"><span style="color: #e1e4e8">    mean             Average sample value over first value (count)</span></span>
+<span class="line"><span style="color: #e1e4e8">    nodecount        Max number of nodes to show</span></span>
+<span class="line"><span style="color: #e1e4e8">    nodefraction     Hide nodes below &#x3C;f>*total</span></span>
+<span class="line"><span style="color: #e1e4e8">    noinlines        Ignore inlines.</span></span>
+<span class="line"><span style="color: #e1e4e8">    normalize        Scales profile based on the base profile.</span></span>
+<span class="line"><span style="color: #e1e4e8">    output           Output filename for file-based outputs</span></span>
+<span class="line"><span style="color: #e1e4e8">    prune_from       Drops any functions below the matched frame.</span></span>
+<span class="line"><span style="color: #e1e4e8">    relative_percentages Show percentages relative to focused subgraph</span></span>
+<span class="line"><span style="color: #e1e4e8">    sample_index     Sample value to report (0-based index or name)</span></span>
+<span class="line"><span style="color: #e1e4e8">    show             Only show nodes matching regexp</span></span>
+<span class="line"><span style="color: #e1e4e8">    show_from        Drops functions above the highest matched frame.</span></span>
+<span class="line"><span style="color: #e1e4e8">    source_path      Search path for source files</span></span>
+<span class="line"><span style="color: #e1e4e8">    tagfocus         Restricts to samples with tags in range or matched by regexp</span></span>
+<span class="line"><span style="color: #e1e4e8">    taghide          Skip tags matching this regexp</span></span>
+<span class="line"><span style="color: #e1e4e8">    tagignore        Discard samples with tags in range or matched by regexp</span></span>
+<span class="line"><span style="color: #e1e4e8">    tagshow          Only consider tags matching this regexp</span></span>
+<span class="line"><span style="color: #e1e4e8">    trim             Honor nodefraction/edgefraction/nodecount defaults</span></span>
+<span class="line"><span style="color: #e1e4e8">    trim_path        Path to trim from source paths before search</span></span>
+<span class="line"><span style="color: #e1e4e8">    unit             Measurement units to display</span></span>
+<span class="line"><span style="color: #e1e4e8"></span></span>
+<span class="line"><span style="color: #e1e4e8">  Option groups (only set one per group):</span></span>
+<span class="line"><span style="color: #e1e4e8">    granularity      </span></span>
+<span class="line"><span style="color: #e1e4e8">      functions        Aggregate at the function level.</span></span>
+<span class="line"><span style="color: #e1e4e8">      filefunctions    Aggregate at the function level.</span></span>
+<span class="line"><span style="color: #e1e4e8">      files            Aggregate at the file level.</span></span>
+<span class="line"><span style="color: #e1e4e8">      lines            Aggregate at the source code line level.</span></span>
+<span class="line"><span style="color: #e1e4e8">      addresses        Aggregate at the address level.</span></span>
+<span class="line"><span style="color: #e1e4e8">    sort             </span></span>
+<span class="line"><span style="color: #e1e4e8">      cum              Sort entries based on cumulative weight</span></span>
+<span class="line"><span style="color: #e1e4e8">      flat             Sort entries based on own weight</span></span>
+<span class="line"><span style="color: #e1e4e8">  :   Clear focus/ignore/hide/tagfocus/tagignore</span></span>
+<span class="line"><span style="color: #e1e4e8"></span></span>
+<span class="line"><span style="color: #e1e4e8">  type "help &#x3C;cmd|option>" for more information</span></span></code></pre>
+<h2 id="3-服务形应用">3. 服务形应用</h2>
+<p>如果应用程序是一直运行，那么可以使用<code>net/http/pprof</code>库，它能够在提供 HTTP 服务进行分析。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #E1E4E8">_ </span><span style="color: #9ECBFF">"net/http/pprof"</span></span></code></pre>
+<p>如果使用自定义Mux，则需要手动注册一些路由规则：</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #E1E4E8">r.</span><span style="color: #79B8FF">HandleFunc</span><span style="color: #E1E4E8">(</span><span style="color: #9ECBFF">"/debug/pprof/"</span><span style="color: #E1E4E8">, pprof.Index)</span></span>
+<span class="line"><span style="color: #E1E4E8">r.</span><span style="color: #79B8FF">HandleFunc</span><span style="color: #E1E4E8">(</span><span style="color: #9ECBFF">"/debug/pprof/cmdline"</span><span style="color: #E1E4E8">, pprof.Cmdline)</span></span>
+<span class="line"><span style="color: #E1E4E8">r.</span><span style="color: #79B8FF">HandleFunc</span><span style="color: #E1E4E8">(</span><span style="color: #9ECBFF">"/debug/pprof/profile"</span><span style="color: #E1E4E8">, pprof.Profile)</span></span>
+<span class="line"><span style="color: #E1E4E8">r.</span><span style="color: #79B8FF">HandleFunc</span><span style="color: #E1E4E8">(</span><span style="color: #9ECBFF">"/debug/pprof/symbol"</span><span style="color: #E1E4E8">, pprof.Symbol)</span></span>
+<span class="line"><span style="color: #E1E4E8">r.</span><span style="color: #79B8FF">HandleFunc</span><span style="color: #E1E4E8">(</span><span style="color: #9ECBFF">"/debug/pprof/trace"</span><span style="color: #E1E4E8">, pprof.Trace)</span></span></code></pre>
+<p>如果使用的是gin框架，那么推荐使用<a href="https://github.com/gin-contrib/pprof">github.com/gin-contrib/pprof</a>，在代码中通过以下命令注册pprof相关路由。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #E1E4E8">pprof.</span><span style="color: #79B8FF">Register</span><span style="color: #E1E4E8">(router)</span></span></code></pre>
+<p><img src="https://s3.bmp.ovh/imgs/2021/10/2a58d816089c56ed.png" alt=""></p>
+<h3 id="演示-1">演示</h3>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">import (</span></span>
+<span class="line"><span style="color: #e1e4e8">	"net/http"</span></span>
+<span class="line"><span style="color: #e1e4e8">	_ "net/http/pprof"</span></span>
+<span class="line"><span style="color: #e1e4e8">)</span></span>
+<span class="line"><span style="color: #e1e4e8"></span></span>
+<span class="line"><span style="color: #e1e4e8">func main() {</span></span>
+<span class="line"><span style="color: #e1e4e8">	http.ListenAndServe(":8080", nil)</span></span>
+<span class="line"><span style="color: #e1e4e8">}</span></span></code></pre>
+<p>访问 <code>http://192.168.2.36:8080/debug/pprof/</code> 如上图。</p>
+<h4 id="结构体字段解释">结构体字段解释</h4>
+<p>看到这里是调用Go底层的runtime.MemStats结构体获取，该结构体相关字段解释如下。 <a href="https://blog.csdn.net/skh2015java/article/details/102748222">原文链接</a></p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8"></span></span>
+<span class="line"><span style="color: #e1e4e8">Alloc uint64 //golang语言框架堆空间分配的字节数</span></span>
+<span class="line"><span style="color: #e1e4e8">TotalAlloc uint64 //从服务开始运行至今分配器为分配的堆空间总 和，只有增加，释放的时候不减少</span></span>
+<span class="line"><span style="color: #e1e4e8">Sys uint64 //服务现在系统使用的内存</span></span>
+<span class="line"><span style="color: #e1e4e8">Lookups uint64 //被runtime监视的指针数</span></span>
+<span class="line"><span style="color: #e1e4e8">Mallocs uint64 //服务malloc heap objects的次数</span></span>
+<span class="line"><span style="color: #e1e4e8">Frees uint64 //服务回收的heap objects的次数</span></span>
+<span class="line"><span style="color: #e1e4e8">HeapAlloc uint64 //服务分配的堆内存字节数</span></span>
+<span class="line"><span style="color: #e1e4e8">HeapSys uint64 //系统分配的作为运行栈的内存</span></span>
+<span class="line"><span style="color: #e1e4e8">HeapIdle uint64 //申请但是未分配的堆内存或者回收了的堆内存（空闲）字节数</span></span>
+<span class="line"><span style="color: #e1e4e8">HeapInuse uint64 //正在使用的堆内存字节数</span></span>
+<span class="line"><span style="color: #e1e4e8">HeapReleased uint64 //返回给OS的堆内存，类似C/C++中的free。</span></span>
+<span class="line"><span style="color: #e1e4e8">HeapObjects uint64 //堆内存块申请的量</span></span>
+<span class="line"><span style="color: #e1e4e8">StackInuse uint64 //正在使用的栈字节数</span></span>
+<span class="line"><span style="color: #e1e4e8">StackSys uint64 //系统分配的作为运行栈的内存</span></span>
+<span class="line"><span style="color: #e1e4e8">MSpanInuse uint64 //用于测试用的结构体使用的字节数</span></span>
+<span class="line"><span style="color: #e1e4e8">MSpanSys uint64 //系统为测试用的结构体分配的字节数</span></span>
+<span class="line"><span style="color: #e1e4e8">MCacheInuse uint64 //mcache结构体申请的字节数(不会被视为垃圾回收)</span></span>
+<span class="line"><span style="color: #e1e4e8">MCacheSys uint64 //操作系统申请的堆空间用于mcache的字节数</span></span>
+<span class="line"><span style="color: #e1e4e8">BuckHashSys uint64 //用于剖析桶散列表的堆空间</span></span>
+<span class="line"><span style="color: #e1e4e8">GCSys uint64 //垃圾回收标记元信息使用的内存</span></span>
+<span class="line"><span style="color: #e1e4e8">OtherSys uint64 //golang系统架构占用的额外空间</span></span>
+<span class="line"><span style="color: #e1e4e8">NextGC uint64 //垃圾回收器检视的内存大小</span></span>
+<span class="line"><span style="color: #e1e4e8">LastGC uint64 // 垃圾回收器最后一次执行时间。</span></span>
+<span class="line"><span style="color: #e1e4e8">PauseTotalNs uint64 // 垃圾回收或者其他信息收集导致服务暂停的次数。</span></span>
+<span class="line"><span style="color: #e1e4e8">PauseNs [256]uint64 //一个循环队列，记录最近垃圾回收系统中断的时间</span></span>
+<span class="line"><span style="color: #e1e4e8">PauseEnd [256]uint64 //一个循环队列，记录最近垃圾回收系统中断的时间开始点。</span></span>
+<span class="line"><span style="color: #e1e4e8">NumForcedGC uint32 //服务调用runtime.GC()强制使用垃圾回收的次数。</span></span>
+<span class="line"><span style="color: #e1e4e8">GCCPUFraction float64 //垃圾回收占用服务CPU工作的时间总和。如果有100个goroutine，垃圾回收的时间为1S,那么就占用了100S。</span></span>
+<span class="line"><span style="color: #e1e4e8">BySize //内存分配器使用情况</span></span></code></pre>
+<h3 id="查看内存">查看内存</h3>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">go tool pprof http://192.168.2.36:8080/debug/pprof/heap</span></span></code></pre>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">> help可以查看使用说明</span></span>
+<span class="line"><span style="color: #e1e4e8"> </span></span>
+<span class="line"><span style="color: #e1e4e8">> top 可以查看前10个的内存分配情况</span></span>
+<span class="line"><span style="color: #e1e4e8"> </span></span>
+<span class="line"><span style="color: #e1e4e8">> tree 以树状显示</span></span>
+<span class="line"><span style="color: #e1e4e8"> </span></span>
+<span class="line"><span style="color: #e1e4e8">> png 以图片格式输出</span></span>
+<span class="line"><span style="color: #e1e4e8"> </span></span>
+<span class="line"><span style="color: #e1e4e8">> svg 生成浏览器可以识别的svg文件</span></span></code></pre>
+<h4 id="概要文件cpu使用情况">概要文件(cpu使用情况)</h4>
+<p>默认需要等30s</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">go tool pprof http://192.168.2.36:8080/debug/pprof/profile</span></span></code></pre>
+
+				<ul class="list-none flex p-0 ">
+    <a href="/tags/go" class="no-underline"><li class="px-4 py-1 mr-2 bg-slate-100 rounded-md">go</li></a><a href="/tags/pprof" class="no-underline"><li class="px-4 py-1 mr-2 bg-slate-100 rounded-md">pprof</li></a>
+</ul>
+			</article>
+		</main>
+		
+		<footer class="text-sm text-neutral-400 astro-SZ7XMLTE">
+	&copy; 2023&nbsp;Powered&nbsp;by
+	<a href="https://astro.build/" class="astro-SZ7XMLTE">Astro</a>&nbsp;&
+	<a href="https://github.com/yemo0/just-my-type-blog" class="astro-SZ7XMLTE">Just My Type</a>
+</footer>
+	</body></html>

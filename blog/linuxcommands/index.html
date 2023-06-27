@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="generator" content="Astro v2.7.0">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://yemo0.github.io/blog/linuxcommands/">
+
+<!-- Primary Meta Tags -->
+<title>linux常用命令</title>
+<meta name="title" content="linux常用命令">
+<meta name="description">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yemo0.github.io/blog/linuxcommands/">
+<meta property="og:title" content="linux常用命令">
+<meta property="og:description">
+<meta property="og:image" content="https://yemo0.github.io/placeholder-social.jpg">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://yemo0.github.io/blog/linuxcommands/">
+<meta property="twitter:title" content="linux常用命令">
+<meta property="twitter:description">
+<meta property="twitter:image" content="https://yemo0.github.io/placeholder-social.jpg">
+	<link rel="stylesheet" href="/_astro/404.e0179c8a.css" />
+<link rel="stylesheet" href="/_astro/about.452c757f.css" />
+<link rel="stylesheet" href="/_astro/about.32e2b4d0.css" /><script type="module" src="/_astro/hoisted.1db10bb2.js"></script></head>
+
+	<body class="dark:bg-zinc-800 dark:text-slate-200">
+		<header class="w-11/12 md:w-3/5 mx-auto ">
+	<div class="flex  h-16 items-center justify-between">
+		<div class="text-2xl font-bold">
+			<a href="/">HOME</a>
+			<button accesskey="t" title="(Alt + T)">
+				<svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path></svg>
+				<svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+			</button>
+		</div>
+		<nav class="hidden md:block">
+			<a href="/archives" class="astro-EIMMU3LG">
+	Archive
+</a>
+			<a href="/tags" class="astro-EIMMU3LG">
+	Tags
+</a>
+			<a href="/Docs" class="astro-EIMMU3LG" target="_blank">
+	Docs
+</a>
+			<a href="/GitHub" class="astro-EIMMU3LG" target="_blank">
+	GitHub
+</a>
+		</nav>
+	
+		<!-- Mobile menu -->
+		<button class="md:hidden p-2" id="menu-button">
+			<svg id="open-menu" class=" h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+				<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+			</svg>
+			<svg id="close-menu" x-description="Icon when menu is open." x-state:on="Menu open" x-state:off="Menu closed" class="h-6 w-6 hidden" :class="{ 'block': open, 'hidden': !(open) }" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+				<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+			  </svg>
+		</button>
+	</div>
+
+	<!-- Mobile menu, show/hide based on menu state-->
+	<nav class="md:hidden flex flex-col hidden" id="nav">
+		<a href="/archives" class="mb-2 astro-EIMMU3LG">
+	Archive
+</a>
+		<a href="/tags" class="mb-2 astro-EIMMU3LG">
+	Tags
+</a>
+		<a href="/Docs" class="mb-2 astro-EIMMU3LG" target="_blank">
+	Docs
+</a>
+		<a href="/GitHub" class="mb-2 astro-EIMMU3LG" target="_blank">
+	GitHub
+</a>
+	</nav>
+</header>
+
+<!-- Dark mode -->
+
+
+<!-- Mobile Menu -->
+		<main class="font-mono w-11/12 md:w-3/5 mx-auto mt-10 ">
+			<div class="suspension-panel hidden fixed right-4 bottom-5 md:right-12 md:bottom-20">
+    <button class="go-to-top bg-gray-200 w-10 h-10 p-3 rounded-full text-zinc-700">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"></path></svg>
+    </button>
+</div>
+			<article class=" prose md:max-w-[90ch] mx-auto dark:prose-invert prose-headings:mt-0 prose-p:mt-0 break-words 
+			 dark:prose-code:text-zinc-800 dark:prose-headings:text-slate-200 prose-lead:w-full prose-lead:aspect-square">
+				<h1 class="m-0">linux常用命令</h1>
+				<div class="mb-5">
+					<time datetime="2021-08-20T14:00:48.331Z">
+	Aug 20, 2021
+</time>·&nbsp;2&nbsp;mins&nbsp;read
+				</div>
+				
+	<h3 id="解压">解压</h3>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">tar -C /usr/local -xzf go1.4.linux-amd64.tar.gz</span></span></code></pre>
+<h2 id="系统">系统</h2>
+<ul>
+<li>arch	显示处理器架构</li>
+<li>uname -m 显示处理器架构</li>
+<li>uname -r 显示正在使用的内核版本</li>
+<li>cat /proc/cpuinfo CPU info 信息</li>
+<li>cat /proc/interrupts 显示中断</li>
+</ul>
+<h2 id="1-文件目录操作">1 文件目录操作</h2>
+<h3 id="ls">ls</h3>
+<p>查看文件夹文件</p>
+<h5 id="常用参数">常用参数</h5>
+<ul>
+<li>-l   列出数据串、文件属性、和权限</li>
+<li>-a  列出全部文件、包含隐藏文件</li>
+<li>-R   递归列出</li>
+</ul>
+<h3 id="mkdir">mkdir</h3>
+<p>创建目录</p>
+<p>常用参数</p>
+<ul>
+<li>-m &#x3C;权限> &#x3C;文件夹名></li>
+<li>-v 每次创建新目录都显示信息</li>
+</ul>
+<h3 id="rm">rm</h3>
+<p>删除</p>
+<h4 id="常用参数-1">常用参数</h4>
+<ul>
+<li>-f 强制删除 忽略不存在的文件</li>
+<li>-i 交互式删除</li>
+<li>-r 递归删除</li>
+</ul>
+<h3 id="mv">mv</h3>
+<p>移动、改名</p>
+<h4 id="常用参数-2">常用参数</h4>
+<ul>
+<li>-f 强制</li>
+<li>-i 如果目标文件存在，询问是否覆盖</li>
+<li>-u 若目标文件存在。且source比较新才会更新</li>
+</ul>
+<h3 id="cp">cp</h3>
+<p>复制</p>
+
+				<ul class="list-none flex p-0 ">
+    
+</ul>
+			</article>
+		</main>
+		
+		<footer class="text-sm text-neutral-400 astro-SZ7XMLTE">
+	&copy; 2023&nbsp;Powered&nbsp;by
+	<a href="https://astro.build/" class="astro-SZ7XMLTE">Astro</a>&nbsp;&
+	<a href="https://github.com/yemo0/just-my-type-blog" class="astro-SZ7XMLTE">Just My Type</a>
+</footer>
+	</body></html>

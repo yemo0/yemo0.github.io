@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="generator" content="Astro v2.7.0">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://yemo0.github.io/blog/2022-06-10/">
+
+<!-- Primary Meta Tags -->
+<title>使用腾讯云部署一个 serverless web 应用</title>
+<meta name="title" content="使用腾讯云部署一个 serverless web 应用">
+<meta name="description">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yemo0.github.io/blog/2022-06-10/">
+<meta property="og:title" content="使用腾讯云部署一个 serverless web 应用">
+<meta property="og:description">
+<meta property="og:image" content="https://yemo0.github.io/placeholder-social.jpg">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://yemo0.github.io/blog/2022-06-10/">
+<meta property="twitter:title" content="使用腾讯云部署一个 serverless web 应用">
+<meta property="twitter:description">
+<meta property="twitter:image" content="https://yemo0.github.io/placeholder-social.jpg">
+	<link rel="stylesheet" href="/_astro/404.e0179c8a.css" />
+<link rel="stylesheet" href="/_astro/about.452c757f.css" />
+<link rel="stylesheet" href="/_astro/about.32e2b4d0.css" /><script type="module" src="/_astro/hoisted.1db10bb2.js"></script></head>
+
+	<body class="dark:bg-zinc-800 dark:text-slate-200">
+		<header class="w-11/12 md:w-3/5 mx-auto ">
+	<div class="flex  h-16 items-center justify-between">
+		<div class="text-2xl font-bold">
+			<a href="/">HOME</a>
+			<button accesskey="t" title="(Alt + T)">
+				<svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path></svg>
+				<svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+			</button>
+		</div>
+		<nav class="hidden md:block">
+			<a href="/archives" class="astro-EIMMU3LG">
+	Archive
+</a>
+			<a href="/tags" class="astro-EIMMU3LG">
+	Tags
+</a>
+			<a href="/Docs" class="astro-EIMMU3LG" target="_blank">
+	Docs
+</a>
+			<a href="/GitHub" class="astro-EIMMU3LG" target="_blank">
+	GitHub
+</a>
+		</nav>
+	
+		<!-- Mobile menu -->
+		<button class="md:hidden p-2" id="menu-button">
+			<svg id="open-menu" class=" h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+				<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+			</svg>
+			<svg id="close-menu" x-description="Icon when menu is open." x-state:on="Menu open" x-state:off="Menu closed" class="h-6 w-6 hidden" :class="{ 'block': open, 'hidden': !(open) }" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+				<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+			  </svg>
+		</button>
+	</div>
+
+	<!-- Mobile menu, show/hide based on menu state-->
+	<nav class="md:hidden flex flex-col hidden" id="nav">
+		<a href="/archives" class="mb-2 astro-EIMMU3LG">
+	Archive
+</a>
+		<a href="/tags" class="mb-2 astro-EIMMU3LG">
+	Tags
+</a>
+		<a href="/Docs" class="mb-2 astro-EIMMU3LG" target="_blank">
+	Docs
+</a>
+		<a href="/GitHub" class="mb-2 astro-EIMMU3LG" target="_blank">
+	GitHub
+</a>
+	</nav>
+</header>
+
+<!-- Dark mode -->
+
+
+<!-- Mobile Menu -->
+		<main class="font-mono w-11/12 md:w-3/5 mx-auto mt-10 ">
+			<div class="suspension-panel hidden fixed right-4 bottom-5 md:right-12 md:bottom-20">
+    <button class="go-to-top bg-gray-200 w-10 h-10 p-3 rounded-full text-zinc-700">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"></path></svg>
+    </button>
+</div>
+			<article class=" prose md:max-w-[90ch] mx-auto dark:prose-invert prose-headings:mt-0 prose-p:mt-0 break-words 
+			 dark:prose-code:text-zinc-800 dark:prose-headings:text-slate-200 prose-lead:w-full prose-lead:aspect-square">
+				<h1 class="m-0">使用腾讯云部署一个 serverless web 应用</h1>
+				<div class="mb-5">
+					<time datetime="2022-06-10T19:21:40.000Z">
+	Jun 10, 2022
+</time>·&nbsp;4&nbsp;mins&nbsp;read
+				</div>
+				
+	<p>serverless 使用腾讯云部署一个web应用</p>
+<!--more-->
+<h2 id="快速部署一个web应用">快速部署一个web应用</h2>
+<p><a href="https://github.com/serverless/components">serverless components</a></p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #B392F0">npm</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">i</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">-g</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">serverless</span></span></code></pre>
+<p><strong>配置账号权限</strong></p>
+<p>在项目目录下创建<code>.env</code>文件</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8"># .env</span></span>
+<span class="line"><span style="color: #e1e4e8">TENCENT_SECRET_ID=xxxxxxxxxx #您账号的 SecretId</span></span>
+<span class="line"><span style="color: #e1e4e8">TENCENT_SECRET_KEY=xxxxxxxx #您账号的 SecretKey</span></span></code></pre>
+<p><strong>创建一个 scf 示例</strong></p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">serverless init scf-golang</span></span>
+<span class="line"><span style="color: #e1e4e8"># sls 不知道怎么安装的...</span></span>
+<span class="line"><span style="color: #e1e4e8">sls init scf-golang</span></span></code></pre>
+<p><strong>修改 yarm 文件成类似下面这样</strong></p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">app: xxx-name</span></span>
+<span class="line"><span style="color: #e1e4e8">component: scf</span></span>
+<span class="line"><span style="color: #e1e4e8">name: scf-golang</span></span>
+<span class="line"><span style="color: #e1e4e8"></span></span>
+<span class="line"><span style="color: #e1e4e8">inputs:</span></span>
+<span class="line"><span style="color: #e1e4e8">  src: ./</span></span>
+<span class="line"><span style="color: #e1e4e8">  # 指定 scf 类型为 web 类型</span></span>
+<span class="line"><span style="color: #e1e4e8">  # 默认 type 为事件型函数</span></span>
+<span class="line"><span style="color: #e1e4e8">  type: web</span></span>
+<span class="line"><span style="color: #e1e4e8">  runtime: Go1</span></span>
+<span class="line"><span style="color: #e1e4e8">  namespace: default</span></span>
+<span class="line"><span style="color: #e1e4e8">  region: ap-hongkong</span></span>
+<span class="line"><span style="color: #e1e4e8">  memorySize: 128</span></span>
+<span class="line"><span style="color: #e1e4e8">  timeout: 3</span></span>
+<span class="line"><span style="color: #e1e4e8">  triggers:</span></span>
+<span class="line"><span style="color: #e1e4e8">    - type: apigw</span></span>
+<span class="line"><span style="color: #e1e4e8">      name: SCF_API_SERVICE</span></span>
+<span class="line"><span style="color: #e1e4e8">      protocols:</span></span>
+<span class="line"><span style="color: #e1e4e8">      - http</span></span>
+<span class="line"><span style="color: #e1e4e8">      - https</span></span>
+<span class="line"><span style="color: #e1e4e8">      environment: release</span></span>
+<span class="line"><span style="color: #e1e4e8">      netTypes:</span></span>
+<span class="line"><span style="color: #e1e4e8">      - OUTER</span></span>
+<span class="line"><span style="color: #e1e4e8">      apis:</span></span>
+<span class="line"><span style="color: #e1e4e8">      - path: /</span></span>
+<span class="line"><span style="color: #e1e4e8">        method: ANY</span></span></code></pre>
+<p><strong>默认启动文件为 scf_bootstrap</strong><br>
+<strong>默认启动文件为 scf_bootstrap</strong><br>
+<strong>默认启动文件为 scf_bootstrap</strong><br></p>
+<p><strong>部署</strong></p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #B392F0">serverless</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">deploy</span></span></code></pre>
+<h2 id="其他">其他</h2>
+<p><a href="https://cloud.tencent.com/document/product/1154/58184#web-.E6.A1.86.E6.9E.B6.E8.BF.81.E7.A7.BB">腾讯云serverlss</a></p>
+
+				<ul class="list-none flex p-0 ">
+    
+</ul>
+			</article>
+		</main>
+		
+		<footer class="text-sm text-neutral-400 astro-SZ7XMLTE">
+	&copy; 2023&nbsp;Powered&nbsp;by
+	<a href="https://astro.build/" class="astro-SZ7XMLTE">Astro</a>&nbsp;&
+	<a href="https://github.com/yemo0/just-my-type-blog" class="astro-SZ7XMLTE">Just My Type</a>
+</footer>
+	</body></html>
