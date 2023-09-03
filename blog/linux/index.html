@@ -4,7 +4,7 @@
 		<!-- Global Metadata --><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<meta name="generator" content="Astro v2.8.3">
+<meta name="generator" content="Astro v2.10.15">
 
 <!-- Canonical URL -->
 <link rel="canonical" href="https://yemo0.github.io/blog/linux/">
@@ -27,9 +27,9 @@
 <meta property="twitter:title" content="About Debian and Linux">
 <meta property="twitter:description" content="Debian operation">
 <meta property="twitter:image" content="https://yemo0.github.io/placeholder-social.jpg">
-	<link rel="stylesheet" href="/_astro/404.e0179c8a.css" />
+	<link rel="stylesheet" href="/_astro/404.e677b767.css" />
 <link rel="stylesheet" href="/_astro/about.452c757f.css" />
-<link rel="stylesheet" href="/_astro/about.32e2b4d0.css" /><script type="module" src="/_astro/hoisted.1db10bb2.js"></script></head>
+<link rel="stylesheet" href="/_astro/about.32e2b4d0.css" /><script type="module" src="/_astro/hoisted.ef31997e.js"></script></head>
 
 	<body class="dark:bg-zinc-800 dark:text-slate-200">
 		<header class="w-11/12 md:w-3/5 mx-auto ">
@@ -100,7 +100,7 @@
 				<div class="mb-5">
 					<time datetime="2023-06-15T23:11:23.000Z">
 	Jun 15, 2023
-</time>·&nbsp;5&nbsp;mins&nbsp;read
+</time>·&nbsp;6&nbsp;mins&nbsp;read
 				</div>
 				
 	<h2 id="note">note</h2>
@@ -141,7 +141,7 @@
 <span class="line"><span style="color: #B392F0">mv</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">docker-compose</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">/usr/bin</span></span></code></pre>
 <h3 id="unzip">unzip</h3>
 <pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D"># tar.gz</span></span>
-<span class="line"><span style="color: #B392F0">tar</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">-zcvf</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">xxx.tar.gz</span></span>
+<span class="line"><span style="color: #B392F0">tar</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">-zcvf</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">xxx.tar.gz</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">/usr/local/go</span></span>
 <span class="line"></span>
 <span class="line"><span style="color: #6A737D"># tar.xz</span></span>
 <span class="line"><span style="color: #B392F0">tar</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">-xvf</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">xx.tar.xz</span></span></code></pre>
@@ -153,6 +153,14 @@
 <span class="line"><span style="color: #E1E4E8">}</span></span>
 <span class="line"></span>
 <span class="line"><span style="color: #79B8FF">source</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">.bashrc</span></span></code></pre>
+<h2 id="app-install">app install</h2>
+<h3 id="golang-install">golang install</h3>
+<p><a href="https://go.dev/dl/">download page</a></p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #B392F0">wget</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">https://go.dev/dl/go1.21.0.linux-amd64.tar.gz</span></span>
+<span class="line"><span style="color: #B392F0">tar</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">-zcvf</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">go1.21.0.linux-amd64.tar.gz</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">/usr/local/go</span></span>
+<span class="line"><span style="color: #B392F0">nano</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">.bashrc</span></span>
+<span class="line"><span style="color: #6A737D"># go</span></span>
+<span class="line"><span style="color: #F97583">export</span><span style="color: #E1E4E8"> PATH</span><span style="color: #F97583">=</span><span style="color: #E1E4E8">$PATH</span><span style="color: #9ECBFF">:/usr/local/go/bin</span></span></code></pre>
 
 				<ul class="list-none flex p-0 ">
     <a href="/tags/debian" class="no-underline"><li class="px-4 py-1 mr-2 bg-slate-100 rounded-md">debian</li></a><a href="/tags/linux" class="no-underline"><li class="px-4 py-1 mr-2 bg-slate-100 rounded-md">linux</li></a>
