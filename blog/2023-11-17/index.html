@@ -1,178 +1,133 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<!-- Global Metadata --><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<meta name="generator" content="Astro v2.10.15">
+<!DOCTYPE html><html lang="en" class="color-scheme"> <head><!-- Global Metadata --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="generator" content="Astro v4.15.11"><!-- Canonical URL --><link rel="canonical" href="https://example.com/blog/2023-11-17/"><!-- Primary Meta Tags --><title>HOME</title><meta name="title" content="HOME"><meta name="description" content="Welcome to my website!"><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="https://example.com/blog/2023-11-17/"><meta property="og:title" content="HOME"><meta property="og:description" content="Welcome to my website!"><meta property="og:image" content="https://example.com/placeholder-social.jpg"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://example.com/blog/2023-11-17/"><meta property="twitter:title" content="HOME"><meta property="twitter:description" content="Welcome to my website!"><meta property="twitter:image" content="https://example.com/placeholder-social.jpg"><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Document</title><link rel="stylesheet" href="/_astro/_page_.korXl9kr.css">
+<style>a[data-astro-cid-eimmu3lg]{display:inline-block;text-decoration:none}a[data-astro-cid-eimmu3lg].active{font-weight:bolder;border-bottom:2px solid}h1,h2,h3,h4,h5,h6,strong,b{color:#222}nav a{margin-right:10px}textarea{width:100%;font-size:16px}input{font-size:16px}content{line-height:1.6}table{width:100%}img{max-width:100%;height:auto}code{padding:2px 5px;background-color:#f2f2f2}pre{padding:1rem}pre>code{all:unset}blockquote{border:1px solid #999;color:#222;padding:2px 0 2px 20px;margin:0;font-style:italic}
+</style><script type="module" src="/_astro/hoisted.CMregwEs.js"></script></head> <body class="flex-col dark:bg-neutral-1000 dark:text-slate-200">  <header class="w-11/12 md:w-3/5 mx-auto"> <div class="flex h-16 items-center justify-between mb-5"> <div class="text-2xl font-bold"> <a href="/">HOME</a> <button accesskey="t" title="(Alt + T)"> <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path></svg> <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg> </button> </div> <nav class="hidden md:block"> <a href="/archives" data-astro-cid-eimmu3lg> Archive </a>  <a href="/tags" data-astro-cid-eimmu3lg> Tags </a>  <a href="/Docs" target="_blank" data-astro-cid-eimmu3lg> Docs </a>  <a href="/GitHub" target="_blank" data-astro-cid-eimmu3lg> GitHub </a>  </nav> <!-- Mobile menu --> <button class="md:hidden p-2" id="menu-button"> <svg id="open-menu" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"> <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path> </svg> <svg id="close-menu" x-description="Icon when menu is open." x-state:on="Menu open" x-state:off="Menu closed" class="h-6 w-6 hidden" :class="{ 'block': open, 'hidden': !(open) }" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"> <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path> </svg> </button> </div> <!-- Mobile menu, show/hide based on menu state--> <nav class="md:hidden flex flex-col hidden" id="nav"> <a href="/archives" class="mb-2" data-astro-cid-eimmu3lg> Archive </a>  <a href="/tags" class="mb-2" data-astro-cid-eimmu3lg> Tags </a>  <a href="/Docs" class="mb-2" target="_blank" data-astro-cid-eimmu3lg> Docs </a>  <a href="/GitHub" class="mb-2" target="_blank" data-astro-cid-eimmu3lg> GitHub </a>  </nav> </header> <!-- Dark mode --> <script defer>
+  // Icons
+  const sunIcon = document.querySelector("#sun");
+  const moonIcon = document.querySelector("#moon");
 
-<!-- Canonical URL -->
-<link rel="canonical" href="https://yemo0.github.io/blog/2023-11-17/">
+  // Theme Vars
+  const userTheme = localStorage.getItem("theme");
+  const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-<!-- Primary Meta Tags -->
-<title>Flutter 调用Golang</title>
-<meta name="title" content="Flutter 调用Golang">
-<meta name="description" content="Flutter 调用Golang">
+  // Icon Toggling
+  const iconToggle = () => {
+    moonIcon.classList.toggle("hidden");
+    sunIcon.classList.toggle("hidden");
+  };
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://yemo0.github.io/blog/2023-11-17/">
-<meta property="og:title" content="Flutter 调用Golang">
-<meta property="og:description" content="Flutter 调用Golang">
-<meta property="og:image" content="https://yemo0.github.io/placeholder-social.jpg">
+  // Initial Theme Check
+  const initTheme = () => {
+    sunIcon.classList.add("hidden");
+    moonIcon.classList.add("hidden");
+    if (userTheme === "dark" || (!userTheme && systemTheme)) {
+      document.documentElement.classList.add("dark");
+      sunIcon.classList.remove("hidden");
+      return;
+    }
+    moonIcon.classList.remove("hidden");
+  };
 
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://yemo0.github.io/blog/2023-11-17/">
-<meta property="twitter:title" content="Flutter 调用Golang">
-<meta property="twitter:description" content="Flutter 调用Golang">
-<meta property="twitter:image" content="https://yemo0.github.io/placeholder-social.jpg">
-	<link rel="stylesheet" href="/_astro/404.e677b767.css" />
-<link rel="stylesheet" href="/_astro/about.452c757f.css" />
-<link rel="stylesheet" href="/_astro/about.32e2b4d0.css" /><script type="module" src="/_astro/hoisted.ef31997e.js"></script></head>
+  // Manual Theme Switch
+  const themeSwitch = () => {
+    if (document.documentElement.classList.contains("dark")) {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+      iconToggle();
+      return;
+    }
+    document.documentElement.classList.add("dark");
+    localStorage.setItem("theme", "dark");
+    iconToggle();
+  };
 
-	<body class="dark:bg-zinc-800 dark:text-slate-200">
-		<header class="w-11/12 md:w-3/5 mx-auto ">
-	<div class="flex  h-16 items-center justify-between">
-		<div class="text-2xl font-bold">
-			<a href="/">HOME</a>
-			<button accesskey="t" title="(Alt + T)">
-				<svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path></svg>
-				<svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-			</button>
-		</div>
-		<nav class="hidden md:block">
-			<a href="/archives" class="astro-EIMMU3LG">
-	Archive
-</a>
-			<a href="/tags" class="astro-EIMMU3LG">
-	Tags
-</a>
-			<a href="/Docs" class="astro-EIMMU3LG" target="_blank">
-	Docs
-</a>
-			<a href="/GitHub" class="astro-EIMMU3LG" target="_blank">
-	GitHub
-</a>
-		</nav>
-	
-		<!-- Mobile menu -->
-		<button class="md:hidden p-2" id="menu-button">
-			<svg id="open-menu" class=" h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-				<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
-			</svg>
-			<svg id="close-menu" x-description="Icon when menu is open." x-state:on="Menu open" x-state:off="Menu closed" class="h-6 w-6 hidden" :class="{ 'block': open, 'hidden': !(open) }" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-				<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
-			  </svg>
-		</button>
-	</div>
+  // call theme switch on clicking buttons
+  sunIcon.addEventListener("click", () => {
+    themeSwitch();
+  });
+  moonIcon.addEventListener("click", () => {
+    themeSwitch();
+  });
 
-	<!-- Mobile menu, show/hide based on menu state-->
-	<nav class="md:hidden flex flex-col hidden" id="nav">
-		<a href="/archives" class="mb-2 astro-EIMMU3LG">
-	Archive
-</a>
-		<a href="/tags" class="mb-2 astro-EIMMU3LG">
-	Tags
-</a>
-		<a href="/Docs" class="mb-2 astro-EIMMU3LG" target="_blank">
-	Docs
-</a>
-		<a href="/GitHub" class="mb-2 astro-EIMMU3LG" target="_blank">
-	GitHub
-</a>
-	</nav>
-</header>
-
-<!-- Dark mode -->
-
-
-<!-- Mobile Menu -->
-		<main class="font-mono w-11/12 md:w-3/5 mx-auto mt-10 ">
-			<div class="suspension-panel hidden fixed right-4 bottom-5 md:right-12 md:bottom-20">
-    <button class="go-to-top bg-gray-200 w-10 h-10 p-3 rounded-full text-zinc-700">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"></path></svg>
-    </button>
-</div>
-			<article class=" prose md:max-w-[90ch] mx-auto dark:prose-invert prose-headings:mt-0 prose-p:mt-0 break-words 
-			 dark:prose-code:text-zinc-800 dark:prose-headings:text-slate-200 prose-lead:w-full prose-lead:aspect-square">
-				<h1 class="m-0">Flutter 调用Golang</h1>
-				<div class="mb-5">
-					<time datetime="2023-11-17T15:53:26.000Z">
-	Nov 17, 2023
-</time>·&nbsp;16&nbsp;mins&nbsp;read
-				</div>
-				
-	<p>gomobile: 负责移动端
+  // invoke theme check on initial load
+  initTheme();
+</script> <!-- Mobile Menu -->  <main class="font-mono w-11/12 md:w-3/5 mx-auto mt-10"> <div class="suspension-panel hidden fixed right-4 bottom-5 md:right-12 md:bottom-20"> <button class="go-to-top bg-gray-200 w-10 h-10 p-3 rounded-full text-zinc-700"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"></path></svg> </button> </div> <article class="prose md:max-w-[90ch] mx-auto dark:prose-invert prose-headings:mt-0 prose-p:mt-0 break-words dark:prose-code:text-zinc-800 dark:prose-headings:text-slate-200 prose-lead:w-full prose-lead:aspect-square"> <h1 class="m-0">Flutter 调用Golang</h1> <div class="mb-5"> <time datetime="2023-11-17T15:53:26.000Z"> Nov 17, 2023 </time>·&nbsp;16&nbsp;mins&nbsp;read
+</div>  <p>gomobile: 负责移动端
 cgo: 打包动态库负责桌面端</p>
 <h2 id="gomobile">gomobile</h2>
 <p><strong>安卓</strong></p>
 <h3 id="1-编译-aar">1. 编译 aar</h3>
 <p>main.go</p>
-<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">package</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">libHello</span></span>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="go"><code><span class="line"><span style="color:#F97583">package</span><span style="color:#B392F0"> libHello</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #F97583">func</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">SayHello</span><span style="color: #E1E4E8">() </span><span style="color: #F97583">string</span><span style="color: #E1E4E8"> {</span></span>
-<span class="line"><span style="color: #E1E4E8">	</span><span style="color: #F97583">return</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"hello"</span></span>
-<span class="line"><span style="color: #E1E4E8">}</span></span>
+<span class="line"><span style="color:#F97583">func</span><span style="color:#B392F0"> SayHello</span><span style="color:#E1E4E8">() </span><span style="color:#F97583">string</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">	return</span><span style="color:#9ECBFF"> "hello"</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
 <span class="line"></span></code></pre>
 <p>编译 aar</p>
-<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #B392F0">gomobile</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">bind</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">--target</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">android</span></span></code></pre>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">gomobile</span><span style="color:#9ECBFF"> bind</span><span style="color:#79B8FF"> --target</span><span style="color:#9ECBFF"> android</span></span>
+<span class="line"></span></code></pre>
 <h3 id="2-放置-arr-文件和修改-buildgradle">2. 放置 arr 文件和修改 build.gradle</h3>
 <p>将打包出来的<code>aar</code>文件放到 Flutter 项目下的<code>android</code>-> <code>app</code>-><code>libs</code>目录下</p>
 <p>如果<code>libs</code>不存在就创建</p>
 <p><strong>编辑 build.gradle 文件</strong>
 位置 <code>android</code> -> <code>app</code> -> <code>build.gradle</code></p>
-<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">repositories {</span></span>
-<span class="line"><span style="color: #e1e4e8">        flatDir {</span></span>
-<span class="line"><span style="color: #e1e4e8">            dirs 'libs'</span></span>
-<span class="line"><span style="color: #e1e4e8">        }</span></span>
-<span class="line"><span style="color: #e1e4e8">    }</span></span></code></pre>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>repositories {</span></span>
+<span class="line"><span>        flatDir {</span></span>
+<span class="line"><span>            dirs 'libs'</span></span>
+<span class="line"><span>        }</span></span>
+<span class="line"><span>    }</span></span>
+<span class="line"><span></span></span></code></pre>
 <p><code>libHello</code> 是打包出来的文件名(文件名和 go package 名一样)</p>
-<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">dependencies {</span></span>
-<span class="line"><span style="color: #e1e4e8">    implementation(name: 'libHello 修改一下', ext: 'aar')</span></span>
-<span class="line"><span style="color: #e1e4e8">}</span></span></code></pre>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>dependencies {</span></span>
+<span class="line"><span>    implementation(name: 'libHello 修改一下', ext: 'aar')</span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span></code></pre>
 <h3 id="3-修改-mainactivityjava或者-mainactivitykt">3. 修改 MainActivity.java(或者 MainActivity.kt)</h3>
 <p><a href="https://flutter.cn/docs/development/platform-integration/platform-channels#step-3-add-an-android-platform-specific-implementation">参考文章</a>
 MainActivity.kt</p>
-<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">package com.example</span></span>
-<span class="line"><span style="color: #e1e4e8"></span></span>
-<span class="line"><span style="color: #e1e4e8">import androidx.annotation.NonNull</span></span>
-<span class="line"><span style="color: #e1e4e8">import io.flutter.embedding.android.FlutterActivity</span></span>
-<span class="line"><span style="color: #e1e4e8">import io.flutter.embedding.engine.FlutterEngine</span></span>
-<span class="line"><span style="color: #e1e4e8">import io.flutter.plugin.common.MethodChannel</span></span>
-<span class="line"><span style="color: #e1e4e8"></span></span>
-<span class="line"><span style="color: #e1e4e8">&#x3C;!-- 导入arr包  --></span></span>
-<span class="line"><span style="color: #e1e4e8">import libHello.LibHello</span></span>
-<span class="line"><span style="color: #e1e4e8"></span></span>
-<span class="line"><span style="color: #e1e4e8">class MainActivity: FlutterActivity() {</span></span>
-<span class="line"><span style="color: #e1e4e8">    &#x3C;!-- 设置CHANNEL --></span></span>
-<span class="line"><span style="color: #e1e4e8">    private val CHANNEL = "demo.libHello"</span></span>
-<span class="line"><span style="color: #e1e4e8">    override fun configureFlutterEngine(@NonNull flutterEngine: FlutterEngine) {</span></span>
-<span class="line"><span style="color: #e1e4e8">        super.configureFlutterEngine(flutterEngine)</span></span>
-<span class="line"><span style="color: #e1e4e8">        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, CHANNEL).setMethodCallHandler {</span></span>
-<span class="line"><span style="color: #e1e4e8">                call, result -> when(call.method) {</span></span>
-<span class="line"><span style="color: #e1e4e8">                    "sayHello" -> {</span></span>
-<span class="line"><span style="color: #e1e4e8">                        var title = LibHello.sayHello()</span></span>
-<span class="line"><span style="color: #e1e4e8">                        result.success(title)</span></span>
-<span class="line"><span style="color: #e1e4e8">                    }</span></span>
-<span class="line"><span style="color: #e1e4e8">                    else -> {</span></span>
-<span class="line"><span style="color: #e1e4e8">                        result.notImplemented()</span></span>
-<span class="line"><span style="color: #e1e4e8">                    }</span></span>
-<span class="line"><span style="color: #e1e4e8">                }</span></span>
-<span class="line"><span style="color: #e1e4e8"></span></span>
-<span class="line"><span style="color: #e1e4e8">        }</span></span>
-<span class="line"><span style="color: #e1e4e8">    }</span></span>
-<span class="line"><span style="color: #e1e4e8">}</span></span>
-<span class="line"><span style="color: #e1e4e8"></span></span></code></pre>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="kt"><code><span class="line"><span style="color:#F97583">package</span><span style="color:#B392F0"> com.example</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#B392F0"> androidx.annotation.NonNull</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#B392F0"> io.flutter.embedding.android.FlutterActivity</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#B392F0"> io.flutter.embedding.engine.FlutterEngine</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#B392F0"> io.flutter.plugin.common.MethodChannel</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">&#x3C;!--</span><span style="color:#E1E4E8"> 导入arr包  </span><span style="color:#F97583">--></span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#B392F0"> libHello.LibHello</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> MainActivity</span><span style="color:#E1E4E8">: </span><span style="color:#B392F0">FlutterActivity</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#F97583">    &#x3C;!--</span><span style="color:#E1E4E8"> 设置CHANNEL </span><span style="color:#F97583">--></span></span>
+<span class="line"><span style="color:#F97583">    private</span><span style="color:#F97583"> val</span><span style="color:#E1E4E8"> CHANNEL </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> "demo.libHello"</span></span>
+<span class="line"><span style="color:#F97583">    override</span><span style="color:#F97583"> fun</span><span style="color:#B392F0"> configureFlutterEngine</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">@NonNull</span><span style="color:#E1E4E8"> flutterEngine: </span><span style="color:#B392F0">FlutterEngine</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#79B8FF">        super</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">configureFlutterEngine</span><span style="color:#E1E4E8">(flutterEngine)</span></span>
+<span class="line"><span style="color:#B392F0">        MethodChannel</span><span style="color:#E1E4E8">(flutterEngine.dartExecutor.binaryMessenger, CHANNEL).</span><span style="color:#B392F0">setMethodCallHandler</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">                call, result </span><span style="color:#F97583">-></span><span style="color:#F97583"> when</span><span style="color:#E1E4E8">(call.method) {</span></span>
+<span class="line"><span style="color:#9ECBFF">                    "sayHello"</span><span style="color:#F97583"> -></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">                        var</span><span style="color:#E1E4E8"> title </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> LibHello.</span><span style="color:#B392F0">sayHello</span><span style="color:#E1E4E8">()</span></span>
+<span class="line"><span style="color:#E1E4E8">                        result.</span><span style="color:#B392F0">success</span><span style="color:#E1E4E8">(title)</span></span>
+<span class="line"><span style="color:#E1E4E8">                    }</span></span>
+<span class="line"><span style="color:#F97583">                    else</span><span style="color:#F97583"> -></span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">                        result.</span><span style="color:#B392F0">notImplemented</span><span style="color:#E1E4E8">()</span></span>
+<span class="line"><span style="color:#E1E4E8">                    }</span></span>
+<span class="line"><span style="color:#E1E4E8">                }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">        }</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
 <h3 id="4-flutter-调用">4. Flutter 调用</h3>
 <p>MethodChannel() 是上一步的 CHANNEL 名
 channel.invokeMethod() 调用方法</p>
-<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">const</span><span style="color: #E1E4E8"> channel </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">MethodChannel</span><span style="color: #E1E4E8">(</span><span style="color: #9ECBFF">'demo.libHello'</span><span style="color: #E1E4E8">);</span></span>
-<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">final</span><span style="color: #E1E4E8"> hi </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">await</span><span style="color: #E1E4E8"> channel.</span><span style="color: #B392F0">invokeMethod</span><span style="color: #E1E4E8">(</span><span style="color: #9ECBFF">'sayHello'</span><span style="color: #E1E4E8">);</span></span>
-<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">print</span><span style="color: #E1E4E8">(hi.</span><span style="color: #B392F0">toString</span><span style="color: #E1E4E8">());</span></span></code></pre>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="dart"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#E1E4E8"> channel </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> MethodChannel</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'demo.libHello'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#F97583">    final</span><span style="color:#E1E4E8"> hi </span><span style="color:#F97583">=</span><span style="color:#F97583"> await</span><span style="color:#E1E4E8"> channel.</span><span style="color:#B392F0">invokeMethod</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'sayHello'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#B392F0">    print</span><span style="color:#E1E4E8">(hi.</span><span style="color:#B392F0">toString</span><span style="color:#E1E4E8">());</span></span>
+<span class="line"></span></code></pre>
 <p><strong>ios</strong></p>
 <h3 id="1-编译">1. 编译</h3>
-<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">gomobile bind --target ios</span></span></code></pre>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>gomobile bind --target ios</span></span>
+<span class="line"><span></span></span></code></pre>
 <h3 id="2-放置文件和引入">2. 放置文件和引入</h3>
 <p>将编译出来的 <code>libHello.xcframework</code>下的-><code>ios-arm64</code>-><code>LibHello.framework</code> 文件
 放到<code>ios</code>-><code>Frameworks</code>下 (没有 Frameworks 文件夹就创建)
@@ -182,60 +137,54 @@ channel.invokeMethod() 调用方法</p>
 <img src="/images/2023-11-19_00-03-56.png" alt="2023-11-19_00-03-56"></p>
 <h3 id="3-修改-appdelegateswift">3. 修改 AppDelegate.swift</h3>
 <p>位置 <code>ios</code>-><code>Runner</code>-><code>AppDelegate.swift</code></p>
-<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">import</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Flutter</span></span>
-<span class="line"><span style="color: #F97583">import</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">UIKit</span></span>
-<span class="line"><span style="color: #F97583">import</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">LibHello</span></span>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="swift"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#B392F0"> Flutter</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#B392F0"> UIKit</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#B392F0"> LibHello</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #F97583">@UIApplicationMain</span></span>
-<span class="line"><span style="color: #F97583">@objc</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">class</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">AppDelegate</span><span style="color: #E1E4E8">: FlutterAppDelegate {</span></span>
-<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">override</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">func</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">application</span><span style="color: #E1E4E8">(</span></span>
-<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">_</span><span style="color: #E1E4E8"> application: UIApplication,</span></span>
-<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">didFinishLaunchingWithOptions</span><span style="color: #E1E4E8"> launchOptions: [UIApplication.LaunchOptionsKey: </span><span style="color: #79B8FF">Any</span><span style="color: #E1E4E8">]</span><span style="color: #F97583">?</span></span>
-<span class="line"><span style="color: #E1E4E8">  ) </span><span style="color: #F97583">-></span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">Bool</span><span style="color: #E1E4E8"> {</span></span>
-<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">let</span><span style="color: #E1E4E8"> controller: FlutterViewController </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> window</span><span style="color: #F97583">?</span><span style="color: #E1E4E8">.rootViewController </span><span style="color: #F97583">as!</span><span style="color: #E1E4E8"> FlutterViewController</span></span>
-<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">let</span><span style="color: #E1E4E8"> batteryChannel </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">FlutterMethodChannel</span><span style="color: #E1E4E8">(</span></span>
-<span class="line"><span style="color: #E1E4E8">      </span><span style="color: #79B8FF">name</span><span style="color: #E1E4E8">: </span><span style="color: #9ECBFF">"demo.libHello"</span><span style="color: #E1E4E8">,</span></span>
-<span class="line"><span style="color: #E1E4E8">      </span><span style="color: #79B8FF">binaryMessenger</span><span style="color: #E1E4E8">: controller.binaryMessenger)</span></span>
-<span class="line"><span style="color: #E1E4E8">    batteryChannel.</span><span style="color: #79B8FF">setMethodCallHandler</span><span style="color: #E1E4E8">({</span></span>
-<span class="line"><span style="color: #E1E4E8">      (</span><span style="color: #79B8FF">call</span><span style="color: #E1E4E8">: FlutterMethodCall, </span><span style="color: #79B8FF">result</span><span style="color: #E1E4E8">: </span><span style="color: #F97583">@escaping</span><span style="color: #E1E4E8"> FlutterResult) </span><span style="color: #F97583">-></span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">Void</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">in</span></span>
-<span class="line"><span style="color: #E1E4E8">      </span><span style="color: #F97583">switch</span><span style="color: #E1E4E8"> call.method {</span></span>
-<span class="line"><span style="color: #E1E4E8">      </span><span style="color: #F97583">case</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"sayHello"</span><span style="color: #F97583">:</span></span>
-<span class="line"><span style="color: #E1E4E8">        </span><span style="color: #F97583">if</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">let</span><span style="color: #E1E4E8"> title </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">LibHelloSayHello</span><span style="color: #E1E4E8">() </span><span style="color: #F97583">as?</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">String</span><span style="color: #E1E4E8"> {</span></span>
-<span class="line"><span style="color: #E1E4E8">          </span><span style="color: #79B8FF">result</span><span style="color: #E1E4E8">(title)</span></span>
-<span class="line"><span style="color: #E1E4E8">        } </span><span style="color: #F97583">else</span><span style="color: #E1E4E8"> {</span></span>
-<span class="line"><span style="color: #E1E4E8">          </span><span style="color: #79B8FF">result</span><span style="color: #E1E4E8">(</span><span style="color: #79B8FF">FlutterError</span><span style="color: #E1E4E8">(</span><span style="color: #79B8FF">code</span><span style="color: #E1E4E8">: </span><span style="color: #9ECBFF">"UNAVAILABLE"</span><span style="color: #E1E4E8">, </span><span style="color: #79B8FF">message</span><span style="color: #E1E4E8">: </span><span style="color: #9ECBFF">"Unable to retrieve hello message"</span><span style="color: #E1E4E8">, </span><span style="color: #79B8FF">details</span><span style="color: #E1E4E8">: </span><span style="color: #79B8FF">nil</span><span style="color: #E1E4E8">))</span></span>
-<span class="line"><span style="color: #E1E4E8">        }</span></span>
+<span class="line"><span style="color:#F97583">@UIApplicationMain</span></span>
+<span class="line"><span style="color:#F97583">@objc</span><span style="color:#F97583"> class</span><span style="color:#B392F0"> AppDelegate</span><span style="color:#E1E4E8">: </span><span style="color:#B392F0">FlutterAppDelegate </span><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#F97583">  override</span><span style="color:#F97583"> func</span><span style="color:#B392F0"> application</span><span style="color:#E1E4E8">(</span></span>
+<span class="line"><span style="color:#B392F0">    _</span><span style="color:#E1E4E8"> application: UIApplication,</span></span>
+<span class="line"><span style="color:#B392F0">    didFinishLaunchingWithOptions</span><span style="color:#E1E4E8"> launchOptions: [UIApplication.LaunchOptionsKey: </span><span style="color:#79B8FF">Any</span><span style="color:#E1E4E8">]</span><span style="color:#F97583">?</span></span>
+<span class="line"><span style="color:#E1E4E8">  ) </span><span style="color:#F97583">-></span><span style="color:#79B8FF"> Bool</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">    let</span><span style="color:#E1E4E8"> controller: FlutterViewController </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> window</span><span style="color:#F97583">?</span><span style="color:#E1E4E8">.rootViewController </span><span style="color:#F97583">as!</span><span style="color:#E1E4E8"> FlutterViewController</span></span>
+<span class="line"><span style="color:#F97583">    let</span><span style="color:#E1E4E8"> batteryChannel </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> FlutterMethodChannel</span><span style="color:#E1E4E8">(</span></span>
+<span class="line"><span style="color:#79B8FF">      name</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"demo.libHello"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">      binaryMessenger</span><span style="color:#E1E4E8">: controller.binaryMessenger)</span></span>
+<span class="line"><span style="color:#E1E4E8">    batteryChannel.</span><span style="color:#79B8FF">setMethodCallHandler</span><span style="color:#E1E4E8">({</span></span>
+<span class="line"><span style="color:#E1E4E8">      (</span><span style="color:#79B8FF">call</span><span style="color:#E1E4E8">: FlutterMethodCall, </span><span style="color:#79B8FF">result</span><span style="color:#E1E4E8">: </span><span style="color:#F97583">@escaping</span><span style="color:#E1E4E8"> FlutterResult) </span><span style="color:#F97583">-></span><span style="color:#79B8FF"> Void</span><span style="color:#F97583"> in</span></span>
+<span class="line"><span style="color:#F97583">      switch</span><span style="color:#E1E4E8"> call.method {</span></span>
+<span class="line"><span style="color:#F97583">      case</span><span style="color:#9ECBFF"> "sayHello"</span><span style="color:#F97583">:</span></span>
+<span class="line"><span style="color:#F97583">        if</span><span style="color:#F97583"> let</span><span style="color:#E1E4E8"> title </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> LibHelloSayHello</span><span style="color:#E1E4E8">() </span><span style="color:#F97583">as?</span><span style="color:#79B8FF"> String</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">          result</span><span style="color:#E1E4E8">(title)</span></span>
+<span class="line"><span style="color:#E1E4E8">        } </span><span style="color:#F97583">else</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">          result</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">FlutterError</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">code</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"UNAVAILABLE"</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">message</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Unable to retrieve hello message"</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">details</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">nil</span><span style="color:#E1E4E8">))</span></span>
+<span class="line"><span style="color:#E1E4E8">        }</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #E1E4E8">      </span><span style="color: #F97583">default:</span></span>
-<span class="line"><span style="color: #E1E4E8">        </span><span style="color: #79B8FF">result</span><span style="color: #E1E4E8">(FlutterMethodNotImplemented)</span></span>
-<span class="line"><span style="color: #E1E4E8">      }</span></span>
-<span class="line"><span style="color: #E1E4E8">    })</span></span>
-<span class="line"><span style="color: #E1E4E8">    GeneratedPluginRegistrant.</span><span style="color: #79B8FF">register</span><span style="color: #E1E4E8">(</span><span style="color: #79B8FF">with</span><span style="color: #E1E4E8">: </span><span style="color: #79B8FF">self</span><span style="color: #E1E4E8">)</span></span>
+<span class="line"><span style="color:#F97583">      default:</span></span>
+<span class="line"><span style="color:#79B8FF">        result</span><span style="color:#E1E4E8">(FlutterMethodNotImplemented)</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    })</span></span>
+<span class="line"><span style="color:#E1E4E8">    GeneratedPluginRegistrant.</span><span style="color:#79B8FF">register</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">with</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">self</span><span style="color:#E1E4E8">)</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">return</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">super</span><span style="color: #E1E4E8">.</span><span style="color: #79B8FF">application</span><span style="color: #E1E4E8">(application, </span><span style="color: #79B8FF">didFinishLaunchingWithOptions</span><span style="color: #E1E4E8">: launchOptions)</span></span>
-<span class="line"><span style="color: #E1E4E8">  }</span></span>
-<span class="line"><span style="color: #E1E4E8">}</span></span></code></pre>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#79B8FF"> super</span><span style="color:#E1E4E8">.</span><span style="color:#79B8FF">application</span><span style="color:#E1E4E8">(application, </span><span style="color:#79B8FF">didFinishLaunchingWithOptions</span><span style="color:#E1E4E8">: launchOptions)</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
 <h3 id="4-flutter-调用-1">4. Flutter 调用</h3>
 <p>MethodChannel() 是上一步的 CHANNEL 名
 channel.invokeMethod() 调用方法</p>
-<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">const</span><span style="color: #E1E4E8"> channel </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">MethodChannel</span><span style="color: #E1E4E8">(</span><span style="color: #9ECBFF">'demo.libHello'</span><span style="color: #E1E4E8">);</span></span>
-<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">final</span><span style="color: #E1E4E8"> hi </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">await</span><span style="color: #E1E4E8"> channel.</span><span style="color: #B392F0">invokeMethod</span><span style="color: #E1E4E8">(</span><span style="color: #9ECBFF">'sayHello'</span><span style="color: #E1E4E8">);</span></span>
-<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">print</span><span style="color: #E1E4E8">(hi.</span><span style="color: #B392F0">toString</span><span style="color: #E1E4E8">());</span></span></code></pre>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="dart"><code><span class="line"><span style="color:#F97583">const</span><span style="color:#E1E4E8"> channel </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> MethodChannel</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'demo.libHello'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#F97583">    final</span><span style="color:#E1E4E8"> hi </span><span style="color:#F97583">=</span><span style="color:#F97583"> await</span><span style="color:#E1E4E8"> channel.</span><span style="color:#B392F0">invokeMethod</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'sayHello'</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#B392F0">    print</span><span style="color:#E1E4E8">(hi.</span><span style="color:#B392F0">toString</span><span style="color:#E1E4E8">());</span></span>
+<span class="line"></span></code></pre>
 <h3 id="参考">参考</h3>
 <p><a href="https://www.cnblogs.com/ghj1976/p/gomobile-pei-zhi-peng-dao-de-wen-ti-ji-lu.html">NDK 错误</a>
 <a href="https://juejin.cn/post/7211744771949150268#heading-0">安卓参考</a>
 <a href="https://github.com/GopeedLab/gopeed">github 项目参考</a>
-<a href="https://absyz.com/how-to-add-an-ios-native-framework-in-the-flutter-project/">ios 参考</a></p>
-
-				<ul class="list-none flex p-0 ">
-    <a href="/tags/Flutter" class="no-underline"><li class="px-4 py-1 mr-2 bg-slate-100 rounded-md">Flutter</li></a><a href="/tags/Golang" class="no-underline"><li class="px-4 py-1 mr-2 bg-slate-100 rounded-md">Golang</li></a>
-</ul>
-			</article>
-		</main>
-		
-		<footer class="text-sm text-neutral-400 astro-SZ7XMLTE">
-	&copy; 2023&nbsp;Powered&nbsp;by
-	<a href="https://astro.build/" class="astro-SZ7XMLTE">Astro</a>&nbsp;&
-	<a href="https://github.com/yemo0/just-my-type-blog" class="astro-SZ7XMLTE">Just My Type</a>
-</footer>
-	</body></html>
+<a href="https://absyz.com/how-to-add-an-ios-native-framework-in-the-flutter-project/">ios 参考</a></p>  <ul class="list-none flex p-0"> <a href="/tags/Flutter" class="no-underline"> <li class="px-4 py-2 mr-3 bg-neutral-400 border border-neutral-600 rounded-md
+            dark:bg-neutral-900 dark:border-none"> Flutter </li> </a><a href="/tags/Golang" class="no-underline"> <li class="px-4 py-2 mr-3 bg-neutral-400 border border-neutral-600 rounded-md
+            dark:bg-neutral-900 dark:border-none"> Golang </li> </a> </ul> </article> </main> <footer class="text-sm text-neutral-700 text-center py-6">
+&copy; 2024&nbsp;Powered&nbsp;by
+<a href="https://astro.build/">Astro</a>&nbsp;&
+<a href="https://github.com/yemo0/just-my-type-blog">Just My Type</a> </footer>   </body></html>

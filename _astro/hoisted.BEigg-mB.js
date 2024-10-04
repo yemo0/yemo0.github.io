@@ -1,0 +1,1 @@
+const e=document.querySelector("#open-menu"),n=document.querySelector("#close-menu"),t=document.querySelector("#nav"),o=document.querySelector("#menu-button"),c=()=>{e?.classList.toggle("hidden"),n?.classList.toggle("hidden"),t?.classList.toggle("hidden")};o?.addEventListener("click",()=>{c()});

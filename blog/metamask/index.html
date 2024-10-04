@@ -1,109 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<!-- Global Metadata --><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<meta name="generator" content="Astro v2.10.15">
+<!DOCTYPE html><html lang="en" class="color-scheme"> <head><!-- Global Metadata --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="generator" content="Astro v4.15.11"><!-- Canonical URL --><link rel="canonical" href="https://example.com/blog/metamask/"><!-- Primary Meta Tags --><title>HOME</title><meta name="title" content="HOME"><meta name="description" content="Welcome to my website!"><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="https://example.com/blog/metamask/"><meta property="og:title" content="HOME"><meta property="og:description" content="Welcome to my website!"><meta property="og:image" content="https://example.com/placeholder-social.jpg"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://example.com/blog/metamask/"><meta property="twitter:title" content="HOME"><meta property="twitter:description" content="Welcome to my website!"><meta property="twitter:image" content="https://example.com/placeholder-social.jpg"><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Document</title><link rel="stylesheet" href="/_astro/_page_.korXl9kr.css">
+<style>a[data-astro-cid-eimmu3lg]{display:inline-block;text-decoration:none}a[data-astro-cid-eimmu3lg].active{font-weight:bolder;border-bottom:2px solid}h1,h2,h3,h4,h5,h6,strong,b{color:#222}nav a{margin-right:10px}textarea{width:100%;font-size:16px}input{font-size:16px}content{line-height:1.6}table{width:100%}img{max-width:100%;height:auto}code{padding:2px 5px;background-color:#f2f2f2}pre{padding:1rem}pre>code{all:unset}blockquote{border:1px solid #999;color:#222;padding:2px 0 2px 20px;margin:0;font-style:italic}
+</style><script type="module" src="/_astro/hoisted.CMregwEs.js"></script></head> <body class="flex-col dark:bg-neutral-1000 dark:text-slate-200">  <header class="w-11/12 md:w-3/5 mx-auto"> <div class="flex h-16 items-center justify-between mb-5"> <div class="text-2xl font-bold"> <a href="/">HOME</a> <button accesskey="t" title="(Alt + T)"> <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path></svg> <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg> </button> </div> <nav class="hidden md:block"> <a href="/archives" data-astro-cid-eimmu3lg> Archive </a>  <a href="/tags" data-astro-cid-eimmu3lg> Tags </a>  <a href="/Docs" target="_blank" data-astro-cid-eimmu3lg> Docs </a>  <a href="/GitHub" target="_blank" data-astro-cid-eimmu3lg> GitHub </a>  </nav> <!-- Mobile menu --> <button class="md:hidden p-2" id="menu-button"> <svg id="open-menu" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"> <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path> </svg> <svg id="close-menu" x-description="Icon when menu is open." x-state:on="Menu open" x-state:off="Menu closed" class="h-6 w-6 hidden" :class="{ 'block': open, 'hidden': !(open) }" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"> <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path> </svg> </button> </div> <!-- Mobile menu, show/hide based on menu state--> <nav class="md:hidden flex flex-col hidden" id="nav"> <a href="/archives" class="mb-2" data-astro-cid-eimmu3lg> Archive </a>  <a href="/tags" class="mb-2" data-astro-cid-eimmu3lg> Tags </a>  <a href="/Docs" class="mb-2" target="_blank" data-astro-cid-eimmu3lg> Docs </a>  <a href="/GitHub" class="mb-2" target="_blank" data-astro-cid-eimmu3lg> GitHub </a>  </nav> </header> <!-- Dark mode --> <script defer>
+  // Icons
+  const sunIcon = document.querySelector("#sun");
+  const moonIcon = document.querySelector("#moon");
 
-<!-- Canonical URL -->
-<link rel="canonical" href="https://yemo0.github.io/blog/metamask/">
+  // Theme Vars
+  const userTheme = localStorage.getItem("theme");
+  const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-<!-- Primary Meta Tags -->
-<title>matemask 使用</title>
-<meta name="title" content="matemask 使用">
-<meta name="description">
+  // Icon Toggling
+  const iconToggle = () => {
+    moonIcon.classList.toggle("hidden");
+    sunIcon.classList.toggle("hidden");
+  };
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://yemo0.github.io/blog/metamask/">
-<meta property="og:title" content="matemask 使用">
-<meta property="og:description">
-<meta property="og:image" content="https://yemo0.github.io/placeholder-social.jpg">
+  // Initial Theme Check
+  const initTheme = () => {
+    sunIcon.classList.add("hidden");
+    moonIcon.classList.add("hidden");
+    if (userTheme === "dark" || (!userTheme && systemTheme)) {
+      document.documentElement.classList.add("dark");
+      sunIcon.classList.remove("hidden");
+      return;
+    }
+    moonIcon.classList.remove("hidden");
+  };
 
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://yemo0.github.io/blog/metamask/">
-<meta property="twitter:title" content="matemask 使用">
-<meta property="twitter:description">
-<meta property="twitter:image" content="https://yemo0.github.io/placeholder-social.jpg">
-	<link rel="stylesheet" href="/_astro/404.e677b767.css" />
-<link rel="stylesheet" href="/_astro/about.452c757f.css" />
-<link rel="stylesheet" href="/_astro/about.32e2b4d0.css" /><script type="module" src="/_astro/hoisted.ef31997e.js"></script></head>
+  // Manual Theme Switch
+  const themeSwitch = () => {
+    if (document.documentElement.classList.contains("dark")) {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+      iconToggle();
+      return;
+    }
+    document.documentElement.classList.add("dark");
+    localStorage.setItem("theme", "dark");
+    iconToggle();
+  };
 
-	<body class="dark:bg-zinc-800 dark:text-slate-200">
-		<header class="w-11/12 md:w-3/5 mx-auto ">
-	<div class="flex  h-16 items-center justify-between">
-		<div class="text-2xl font-bold">
-			<a href="/">HOME</a>
-			<button accesskey="t" title="(Alt + T)">
-				<svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path></svg>
-				<svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-			</button>
-		</div>
-		<nav class="hidden md:block">
-			<a href="/archives" class="astro-EIMMU3LG">
-	Archive
-</a>
-			<a href="/tags" class="astro-EIMMU3LG">
-	Tags
-</a>
-			<a href="/Docs" class="astro-EIMMU3LG" target="_blank">
-	Docs
-</a>
-			<a href="/GitHub" class="astro-EIMMU3LG" target="_blank">
-	GitHub
-</a>
-		</nav>
-	
-		<!-- Mobile menu -->
-		<button class="md:hidden p-2" id="menu-button">
-			<svg id="open-menu" class=" h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-				<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
-			</svg>
-			<svg id="close-menu" x-description="Icon when menu is open." x-state:on="Menu open" x-state:off="Menu closed" class="h-6 w-6 hidden" :class="{ 'block': open, 'hidden': !(open) }" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-				<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
-			  </svg>
-		</button>
-	</div>
+  // call theme switch on clicking buttons
+  sunIcon.addEventListener("click", () => {
+    themeSwitch();
+  });
+  moonIcon.addEventListener("click", () => {
+    themeSwitch();
+  });
 
-	<!-- Mobile menu, show/hide based on menu state-->
-	<nav class="md:hidden flex flex-col hidden" id="nav">
-		<a href="/archives" class="mb-2 astro-EIMMU3LG">
-	Archive
-</a>
-		<a href="/tags" class="mb-2 astro-EIMMU3LG">
-	Tags
-</a>
-		<a href="/Docs" class="mb-2 astro-EIMMU3LG" target="_blank">
-	Docs
-</a>
-		<a href="/GitHub" class="mb-2 astro-EIMMU3LG" target="_blank">
-	GitHub
-</a>
-	</nav>
-</header>
-
-<!-- Dark mode -->
-
-
-<!-- Mobile Menu -->
-		<main class="font-mono w-11/12 md:w-3/5 mx-auto mt-10 ">
-			<div class="suspension-panel hidden fixed right-4 bottom-5 md:right-12 md:bottom-20">
-    <button class="go-to-top bg-gray-200 w-10 h-10 p-3 rounded-full text-zinc-700">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"></path></svg>
-    </button>
-</div>
-			<article class=" prose md:max-w-[90ch] mx-auto dark:prose-invert prose-headings:mt-0 prose-p:mt-0 break-words 
-			 dark:prose-code:text-zinc-800 dark:prose-headings:text-slate-200 prose-lead:w-full prose-lead:aspect-square">
-				<h1 class="m-0">matemask 使用</h1>
-				<div class="mb-5">
-					<time datetime="2021-10-10T00:54:08.000Z">
-	Oct 10, 2021
-</time>·&nbsp;1&nbsp;mins&nbsp;read
-				</div>
-				
-	<h2 id="什么是meatemask">什么是Meatemask？</h2>
+  // invoke theme check on initial load
+  initTheme();
+</script> <!-- Mobile Menu -->  <main class="font-mono w-11/12 md:w-3/5 mx-auto mt-10"> <div class="suspension-panel hidden fixed right-4 bottom-5 md:right-12 md:bottom-20"> <button class="go-to-top bg-gray-200 w-10 h-10 p-3 rounded-full text-zinc-700"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"></path></svg> </button> </div> <article class="prose md:max-w-[90ch] mx-auto dark:prose-invert prose-headings:mt-0 prose-p:mt-0 break-words dark:prose-code:text-zinc-800 dark:prose-headings:text-slate-200 prose-lead:w-full prose-lead:aspect-square"> <h1 class="m-0">matemask 使用</h1> <div class="mb-5"> <time datetime="2021-10-10T00:54:08.000Z"> Oct 10, 2021 </time>·&nbsp;1&nbsp;mins&nbsp;read
+</div>  <h2 id="什么是meatemask">什么是Meatemask？</h2>
 <p>MetaMask 是一个开源的以太坊钱包，能帮助用户方便地管理自己的以太坊数字资产。</p>
 <h2 id="转账-充值">转账 充值</h2>
 <h2 id="gas费">Gas费</h2>
@@ -115,17 +63,9 @@ OMNI	比特币
 BEP2	币安链
 BEP20	币安生态链
 TRC20	波场
-HECO	火币生态链</p>
-
-				<ul class="list-none flex p-0 ">
-    <a href="/tags/区块链" class="no-underline"><li class="px-4 py-1 mr-2 bg-slate-100 rounded-md">区块链</li></a><a href="/tags/钱包" class="no-underline"><li class="px-4 py-1 mr-2 bg-slate-100 rounded-md">钱包</li></a>
-</ul>
-			</article>
-		</main>
-		
-		<footer class="text-sm text-neutral-400 astro-SZ7XMLTE">
-	&copy; 2023&nbsp;Powered&nbsp;by
-	<a href="https://astro.build/" class="astro-SZ7XMLTE">Astro</a>&nbsp;&
-	<a href="https://github.com/yemo0/just-my-type-blog" class="astro-SZ7XMLTE">Just My Type</a>
-</footer>
-	</body></html>
+HECO	火币生态链</p>  <ul class="list-none flex p-0"> <a href="/tags/区块链" class="no-underline"> <li class="px-4 py-2 mr-3 bg-neutral-400 border border-neutral-600 rounded-md
+            dark:bg-neutral-900 dark:border-none"> 区块链 </li> </a><a href="/tags/钱包" class="no-underline"> <li class="px-4 py-2 mr-3 bg-neutral-400 border border-neutral-600 rounded-md
+            dark:bg-neutral-900 dark:border-none"> 钱包 </li> </a> </ul> </article> </main> <footer class="text-sm text-neutral-700 text-center py-6">
+&copy; 2024&nbsp;Powered&nbsp;by
+<a href="https://astro.build/">Astro</a>&nbsp;&
+<a href="https://github.com/yemo0/just-my-type-blog">Just My Type</a> </footer>   </body></html>
