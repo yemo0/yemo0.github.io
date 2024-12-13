@@ -1,0 +1,97 @@
+<!DOCTYPE html><html lang="en" class="color-scheme overflow-y-scroll"> <head><!-- Global Metadata --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="generator" content="Astro v4.16.17"><!-- Canonical URL --><link rel="canonical" href="https://yemo0.github.io/blog/2024-12-11/"><!-- Primary Meta Tags --><title>openwrt and debian network</title><meta name="title" content="openwrt and debian network"><meta name="description" content="Welcome to my website!"><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="https://yemo0.github.io/blog/2024-12-11/"><meta property="og:title" content="openwrt and debian network"><meta property="og:description" content="Welcome to my website!"><meta property="og:image" content="https://yemo0.github.io/placeholder-social.jpg"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://yemo0.github.io/blog/2024-12-11/"><meta property="twitter:title" content="openwrt and debian network"><meta property="twitter:description" content="Welcome to my website!"><meta property="twitter:image" content="https://yemo0.github.io/placeholder-social.jpg"><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="/_astro/_page_.DyEKq_nm.css">
+<style>a[data-astro-cid-eimmu3lg]{display:inline-block;text-decoration:none}a[data-astro-cid-eimmu3lg].active{font-weight:bolder;border-bottom:2px solid}h1,h2,h3,h4,h5,h6,strong,b{color:#222}nav a{margin-right:10px}textarea{width:100%;font-size:16px}input{font-size:16px}content{line-height:1.6}table{width:100%}img{max-width:100%;height:auto}code{padding:2px 5px;background-color:#f2f2f2}pre{padding:1rem}pre>code{all:unset}blockquote{border:1px solid #999;color:#222;padding:2px 0 2px 20px;margin:0;font-style:italic}
+</style><script type="module" src="/_astro/hoisted.CMregwEs.js"></script></head> <body class="flex-col dark:bg-neutral-1000 dark:text-slate-200"> <header class="w-11/12 md:w-3/5 mx-auto"> <div class="flex h-16 items-center justify-between mb-5"> <div class="text-2xl font-bold"> <a href="/">Home</a> <button accesskey="t" title="(Alt + T)"> <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path></svg> <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg> </button> </div> <nav class="hidden md:block"> <a href="/archives" data-astro-cid-eimmu3lg> Archive </a>  <a href="/tags" data-astro-cid-eimmu3lg> Tags </a>  <a href="https://qdoc.vercel.app/" target="_blank" data-astro-cid-eimmu3lg> Docs </a>  <a href="https://github.com/yemo0" target="_blank" data-astro-cid-eimmu3lg> GitHub </a>  </nav> <!-- Mobile menu --> <button class="md:hidden p-2" id="menu-button"> <svg id="open-menu" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"> <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path> </svg> <svg id="close-menu" x-description="Icon when menu is open." x-state:on="Menu open" x-state:off="Menu closed" class="h-6 w-6 hidden" :class="{ 'block': open, 'hidden': !(open) }" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"> <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path> </svg> </button> </div> <!-- Mobile menu, show/hide based on menu state--> <nav class="md:hidden flex flex-col hidden" id="nav"> <a href="/archives" class="mb-2" data-astro-cid-eimmu3lg> Archive </a>  <a href="/tags" class="mb-2" data-astro-cid-eimmu3lg> Tags </a>  <a href="/Docs" class="mb-2" target="_blank" data-astro-cid-eimmu3lg> Docs </a>  <a href="/GitHub" class="mb-2" target="_blank" data-astro-cid-eimmu3lg> GitHub </a>  </nav> </header> <!-- Dark mode --> <script defer>
+  // Icons
+  const sunIcon = document.querySelector("#sun");
+  const moonIcon = document.querySelector("#moon");
+
+  // Theme Vars
+  const userTheme = localStorage.getItem("theme");
+  const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  // Icon Toggling
+  const iconToggle = () => {
+    moonIcon.classList.toggle("hidden");
+    sunIcon.classList.toggle("hidden");
+  };
+
+  // Initial Theme Check
+  const initTheme = () => {
+    sunIcon.classList.add("hidden");
+    moonIcon.classList.add("hidden");
+    if (userTheme === "dark" || (!userTheme && systemTheme)) {
+      document.documentElement.classList.add("dark");
+      sunIcon.classList.remove("hidden");
+      return;
+    }
+    moonIcon.classList.remove("hidden");
+  };
+
+  // Manual Theme Switch
+  const themeSwitch = () => {
+    if (document.documentElement.classList.contains("dark")) {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+      iconToggle();
+      return;
+    }
+    document.documentElement.classList.add("dark");
+    localStorage.setItem("theme", "dark");
+    iconToggle();
+  };
+
+  // call theme switch on clicking buttons
+  sunIcon.addEventListener("click", () => {
+    themeSwitch();
+  });
+  moonIcon.addEventListener("click", () => {
+    themeSwitch();
+  });
+
+  // invoke theme check on initial load
+  initTheme();
+</script> <!-- Mobile Menu -->   <main class="font-mono w-11/12 md:w-3/5 mx-auto mt-10"> <div class="suspension-panel hidden fixed right-4 bottom-5 md:right-12 md:bottom-20"> <button class="go-to-top bg-gray-200 w-10 h-10 p-3 rounded-full text-zinc-700"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"></path></svg> </button> </div> <article class="prose md:max-w-[90ch] mx-auto dark:prose-invert prose-headings:mt-0 prose-p:mt-0 break-words dark:prose-code:text-zinc-800 dark:prose-headings:text-slate-200 prose-lead:w-full prose-lead:aspect-square"> <h1 class="m-0">openwrt and debian network</h1> <div class="mb-5"> <time datetime="2024-12-11T19:32:00.000Z"> Dec 11, 2024 </time>·&nbsp;4&nbsp;mins&nbsp;read
+</div>  <h2 id="openwrt">openwrt</h2>
+<p><code>/etc/config/network</code></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>config interface 'loopback'</span></span>
+<span class="line"><span>        option ifname 'lo'</span></span>
+<span class="line"><span>        option proto 'static'</span></span>
+<span class="line"><span>        option ipaddr '127.0.0.1'</span></span>
+<span class="line"><span>        option netmask '255.0.0.0'</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>config globals 'globals'</span></span>
+<span class="line"><span>        option packet_steering '1'</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>config interface 'lan'</span></span>
+<span class="line"><span>        option proto 'static'</span></span>
+<span class="line"><span>        option ipaddr '192.168.2.200'</span></span>
+<span class="line"><span>        option netmask '255.255.255.0'</span></span>
+<span class="line"><span>        option gateway '192.168.2.1'</span></span>
+<span class="line"><span>        option _orig_ifname 'eth0'</span></span>
+<span class="line"><span>        option _orig_bridge 'true'</span></span>
+<span class="line"><span>        option force_link '0'</span></span>
+<span class="line"><span>        option type 'bridge'</span></span>
+<span class="line"><span>        option stp '1'</span></span>
+<span class="line"><span>        option ifname 'eth0 eth1'</span></span>
+<span class="line"><span>        option dns '192.168.1.1'</span></span>
+<span class="line"><span>        option delegate '0'</span></span>
+<span class="line"><span>        option ip6assign '64'</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>config interface 'VPN'</span></span>
+<span class="line"><span>        option ifname 'ipsec0'</span></span>
+<span class="line"><span>        option proto 'static'</span></span>
+<span class="line"><span>        option ipaddr '10.10.10.1'</span></span>
+<span class="line"><span>        option netmask '255.255.255.0'</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>config interface 'lan6'</span></span>
+<span class="line"><span>        option proto 'dhcpv6'</span></span>
+<span class="line"><span>        option ifname '@lan'</span></span>
+<span class="line"><span>        option reqprefix 'auto'</span></span>
+<span class="line"><span></span></span></code></pre>
+<h2 id="debian">debian</h2>
+<p><code>/etc/network/interfaces</code></p>  <ul class="list-none flex p-0"> <a href="/tags/openwrt" class="no-underline"> <li class="px-4 py-2 mr-3 bg-neutral-400 border border-neutral-600 rounded-md
+            dark:bg-neutral-900 dark:border-none"> openwrt </li> </a><a href="/tags/debian" class="no-underline"> <li class="px-4 py-2 mr-3 bg-neutral-400 border border-neutral-600 rounded-md
+            dark:bg-neutral-900 dark:border-none"> debian </li> </a> </ul> </article> </main> <footer class="text-sm text-neutral-700 text-center py-6">
+&copy; 2024&nbsp;Powered&nbsp;by
+<a href="https://astro.build/">Astro</a>&nbsp;&
+<a href="https://github.com/yemo0/just-my-type-blog">Just My Type</a> </footer>   </body></html>
